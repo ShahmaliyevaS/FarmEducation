@@ -200,7 +200,8 @@ struct AnimalFoodMatchView: View {
         if bestScore == correctAnswersCount {
             bestScoreQuestionCount = bestScoreQuestionCount < askedQuestionsCount ? bestScoreQuestionCount : askedQuestionsCount
         } else {
-            bestScore = bestScore >= correctAnswersCount ? bestScore : correctAnswersCount
+            bestScoreQuestionCount = bestScore>=correctAnswersCount ? bestScoreQuestionCount : askedQuestionsCount
+            bestScore = bestScore>=correctAnswersCount ? bestScore : correctAnswersCount
         }
         
         let newScore = Score(recent: correctAnswersCount, recentCount: askedQuestionsCount, best: bestScore, bestCount: bestScoreQuestionCount)
