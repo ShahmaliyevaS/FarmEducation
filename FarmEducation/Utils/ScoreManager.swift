@@ -8,7 +8,7 @@
 import Foundation
 
 class ScoreManager {
-    static let game = ScoreManager()
+    static let score = ScoreManager()
     
     func save(_ score: Score, for key: String) {
         let encoder = JSONEncoder()

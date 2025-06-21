@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Question: Decodable {
+    var id: Int
+    var question: String
+    var trueAnswer: String
+    var falseAnswer: [String]
+
+}

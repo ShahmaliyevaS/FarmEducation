@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct QuestionRound {
+    var question: String
+    var options: [String]
+    var correctAnswer: String
+}

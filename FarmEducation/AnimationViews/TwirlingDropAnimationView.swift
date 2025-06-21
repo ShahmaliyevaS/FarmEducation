@@ -28,7 +28,7 @@ struct TwirlingDropAnimationView: View {
                         .animation(.snappy(duration: TimeInterval(Int.random(in: 15...25))), value: animation)
                 }
             } //ZStack
-            .onAppear{
+            .onAppear {
                 animation.toggle()
             }
     }

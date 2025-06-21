@@ -8,62 +8,208 @@
 import SwiftUI
 
 struct AnimalFoodMatchView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
+    @State var firstFalseAnswer: String = ""
+    @State var answer: String = ""
+    @State var disabledAnswers: Set<Int> = []
+    @State var offsetAnimation = false
+    @State var rotationAnimation = false
+    @State var questionImageAnimation = false
+    @State var correctAnswersCount = 0
+    @StateObject var viewModel = QuestionViewModel()
+    
+    var gameType: GameType
+    
     var body: some View {
-        
+        ZStack {
             VStack {
-                GeometryReader { geo in
-                    ZStack (alignment: .topLeading) {
-                        Image("farmBackground")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geo.size.width / 0.7)
-                            .overlay {
-                                LinearGradient(
-                                    stops: [
-                                        .init(color: .clear, location: 0),
-                                        .init(color: .green, location: 1)
-                                    ],
-                                    startPoint: .center,
-                                    endPoint: .bottom
-                                )
-                            }
-                            Image("cow")
+                if let round = viewModel.currentRound {
+                    GeometryReader { geo in
+                        let screenWidth = geo.size.width
+                        let screenHeight = geo.size.height
+                        ZStack (alignment: .topLeading) {
+                            Image("farmBackground")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 700)
-                                .frame(maxHeight: 400)
-                                .shadow(radius: 10)
-                            .offset(x: -150, y: 140)
-                    }
+                                .frame(width: geo.size.width / 0.7)
+                                .overlay {
+                                    LinearGradient(
+                                        stops: [
+                                            .init(color: .clear, location: 0),
+                                            .init(color: .green, location: 1)
+                                        ],
+                                        startPoint: .center,
+                                        endPoint: .bottom
+                                    )
+                                }
+                            
+                            VStack {
+                                HStack {
+                                    Button {
+                                        saveScore()
+                                    } label: {
+                                        Image("smallCould")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .opacity(0.8)
+                                            .frame(height: 50)
+                                            .shadow(color: .blue.opacity(0.6), radius: 10, x: 5, y: 5)
+                                            .overlay(
+                                                HStack(spacing: 1) {
+                                                    Image(systemName: "arrow.uturn.left")
+                                                    Text("Exit")
+                                                }
+                                                    .font(.custom("ChalkboardSE-Regular", size: 20))
+                                                    .foregroundStyle(.blue.opacity(0.6))
+                                                    .offset(x: -2, y: 8)
+                                            )
+                                    }
+                                    Spacer()
+                                }
+                                .offset(CGSize(width: 0, height: 40))
+                                .frame(width: (geo.size.width.isNaN || geo.size.width < 32) ? 0 : geo.size.width - 32)
+                                .padding(.horizontal)
+                                
+                                Spacer()
+                                Image(round.question)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 700)
+                                    .frame(maxHeight: 400)
+                                    .shadow(radius: 10)
+                                    .animation(.spring, value: questionImageAnimation)
+                                
+                                Text(round.question.capitalized)
+                                    .font(.custom("ChalkboardSE-Regular", size: 28))
+                                    .bold()
+                                    .foregroundStyle(.gray)
+                                    .animation(.spring, value: questionImageAnimation)
+                                
+                                HStack(spacing: 20) {
+                                    ForEach(0..<round.options.count, id: \.self) { i in
+                                        let option = round.options[i]
+                                        let size = screenWidth/5.1
+                                        let image = answer == option && answer == round.correctAnswer ? "rightImage" : (answer == option && answer != round.correctAnswer ? "falseImage" : option )
+                                        let backgroundColor = answer == option && answer == round.correctAnswer ? Color(.green).opacity(0.2) : (answer == option && answer != round.correctAnswer ? Color(.red).opacity(0.2) : Color.customRandom)
+                                        let cornerColor = answer == option && answer == round.correctAnswer ? Color(.green) : (answer == option && answer != round.correctAnswer ? Color(.red) : Color(
+                                            red: .random(in: 0...1),
+                                            green: .random(in: 0...1),
+                                            blue: .random(in: 0...1)
+                                        ))
+                                        let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
+                                        
+                                        OptionButtonView(backgroundColor:  backgroundColor ,
+                                                         cornerColor: cornerColor,
+                                                         option: image
+                                        )
+                                        .offset(x: answer == option ? centerOffset : 0,
+                                                y: answer == option ? -screenHeight/4 : 0)
+                                        .rotation3DEffect(
+                                            .degrees(answer == option ? (i != 2 ? 720 : -720) : 0),
+                                            axis: (x: 0, y: 1, z: 0)
+                                        )
+                                        .animation(.spring, value: rotationAnimation)
+                                        .animation(.easeIn, value: offsetAnimation)
+                                        .overlay {
+                                            if firstFalseAnswer == option {
+                                                Image("falseImage")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                            }
+                                        }
+                                        .scaleEffect(answer == option ? 1.6 : 1)
+                                        .onTapGesture {
+                                            if !disabledAnswers.contains(i) {
+                                                if firstFalseAnswer.isEmpty && option != round.correctAnswer {
+                                                    firstFalseAnswer = option
+                                                    disabledAnswers.insert(i)
+                                                } else {
+                                                    answer = option
+                                                    offsetAnimation.toggle()
+                                                    
+                                                    let filtered = (0...2).filter { $0 != i }
+                                                    for item in filtered {
+                                                        disabledAnswers.insert(item)
+                                                    }
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                                        firstFalseAnswer = ""
+                                                        answer = ""
+                                                        disabledAnswers = []
+                                                        offsetAnimation.toggle()
+                                                        rotationAnimation.toggle()
+                                                        questionImageAnimation.toggle()
+                                                        viewModel.loadNextQuestion()
+                                                    }
+                                                }
+                                            }
+                                            if option == round.correctAnswer {
+                                                correctAnswersCount += 1
+                                            }
+                                        }
+                                    }
+                                } //options HStack
+                                .padding(.horizontal)
+                                .padding(.bottom)
+                                .ignoresSafeArea()
+                            }
+                            .padding(6.0)
+                            .frame(maxWidth: screenWidth, maxHeight: screenHeight)
+                        }
+                    } //GeometryReader
                     .ignoresSafeArea()
-                }
-                Spacer()
+                } // end of if statement
+            } //VStack
+            .navigationBarBackButtonHidden(true)
+            .background{
+                Color.green
+                    .ignoresSafeArea()
+            }
+            .onAppear {
+                //onAppear
+                viewModel.loadQuestions(for: gameType)
                 
-                Text("Rabbit")
-                    .font(.custom("ChalkboardSE-Regular", size: 28))
-                    .bold()
-                    .foregroundStyle(.gray)
-                    
-                HStack(spacing: 20) {
-                    OptionButtonView(backgroundColor: .pink, cornerColor: .blue, option: "milk")
-                    
-                    OptionButtonView(backgroundColor: .green, cornerColor: .orange, option: "carrot")
-                    
-                    OptionButtonView(backgroundColor: .yellow, cornerColor: .blue, option: "egg")
-                    
-                } //HStack
-                .padding()
-            .ignoresSafeArea()
-                
-        } //GeometryReader
-        .background{
-            Color.green
-                .ignoresSafeArea()
+            }
+            //            RotationAnimationView()
+            //            ExplosionAnimationView()
+            //            if correctAnswersCount > 0 {
+            //                if correctAnswersCount % 50 == 0 {
+            //                    FlyUpAnimationView(score: String(correctAnswersCount))
+            //                } else if correctAnswersCount % 20 == 0 {
+            //                    TwirlingDropAnimationView()
+            //                } else if correctAnswersCount % 10 == 0 {
+            //                    FireWorksAnimationView()
+            //                }
+            //            }
+        } //ZStack
+    }
+    
+    func saveScore() {
+        var bestScore = 0
+        var bestScoreQuestionCount = 0
+        let askedQuestionsCount = viewModel.getAskedQuestionCount()
+        if let score = ScoreManager.score.get(for: gameType) {
+            bestScore = score.best
+            bestScoreQuestionCount = score.bestCount
+        }else {
+            bestScore = correctAnswersCount
+            bestScoreQuestionCount = askedQuestionsCount
         }
-       
+        
+        if bestScore == correctAnswersCount {
+            bestScoreQuestionCount = bestScoreQuestionCount < askedQuestionsCount ? bestScoreQuestionCount : askedQuestionsCount
+        } else {
+            bestScore = bestScore >= correctAnswersCount ? bestScore : correctAnswersCount
+        }
+        
+        let newScore = Score(recent: correctAnswersCount, recentCount: askedQuestionsCount, best: bestScore, bestCount: bestScoreQuestionCount)
+        ScoreManager.score.save(newScore, for: gameType.rawValue)
+        
+        dismiss()
     }
 }
 
 #Preview {
-    AnimalFoodMatchView()
+    AnimalFoodMatchView(gameType: .whatAnimalsEat)
 }
