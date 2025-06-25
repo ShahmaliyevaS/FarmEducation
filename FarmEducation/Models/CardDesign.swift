@@ -9,9 +9,6 @@ import Foundation
 import SwiftUI
 
 struct CardDesign {
-    var backgroundImage: String
-    var backgroundColor: Color
-    var cornerColor: Color
     var question: String
     var options: [String]
 }

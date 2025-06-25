@@ -17,3 +17,19 @@ extension Color {
         return allowedColors.randomElement() ?? .blue
     }
 }
+
+extension Color {
+    static let greenNeonGrassColor = Color("greenNeonGrassColor")
+    static let skyBlueColor = Color("skyBlueColor")
+    static let sunGlowColor = Color("sunGlowColor")
+    static let burntOrangeColor = Color("burntOrangeColor")
+    static let freshLawnColor = Color("freshLawnColor")
+    static let brickRedColor = Color("brickRedColor")
+    static let lavenderBlueColor = Color("lavenderBlueColor")
+    static let paleSkyColor = Color("paleSkyColor")
+    static let crystalBlueColor = Color("crystalBlueColor")
+    static let skyWhisperColor = Color("skyWhisperColor")
+    static let cherryMilkColor = Color("cherryMilkColor")
+    static let freshLimeColor = Color("freshLimeColor")
+    static let electricAvocadoColor = Color("electricAvocadoColor")
+}

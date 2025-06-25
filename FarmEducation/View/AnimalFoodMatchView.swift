@@ -19,7 +19,7 @@ struct AnimalFoodMatchView: View {
     @State var questionImageAnimation = false
     @State var correctAnswersCount = 0
     @StateObject var viewModel = QuestionViewModel()
-    
+   
     var gameType: GameType
     
     var body: some View {
@@ -30,7 +30,7 @@ struct AnimalFoodMatchView: View {
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
                         ZStack (alignment: .topLeading) {
-                            Image("farmBackground")
+                            Image("farm2")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width / 0.7)
@@ -38,13 +38,12 @@ struct AnimalFoodMatchView: View {
                                     LinearGradient(
                                         stops: [
                                             .init(color: .clear, location: 0),
-                                            .init(color: .green, location: 1)
+                                            .init(color: .greenNeonGrassColor, location: 1)
                                         ],
                                         startPoint: .center,
                                         endPoint: .bottom
                                     )
                                 }
-                            
                             VStack {
                                 HStack {
                                     Button {
@@ -55,19 +54,20 @@ struct AnimalFoodMatchView: View {
                                             .scaledToFit()
                                             .opacity(0.8)
                                             .frame(height: 50)
-                                            .shadow(color: .blue.opacity(0.6), radius: 10, x: 5, y: 5)
+                                            .shadow(color: Color.lavenderBlueColor.opacity(0.6), radius: 10, x: 5, y: 5)
                                             .overlay(
                                                 HStack(spacing: 1) {
-                                                    Image(systemName: "arrow.uturn.left")
+                                                    Image(systemName: "arrowshape.turn.up.backward.fill")
                                                     Text("Exit")
+                                                        .bold()
                                                 }
-                                                    .font(.custom("ChalkboardSE-Regular", size: 20))
-                                                    .foregroundStyle(.blue.opacity(0.6))
-                                                    .offset(x: -2, y: 8)
+                                                    .chalkboardFont(size: 16)
+                                                    .foregroundStyle(Color.skyBlueColor.opacity(0.7))
+                                                    .offset(y: 4)
                                             )
                                     }
                                     Spacer()
-                                }
+                                } // Exit button
                                 .offset(CGSize(width: 0, height: 40))
                                 .frame(width: (geo.size.width.isNaN || geo.size.width < 32) ? 0 : geo.size.width - 32)
                                 .padding(.horizontal)
@@ -82,22 +82,19 @@ struct AnimalFoodMatchView: View {
                                     .animation(.spring, value: questionImageAnimation)
                                 
                                 Text(round.question.capitalized)
-                                    .font(.custom("ChalkboardSE-Regular", size: 28))
+                                    .chalkboardFont(size: 28)
                                     .bold()
-                                    .foregroundStyle(.gray)
+                                    .foregroundStyle(Color.burntOrangeColor)
                                     .animation(.spring, value: questionImageAnimation)
+                                    .padding(.bottom, 32)
                                 
                                 HStack(spacing: 20) {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
                                         let size = screenWidth/5.1
                                         let image = answer == option && answer == round.correctAnswer ? "rightImage" : (answer == option && answer != round.correctAnswer ? "falseImage" : option )
-                                        let backgroundColor = answer == option && answer == round.correctAnswer ? Color(.green).opacity(0.2) : (answer == option && answer != round.correctAnswer ? Color(.red).opacity(0.2) : Color.customRandom)
-                                        let cornerColor = answer == option && answer == round.correctAnswer ? Color(.green) : (answer == option && answer != round.correctAnswer ? Color(.red) : Color(
-                                            red: .random(in: 0...1),
-                                            green: .random(in: 0...1),
-                                            blue: .random(in: 0...1)
-                                        ))
+                                        let backgroundColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor.opacity(0.2) : (answer == option && answer != round.correctAnswer ? .brickRedColor.opacity(0.2) : .sunGlowColor)
+                                        let cornerColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor : (answer == option && answer != round.correctAnswer ? .brickRedColor : .burntOrangeColor)
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         
                                         OptionButtonView(backgroundColor:  backgroundColor ,
@@ -151,7 +148,7 @@ struct AnimalFoodMatchView: View {
                                     }
                                 } //options HStack
                                 .padding(.horizontal)
-                                .padding(.bottom)
+                                .padding(.bottom, 40)
                                 .ignoresSafeArea()
                             }
                             .padding(6.0)
@@ -163,7 +160,7 @@ struct AnimalFoodMatchView: View {
             } //VStack
             .navigationBarBackButtonHidden(true)
             .background{
-                Color.green
+                Color.greenNeonGrassColor
                     .ignoresSafeArea()
             }
             .onAppear {

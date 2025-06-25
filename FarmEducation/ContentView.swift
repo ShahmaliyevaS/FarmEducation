@@ -12,14 +12,12 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack{
-                Color.blue.ignoresSafeArea().opacity(0.3)
-                
+            ZStack {
                 TabView {
-                    
-                    GameCardView(gameType: .whatAnimalsEat, selectedGame: $selectedGame)
-                    GameCardView(gameType: .whoEatsThisFood, selectedGame: $selectedGame)
-                    GameCardView(gameType: .colorMatching, selectedGame: $selectedGame)
+                    ForEach(GameType.allCases) {
+                        type in
+                        GameCardView(gameType: type, selectedGame: $selectedGame)
+                    }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                 .ignoresSafeArea()
@@ -28,6 +26,13 @@ struct ContentView: View {
             }
             .navigationDestination(item: $selectedGame) { game in
                 AnimalFoodMatchView(gameType: game)
+            }
+            .background{
+                LinearGradient(
+                    gradient:Gradient(colors: [.cherryMilkColor, .sunGlowColor, .skyWhisperColor]),
+                    startPoint: .top,
+                    endPoint: .bottom)
+                .ignoresSafeArea()
             }
         }
     }

@@ -18,7 +18,7 @@ struct OptionButtonView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 44)
                 .fill(backgroundColor)
-                .stroke(cornerColor, lineWidth: 5)
+                .stroke(cornerColor, lineWidth: 4)
                 .frame(height: 160)
             
             VStack {
@@ -34,6 +34,6 @@ struct OptionButtonView: View {
 }
 
 #Preview {
-    OptionButtonView(backgroundColor: .orange, cornerColor: .brown , option: "egg")
+    OptionButtonView(backgroundColor: .orange, cornerColor: .red , option: "egg")
         .frame(width: 120)
 }

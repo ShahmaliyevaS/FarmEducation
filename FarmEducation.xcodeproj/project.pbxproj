@@ -32,6 +32,7 @@
 		EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */; };
 		EDC360D22E054C7A00BC66FB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D12E054C7A00BC66FB /* Score.swift */; };
 		EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D32E054E5600BC66FB /* ScoreManager.swift */; };
+		EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimationView.swift; sourceTree = "<group>"; };
 		EDC360D12E054C7A00BC66FB /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		EDC360D32E054E5600BC66FB /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
+		EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC27CCC2DDF1DF70082C349 /* ColorExtention.swift */,
+				EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				ED46323A2DEEDF9F009CF8FD /* FarmData.swift in Sources */,
 				EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */,
 				EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */,
+				EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */,
 				EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */,
 				ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */,
 				EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */,

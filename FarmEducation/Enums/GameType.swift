@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
-enum GameType: String, Codable {
+enum GameType: String, Codable, CaseIterable, Identifiable {
     case whatAnimalsEat = "whatAnimalsEat"
     case whoEatsThisFood  = "whoEatsThisFood"
     case colorMatching = "colorMatching"     
+    
+    var id: String { self.rawValue }
     
     var title: String {
         switch self {
@@ -30,11 +32,11 @@ extension GameType {
     var cardDesign: CardDesign {
         switch self {
         case .whatAnimalsEat:
-            return CardDesign(backgroundImage: "farm2", backgroundColor: .green, cornerColor: .yellow, question: "cow", options: ["carrot", "egg"])
+            return CardDesign(question: "cow", options: ["carrot", "egg"])
         case .whoEatsThisFood :
-            return CardDesign(backgroundImage: "farm2", backgroundColor: .yellow, cornerColor: .orange, question: "carrot", options: ["rabbit", "dog"])
+            return CardDesign(question: "carrot", options: ["rabbit", "dog"])
         case .colorMatching:
-            return CardDesign(backgroundImage: "farm2", backgroundColor: .blue, cornerColor: .black, question: "cow", options: ["carrot", "egg"])
+            return CardDesign(question: "cow", options: ["carrot", "egg"])
         }
     }
 }
