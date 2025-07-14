@@ -97,7 +97,7 @@ struct WhichAnimalsShadowView: View {
                                 HStack(spacing: 20) {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
-                                        let size = screenWidth / 12
+                                        let size = screenWidth / 16
                                         let image = answer == option && answer != round.correctAnswer ? "falseImage" : option
                                         let backgroundColor = answer == option ? Color.clear : .sunGlowColor
                                         let cornerColor =  answer == option ? Color.clear : .burntOrangeColor
@@ -108,8 +108,8 @@ struct WhichAnimalsShadowView: View {
                                                          shadow: answer == option ? false : true
                                         )
                                         .offset(x: answer == option ? centerOffset : 0,
-                                                y: answer == option ? -screenHeight/10 : 0)
-                                        .scaleEffect(answer == option ? 4 : 1)
+                                                y: answer == option ? -screenHeight/12 : 0)
+                                        .scaleEffect(answer == option ? 5 : 1)
                                         .scaleEffect(x: answer == option ? -1 : 1, anchor: .center)
                                         .animation(.smooth, value: offsetAnimation)
                                         .overlay {

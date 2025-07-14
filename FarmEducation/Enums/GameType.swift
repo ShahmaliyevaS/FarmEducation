@@ -10,8 +10,8 @@ import SwiftUI
 
 enum GameType: String, Codable, CaseIterable, Identifiable {
     case whatAnimalsEat = "whatAnimalsEat"
-    case whoEatsThisFood  = "whoEatsThisFood"
-    case colorMatching = "colorMatching"     
+    case whereAnimalsLive = "whereAnimalsLive"
+    case whichAnimalsShadow = "whichAnimalsShadow"
     
     var id: String { self.rawValue }
     
@@ -19,12 +19,13 @@ enum GameType: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .whatAnimalsEat:
             return "What Do Animals Eat?"
-        case .whoEatsThisFood:
-            return "Who Eats This Food?"
-        case .colorMatching:
-            return "Color Matching"
+        case .whereAnimalsLive:
+            return "Where Do Animals Live?"
+        case .whichAnimalsShadow:
+            return "Whose shadow is this?"
         }
     }
+    
 }
 
 //Add extensionds for Game Card design
@@ -33,10 +34,10 @@ extension GameType {
         switch self {
         case .whatAnimalsEat:
             return CardDesign(question: "cow", options: ["carrot", "egg"])
-        case .whoEatsThisFood :
-            return CardDesign(question: "carrot", options: ["rabbit", "dog"])
-        case .colorMatching:
-            return CardDesign(question: "cow", options: ["carrot", "egg"])
+        case .whereAnimalsLive:
+            return CardDesign(question: "forest", options: ["cat", "deer"])
+        case .whichAnimalsShadow:
+            return CardDesign(question: "blackRabbit", options: ["rabbit", "deer"])
         }
     }
 }

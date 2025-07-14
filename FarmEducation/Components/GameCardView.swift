@@ -20,6 +20,7 @@ struct GameCardView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 240)
+                .cornerRadius(16)
                 .padding(.top)
             
             Text(gameType.cardDesign.question.capitalized)

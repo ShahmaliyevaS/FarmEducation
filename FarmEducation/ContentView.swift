@@ -25,7 +25,14 @@ struct ContentView: View {
                 .padding(.vertical)
             }
             .navigationDestination(item: $selectedGame) { game in
-                AnimalFoodMatchView(gameType: game)
+                switch game {
+                case .whatAnimalsEat:
+                     WhatAnimalsEatView()
+                case .whereAnimalsLive:
+                     WhereAnimalsLiveView()
+                case .whichAnimalsShadow:
+                    WhichAnimalsShadowView()
+                }
             }
             .background{
                 LinearGradient(

@@ -13,6 +13,7 @@ struct OptionButtonView: View {
     var cornerColor: Color
     var option: String
     var isTextVisable: Bool = true
+    var shadow: Bool = true
     
     var body: some View {
         ZStack {
@@ -29,7 +30,7 @@ struct OptionButtonView: View {
                     .padding(.horizontal)
             }
         }
-        .shadow(color: .black.opacity(0.5), radius: 10, x: 5, y: 5)
+        .shadow(color: shadow ? .black.opacity(0.5) : .clear, radius: 10, x: 5, y: 5)
     }
 }
 

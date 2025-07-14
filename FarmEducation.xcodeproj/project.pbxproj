@@ -11,19 +11,16 @@
 		ED0E22CE2DDB140C007DAC08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22CD2DDB140C007DAC08 /* ContentView.swift */; };
 		ED0E22D02DDB140F007DAC08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0E22CF2DDB140F007DAC08 /* Assets.xcassets */; };
 		ED0E22D32DDB140F007DAC08 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0E22D22DDB140F007DAC08 /* Preview Assets.xcassets */; };
-		ED0E22DB2DDB159E007DAC08 /* AnimalFoodMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22DA2DDB159E007DAC08 /* AnimalFoodMatchView.swift */; };
+		ED0E22DB2DDB159E007DAC08 /* WhatAnimalsEatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22DA2DDB159E007DAC08 /* WhatAnimalsEatView.swift */; };
 		ED0E22DE2DDB1E62007DAC08 /* OptionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22DD2DDB1E62007DAC08 /* OptionButtonView.swift */; };
 		ED0E22E02DDB4FE0007DAC08 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22DF2DDB4FE0007DAC08 /* GameCardView.swift */; };
 		ED0E22E32DDC6DD9007DAC08 /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22E22DDC6DD9007DAC08 /* GameType.swift */; };
 		ED0E22E62DDC796F007DAC08 /* CardDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22E52DDC796F007DAC08 /* CardDesign.swift */; };
-		ED46323A2DEEDF9F009CF8FD /* FarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632392DEEDF9F009CF8FD /* FarmData.swift */; };
-		ED46323C2DEEEEE5009CF8FD /* whoEatsThisFood.json in Resources */ = {isa = PBXBuildFile; fileRef = ED46323B2DEEEEE5009CF8FD /* whoEatsThisFood.json */; };
 		ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED46323D2DF185E1009CF8FD /* FlyUpAnimationView.swift */; };
 		ED4632432DF8571B009CF8FD /* TwirlingDropAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */; };
 		ED4632452DFAF162009CF8FD /* FireWorksComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */; };
 		ED4632472E028E24009CF8FD /* FireWorksAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */; };
 		EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CB92DDF0AE10082C349 /* Question.swift */; };
-		EDC27CC12DDF0BF70082C349 /* whatAnimalsEat.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC27CC02DDF0BF70082C349 /* whatAnimalsEat.json */; };
 		EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC42DDF0C960082C349 /* JSONLoader.swift */; };
 		EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */; };
 		EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC92DDF14640082C349 /* QuestionRound.swift */; };
@@ -33,6 +30,13 @@
 		EDC360D22E054C7A00BC66FB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D12E054C7A00BC66FB /* Score.swift */; };
 		EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D32E054E5600BC66FB /* ScoreManager.swift */; };
 		EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */; };
+		EDC360E02E1D482100BC66FB /* FarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360DF2E1D482100BC66FB /* FarmData.swift */; };
+		EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC360E12E20F45700BC66FB /* whatAnimalsEat.json */; };
+		EDC360E42E20F45C00BC66FB /* whereAnimalsLive.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC360E32E20F45C00BC66FB /* whereAnimalsLive.json */; };
+		EDC360E62E2130BC00BC66FB /* WhereAnimalsLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360E52E2130BC00BC66FB /* WhereAnimalsLiveView.swift */; };
+		EDC360E82E2186A900BC66FB /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360E72E2186A800BC66FB /* Places.swift */; };
+		EDC360EA2E22DDA300BC66FB /* WhichAnimalsShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360E92E22DDA300BC66FB /* WhichAnimalsShadowView.swift */; };
+		EDC360EC2E22E77400BC66FB /* whichAnimalsShadow.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC360EB2E22E77400BC66FB /* whichAnimalsShadow.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,19 +45,16 @@
 		ED0E22CD2DDB140C007DAC08 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ED0E22CF2DDB140F007DAC08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED0E22D22DDB140F007DAC08 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ED0E22DA2DDB159E007DAC08 /* AnimalFoodMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFoodMatchView.swift; sourceTree = "<group>"; };
+		ED0E22DA2DDB159E007DAC08 /* WhatAnimalsEatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatAnimalsEatView.swift; sourceTree = "<group>"; };
 		ED0E22DD2DDB1E62007DAC08 /* OptionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButtonView.swift; sourceTree = "<group>"; };
 		ED0E22DF2DDB4FE0007DAC08 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
 		ED0E22E22DDC6DD9007DAC08 /* GameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType.swift; sourceTree = "<group>"; };
 		ED0E22E52DDC796F007DAC08 /* CardDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDesign.swift; sourceTree = "<group>"; };
-		ED4632392DEEDF9F009CF8FD /* FarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmData.swift; sourceTree = "<group>"; };
-		ED46323B2DEEEEE5009CF8FD /* whoEatsThisFood.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = whoEatsThisFood.json; path = ../../../whoEatsThisFood.json; sourceTree = "<group>"; };
 		ED46323D2DF185E1009CF8FD /* FlyUpAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyUpAnimationView.swift; sourceTree = "<group>"; };
 		ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwirlingDropAnimationView.swift; sourceTree = "<group>"; };
 		ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWorksComponentView.swift; sourceTree = "<group>"; };
 		ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWorksAnimationView.swift; sourceTree = "<group>"; };
 		EDC27CB92DDF0AE10082C349 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		EDC27CC02DDF0BF70082C349 /* whatAnimalsEat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = whatAnimalsEat.json; path = ../../../whatAnimalsEat.json; sourceTree = "<group>"; };
 		EDC27CC42DDF0C960082C349 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		EDC27CC92DDF14640082C349 /* QuestionRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRound.swift; sourceTree = "<group>"; };
@@ -63,6 +64,13 @@
 		EDC360D12E054C7A00BC66FB /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		EDC360D32E054E5600BC66FB /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
+		EDC360DF2E1D482100BC66FB /* FarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmData.swift; sourceTree = "<group>"; };
+		EDC360E12E20F45700BC66FB /* whatAnimalsEat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whatAnimalsEat.json; sourceTree = "<group>"; };
+		EDC360E32E20F45C00BC66FB /* whereAnimalsLive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whereAnimalsLive.json; sourceTree = "<group>"; };
+		EDC360E52E2130BC00BC66FB /* WhereAnimalsLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAnimalsLiveView.swift; sourceTree = "<group>"; };
+		EDC360E72E2186A800BC66FB /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		EDC360E92E22DDA300BC66FB /* WhichAnimalsShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichAnimalsShadowView.swift; sourceTree = "<group>"; };
+		EDC360EB2E22E77400BC66FB /* whichAnimalsShadow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whichAnimalsShadow.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +131,9 @@
 		ED0E22D92DDB153C007DAC08 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ED0E22DA2DDB159E007DAC08 /* AnimalFoodMatchView.swift */,
+				ED0E22DA2DDB159E007DAC08 /* WhatAnimalsEatView.swift */,
+				EDC360E52E2130BC00BC66FB /* WhereAnimalsLiveView.swift */,
+				EDC360E92E22DDA300BC66FB /* WhichAnimalsShadowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				ED0E22E22DDC6DD9007DAC08 /* GameType.swift */,
+				EDC360E72E2186A800BC66FB /* Places.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -181,9 +192,10 @@
 		EDC27CBF2DDF0BE40082C349 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EDC27CC02DDF0BF70082C349 /* whatAnimalsEat.json */,
-				ED46323B2DEEEEE5009CF8FD /* whoEatsThisFood.json */,
-				ED4632392DEEDF9F009CF8FD /* FarmData.swift */,
+				EDC360EB2E22E77400BC66FB /* whichAnimalsShadow.json */,
+				EDC360E32E20F45C00BC66FB /* whereAnimalsLive.json */,
+				EDC360E12E20F45700BC66FB /* whatAnimalsEat.json */,
+				EDC360DF2E1D482100BC66FB /* FarmData.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -264,9 +276,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED0E22D32DDB140F007DAC08 /* Preview Assets.xcassets in Resources */,
-				EDC27CC12DDF0BF70082C349 /* whatAnimalsEat.json in Resources */,
+				EDC360EC2E22E77400BC66FB /* whichAnimalsShadow.json in Resources */,
+				EDC360E42E20F45C00BC66FB /* whereAnimalsLive.json in Resources */,
+				EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */,
 				ED0E22D02DDB140F007DAC08 /* Assets.xcassets in Resources */,
-				ED46323C2DEEEEE5009CF8FD /* whoEatsThisFood.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,18 +294,21 @@
 				ED4632452DFAF162009CF8FD /* FireWorksComponentView.swift in Sources */,
 				ED0E22CE2DDB140C007DAC08 /* ContentView.swift in Sources */,
 				ED4632472E028E24009CF8FD /* FireWorksAnimationView.swift in Sources */,
-				ED46323A2DEEDF9F009CF8FD /* FarmData.swift in Sources */,
+				EDC360EA2E22DDA300BC66FB /* WhichAnimalsShadowView.swift in Sources */,
 				EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */,
 				EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */,
 				EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */,
 				EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */,
+				EDC360E62E2130BC00BC66FB /* WhereAnimalsLiveView.swift in Sources */,
+				EDC360E82E2186A900BC66FB /* Places.swift in Sources */,
 				ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */,
 				EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */,
+				EDC360E02E1D482100BC66FB /* FarmData.swift in Sources */,
 				EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */,
 				ED4632432DF8571B009CF8FD /* TwirlingDropAnimationView.swift in Sources */,
 				EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */,
 				ED0E22DE2DDB1E62007DAC08 /* OptionButtonView.swift in Sources */,
-				ED0E22DB2DDB159E007DAC08 /* AnimalFoodMatchView.swift in Sources */,
+				ED0E22DB2DDB159E007DAC08 /* WhatAnimalsEatView.swift in Sources */,
 				EDC360D22E054C7A00BC66FB /* Score.swift in Sources */,
 				ED0E22E02DDB4FE0007DAC08 /* GameCardView.swift in Sources */,
 				ED0E22E62DDC796F007DAC08 /* CardDesign.swift in Sources */,

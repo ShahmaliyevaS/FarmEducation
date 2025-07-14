@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WhichAnimalsShadowView: View {
+struct WhatAnimalsEatView: View {
     
     @Environment(\.dismiss) var dismiss
     
@@ -207,5 +207,5 @@ struct WhichAnimalsShadowView: View {
 }
 
 #Preview {
-    WhichAnimalsShadowView()
+    WhatAnimalsEatView()
 }

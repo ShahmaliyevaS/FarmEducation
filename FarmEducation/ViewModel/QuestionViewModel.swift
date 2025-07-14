@@ -21,10 +21,10 @@ class QuestionViewModel: ObservableObject {
         switch gameType {
         case .whatAnimalsEat:
             allQuestions = FarmData.whatAnimalsEatQuestions
-        case .whoEatsThisFood:
-            allQuestions = FarmData.whoEatsThisFoodQuestions
-        case .colorMatching:
-            allQuestions = FarmData.colorMatchingQuestions
+        case .whereAnimalsLive:
+            allQuestions = FarmData.whereAnimalsLiveQuestions
+        case .whichAnimalsShadow:
+            allQuestions = FarmData.whichAnimalsShadow
         }
         
         allQuestionsId = Array(0..<allQuestions.count)
@@ -34,29 +34,24 @@ class QuestionViewModel: ObservableObject {
     }
     
     func loadNextQuestion() {
-        if unAskedQuestions.isEmpty {
+        if unAskedQuestions.isEmpty{
             unAskedQuestions = allQuestionsId
             unAskedQuestions.shuffle()
             askedQuestions = []
-        } else {
-            let id = unAskedQuestions.last!
-            
-            unAskedQuestions.remove(at: unAskedQuestions.count - 1)
-            
-            if !askedQuestions.contains(id) {
-                askedQuestionCount += 1
-                var allOptions = allQuestions[id].falseAnswer
-                allOptions.append(allQuestions[id].trueAnswer)
-                currentRound = QuestionRound(
-                    question: allQuestions[id].question,
-                    options: Array(allOptions.shuffled()),
-                    correctAnswer: allQuestions[id].trueAnswer
-                )
-                askedQuestions.append(allQuestions[id].id)
-            } else {
-                loadNextQuestion()
-            }
         }
+        
+        let id = unAskedQuestions.last!
+        var allOptions = allQuestions[id].falseAnswer
+        
+        unAskedQuestions.remove(at: unAskedQuestions.count - 1)
+        askedQuestionCount += 1
+        allOptions.append(allQuestions[id].trueAnswer)
+        currentRound = QuestionRound(
+            question: allQuestions[id].question,
+            options: Array(allOptions.shuffled()),
+            correctAnswer: allQuestions[id].trueAnswer
+        )
+        askedQuestions.append(id)
     }
     
     func getAskedQuestionCount() -> Int {
