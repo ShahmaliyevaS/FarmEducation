@@ -1,5 +1,5 @@
 //
-//  AnimalFoodMatchView.swift
+//  WhatAnimalsEatView.swift
 //  FarmEducation
 //
 //  Created by Sevinj Shahmaliyeva on 19.05.25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnimalFoodMatchView: View {
+struct WhichAnimalsShadowView: View {
     
     @Environment(\.dismiss) var dismiss
     
@@ -15,12 +15,11 @@ struct AnimalFoodMatchView: View {
     @State var answer: String = ""
     @State var disabledAnswers: Set<Int> = []
     @State var offsetAnimation = false
-    @State var rotationAnimation = false
     @State var questionImageAnimation = false
     @State var correctAnswersCount = 0
     @StateObject var viewModel = QuestionViewModel()
-   
-    var gameType: GameType
+    
+    var gameType: GameType = .whatAnimalsEat
     
     var body: some View {
         ZStack {
@@ -33,7 +32,7 @@ struct AnimalFoodMatchView: View {
                             Image("farm2")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geo.size.width / 0.7)
+                                .frame(width: geo.size.width / 0.6)
                                 .overlay {
                                     LinearGradient(
                                         stops: [
@@ -41,8 +40,7 @@ struct AnimalFoodMatchView: View {
                                             .init(color: .greenNeonGrassColor, location: 1)
                                         ],
                                         startPoint: .center,
-                                        endPoint: .bottom
-                                    )
+                                        endPoint: .bottom)
                                 }
                             VStack {
                                 HStack {
@@ -73,13 +71,19 @@ struct AnimalFoodMatchView: View {
                                 .padding(.horizontal)
                                 
                                 Spacer()
-                                Image(round.question)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 700)
-                                    .frame(maxHeight: 400)
-                                    .shadow(radius: 10)
-                                    .animation(.spring, value: questionImageAnimation)
+                                ZStack(alignment: .bottom) {
+                                    Image("questionBackgroud")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 300)
+                                        .offset(y: 10)
+                                    Image(round.question)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 360)
+                                        .shadow(radius: 10)
+                                        .animation(.snappy, value: questionImageAnimation)
+                                }
                                 
                                 Text(round.question.capitalized)
                                     .chalkboardFont(size: 28)
@@ -91,7 +95,7 @@ struct AnimalFoodMatchView: View {
                                 HStack(spacing: 20) {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
-                                        let size = screenWidth/5.1
+                                        let size = screenWidth / 5.1
                                         let image = answer == option && answer == round.correctAnswer ? "rightImage" : (answer == option && answer != round.correctAnswer ? "falseImage" : option )
                                         let backgroundColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor.opacity(0.2) : (answer == option && answer != round.correctAnswer ? .brickRedColor.opacity(0.2) : .sunGlowColor)
                                         let cornerColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor : (answer == option && answer != round.correctAnswer ? .brickRedColor : .burntOrangeColor)
@@ -103,12 +107,7 @@ struct AnimalFoodMatchView: View {
                                         )
                                         .offset(x: answer == option ? centerOffset : 0,
                                                 y: answer == option ? -screenHeight/4 : 0)
-                                        .rotation3DEffect(
-                                            .degrees(answer == option ? (i != 2 ? 720 : -720) : 0),
-                                            axis: (x: 0, y: 1, z: 0)
-                                        )
-                                        .animation(.spring, value: rotationAnimation)
-                                        .animation(.easeIn, value: offsetAnimation)
+                                        .animation(.bouncy, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
                                                 Image("falseImage")
@@ -135,7 +134,6 @@ struct AnimalFoodMatchView: View {
                                                         answer = ""
                                                         disabledAnswers = []
                                                         offsetAnimation.toggle()
-                                                        rotationAnimation.toggle()
                                                         questionImageAnimation.toggle()
                                                         viewModel.loadNextQuestion()
                                                     }
@@ -209,5 +207,5 @@ struct AnimalFoodMatchView: View {
 }
 
 #Preview {
-    AnimalFoodMatchView(gameType: .whatAnimalsEat)
+    WhichAnimalsShadowView()
 }
