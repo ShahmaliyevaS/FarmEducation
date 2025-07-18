@@ -11,8 +11,7 @@ struct OptionButtonView: View {
     
     var backgroundColor: Color
     var cornerColor: Color
-    var option: String
-    var isTextVisable: Bool = true
+    var image: String?
     var shadow: Bool = true
     
     var body: some View {
@@ -22,12 +21,14 @@ struct OptionButtonView: View {
                 .stroke(cornerColor, lineWidth: 4)
                 .frame(height: 160)
             
-            VStack {
-                Image(option)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 100)
-                    .padding(.horizontal)
+            if let option = image {
+                VStack {
+                    Image(option)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .padding(.horizontal)
+                }
             }
         }
         .shadow(color: shadow ? .black.opacity(0.5) : .clear, radius: 10, x: 5, y: 5)
@@ -35,6 +36,6 @@ struct OptionButtonView: View {
 }
 
 #Preview {
-    OptionButtonView(backgroundColor: .orange, cornerColor: .red , option: "egg")
+    OptionButtonView(backgroundColor: .orange, cornerColor: .red , image: "egg")
         .frame(width: 120)
 }

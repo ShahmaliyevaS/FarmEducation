@@ -43,7 +43,7 @@ struct GameCardView: View {
                     OptionButtonView(
                         backgroundColor: .sunGlowColor.opacity(0.2),
                         cornerColor: .sunGlowColor,
-                        option: gameType.cardDesign.options[i])
+                        image: gameType.cardDesign.options[i])
                 }
             }
             .padding(.horizontal)

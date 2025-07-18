@@ -80,7 +80,7 @@ struct WhereAnimalsLiveView: View {
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         OptionButtonView(backgroundColor:  backgroundColor ,
                                                          cornerColor: cornerColor,
-                                                         option: image,
+                                                         image: image,
                                                          shadow: answer == option ? false : true
                                         )
                                         .offset(x: answer == option ? centerOffset : 0,

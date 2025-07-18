@@ -560,7 +560,7 @@
     {
         "id": 94,
         "question": "panda",
-        "trueAnswer": "watermelon",
+        "trueAnswer": "panda",
         "falseAnswer": ["chicken", "beaver"]
     },
     {
@@ -597,7 +597,7 @@
         "id": 100,
         "question": "giraffe",
         "trueAnswer": "giraffe",
-        "falseAnswer": ["broccoli", "chicken"]
+        "falseAnswer": ["mouse", "chicken"]
     },
     {
         "id": 101,
@@ -879,7 +879,7 @@
         "id": 147,
         "question": "turtle",
         "trueAnswer": "turtle",
-        "falseAnswer": ["turtle", "llama"]
+        "falseAnswer": ["cat", "llama"]
     },
     {
         "id": 148,

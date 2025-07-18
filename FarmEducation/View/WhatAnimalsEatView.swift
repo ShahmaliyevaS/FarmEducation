@@ -103,7 +103,7 @@ struct WhatAnimalsEatView: View {
                                         
                                         OptionButtonView(backgroundColor:  backgroundColor ,
                                                          cornerColor: cornerColor,
-                                                         option: image
+                                                         image: image
                                         )
                                         .offset(x: answer == option ? centerOffset : 0,
                                                 y: answer == option ? -screenHeight/4 : 0)
@@ -162,7 +162,6 @@ struct WhatAnimalsEatView: View {
                     .ignoresSafeArea()
             }
             .onAppear {
-                //onAppear
                 viewModel.loadQuestions(for: gameType)
                 
             }

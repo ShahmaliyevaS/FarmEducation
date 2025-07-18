@@ -25,7 +25,6 @@ enum GameType: String, Codable, CaseIterable, Identifiable {
             return "Whose shadow is this?"
         }
     }
-    
 }
 
 //Add extensionds for Game Card design
@@ -37,7 +36,7 @@ extension GameType {
         case .whereAnimalsLive:
             return CardDesign(question: "forest", options: ["cat", "deer"])
         case .whichAnimalsShadow:
-            return CardDesign(question: "blackRabbit", options: ["rabbit", "deer"])
+            return CardDesign(question: "blackAntelope", options: ["antelope", "deer"])
         }
     }
 }

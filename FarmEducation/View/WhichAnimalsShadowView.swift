@@ -17,6 +17,7 @@ struct WhichAnimalsShadowView: View {
     @State var offsetAnimation = false
     @State var questionImageAnimation = false
     @State var correctAnswersCount = 0
+    @State var isHidden = false
     @StateObject var viewModel = QuestionViewModel()
     
     var gameType: GameType = .whichAnimalsShadow
@@ -77,14 +78,18 @@ struct WhichAnimalsShadowView: View {
                                         .scaledToFit()
                                         .frame(width: 300)
                                         .offset(y: 10)
-                                    Image(round.question)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .colorMultiply(.black)
-                                        .frame(height: 360)
-                                        .shadow(radius: 10)
-                                        .scaleEffect(x: -1, y: 1, anchor: .center)
+                                 
+                                        Image(round.question)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .colorMultiply(.black)
+                                            .frame(height: screenHeight/2.2)
+                                            .shadow(radius: 10)
+                                            .scaleEffect(x: -1, y: 1, anchor: .center)
+                                            .opacity(isHidden ? 0 : 1)
                                         .animation(.snappy, value: questionImageAnimation)
+                                        .animation(.smooth(duration: TimeInterval(1.8)), value: isHidden)
+                                    
                                 }
                                 
                                 Text(round.question.capitalized)
@@ -104,7 +109,7 @@ struct WhichAnimalsShadowView: View {
                                         let centerOffset = i == 0 ? -size : (i == 1 ? 0 : size)
                                         OptionButtonView(backgroundColor:  backgroundColor ,
                                                          cornerColor: cornerColor,
-                                                         option: image,
+                                                         image: image,
                                                          shadow: answer == option ? false : true
                                         )
                                         .offset(x: answer == option ? centerOffset : 0,
@@ -126,6 +131,7 @@ struct WhichAnimalsShadowView: View {
                                                     firstFalseAnswer = option
                                                     disabledAnswers.insert(i)
                                                 } else {
+                                                    isHidden = option == round.correctAnswer ? true : false
                                                     answer = option
                                                     offsetAnimation.toggle()
                                                     
@@ -138,8 +144,10 @@ struct WhichAnimalsShadowView: View {
                                                         answer = ""
                                                         disabledAnswers = []
                                                         offsetAnimation.toggle()
+                                                        isHidden = false
                                                         questionImageAnimation.toggle()
                                                         viewModel.loadNextQuestion()
+                                                        
                                                     }
                                                 }
                                             }

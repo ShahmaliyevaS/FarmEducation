@@ -11,7 +11,8 @@ import SwiftUI
 struct FarmEducationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WhoIsMyPairView()
+//            ContentView()
         }
     }
 }
