@@ -43,7 +43,7 @@ extension GameType {
         case .whichAnimalsShadow:
             return CardDesign(question: "blackAntelope", options: ["antelope", "deer"])
         case .whosePartIsThis:
-            return CardDesign(question: "cow", options: ["carrot", "egg"])
+            return CardDesign(question: Constants.whosePart, options: [Constants.crocodile, Constants.snake])
         case .whoIsMyPair:
             return CardDesign(question: "cow", options: ["carrot", "egg"])
         }

@@ -24,17 +24,17 @@ struct GameCardView: View {
                 .padding(.top)
             
             Text(gameType.title.capitalized)
-                .foregroundStyle(Color.burntOrangeColor)
-                .chalkboardFont(size: 20)
+                .foregroundStyle(Color.lavenderBlueColor)
+                .chalkboardFont(size: 32)
                 .multilineTextAlignment(.center)
             Spacer()
             VStack (alignment: .leading) {
                 Text("Last Score: \(score.recent) from \(score.recentCount)")
-                    .foregroundStyle(Color.burntOrangeColor)
+                    .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 20)
                 
                 Text("Best Score: \(score.best) from \(score.bestCount)")
-                    .foregroundStyle(Color.burntOrangeColor)
+                    .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 20)
             }
             .padding(.bottom)
@@ -42,8 +42,8 @@ struct GameCardView: View {
             HStack(spacing: 20){
                 ForEach(0...1, id: \.self) { i in
                     OptionButtonView(
-                        backgroundColor: .sunGlowColor.opacity(0.2),
-                        cornerColor: .sunGlowColor,
+                        backgroundColor: .clear,
+                        cornerColor: .lavenderBlueColor,
                         image: gameType.cardDesign.options[i])
                 }
             }
@@ -55,7 +55,7 @@ struct GameCardView: View {
             } label: {
                 Text("Play")
                     .frame(width: 200)
-                    .foregroundStyle(Color.sunGlowColor)
+                    .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 28)
                     .padding(.vertical, 10)
                     .background(
@@ -63,7 +63,7 @@ struct GameCardView: View {
                             .fill(.clear)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 16)
-                                    .stroke(Color.sunGlowColor, lineWidth: 4)
+                                    .stroke(Color.lavenderBlueColor, lineWidth: 4)
                             )
                     )
                     .shadow(color: .black.opacity(0.5), radius: 10, x: 5, y: 5)
@@ -73,16 +73,16 @@ struct GameCardView: View {
         } //VStack
         .padding(.all)
         .background{
-            LinearGradient(gradient: Gradient(colors: gradientColors),
-                           startPoint: .top,
-                           endPoint: .bottom)
+            LinearGradient(
+                gradient: Gradient(colors: [.skyWhisperColor, .cherryMilkColor]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
         }
         .cornerRadius(40)
         .overlay(
             RoundedRectangle(cornerRadius: 40)
-                .stroke(LinearGradient(gradient: Gradient(colors: gradientColors),
-                    startPoint: .bottom,
-                    endPoint: .top), lineWidth: 4)
+                .stroke(Color.lavenderBlueColor, lineWidth: 4)
         )
         .ignoresSafeArea()
         .padding(.all, 32)

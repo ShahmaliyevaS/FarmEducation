@@ -40,7 +40,7 @@ struct ContentView: View {
             }
             .background{
                 LinearGradient(
-                    gradient:Gradient(colors: [.cherryMilkColor, .sunGlowColor, .skyWhisperColor]),
+                    gradient:Gradient(colors: [.cherryMilkColor, .paleSkyColor, .lavenderBlueColor.opacity(0.8) ]),
                     startPoint: .top,
                     endPoint: .bottom)
                 .ignoresSafeArea()

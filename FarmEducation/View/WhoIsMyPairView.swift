@@ -27,19 +27,6 @@ struct WhoIsMyPairView: View {
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
                         ZStack (alignment: .topLeading) {
-                            Image("farm2")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 0.6)
-                                .overlay {
-                                    LinearGradient(
-                                        stops: [
-                                            .init(color: .clear, location: 0),
-                                            .init(color: .greenNeonGrassColor, location: 1)
-                                        ],
-                                        startPoint: .center,
-                                        endPoint: .bottom)
-                                }
                             HStack {
                                 Button {
                                     
@@ -57,8 +44,8 @@ struct WhoIsMyPairView: View {
                                     ForEach(Array(data.enumerated()), id: \.offset) { index, item in
                                         if !correctImages.contains(index) {
                                             OptionButtonView(
-                                                backgroundColor: .red,
-                                                cornerColor: .blue,
+                                                backgroundColor: StaticStore.pastelColors.randomElement()!,
+                                                cornerColor: .lavenderBlueColor,
                                                 image: !selectedImages.contains(index) ? nil : item
                                             )
                                             .frame(height: (geo.size.height - 120)/5)
@@ -99,7 +86,6 @@ struct WhoIsMyPairView: View {
                                     }
                                 }
                                 .padding(.horizontal)
-//                                .frame(height: geo.size.height - 120)
                                 
                                 Button {
                                     print(balance)
@@ -107,17 +93,16 @@ struct WhoIsMyPairView: View {
                                     data1 = viewModel.currentRound
                                     correctImages = []
                                 } label: {
-                                    Text("New game")
+                                    Text(Constants.newGame)
                                         .fontWeight(.bold)
                                         .padding(.horizontal, 60)
                                         .padding(.vertical)
-                                        .foregroundColor(.white)
-                                        .background(Color.oceanColor)
+                                        .foregroundColor(Color.crystalBlueColor)
+                                        .background(Color.skyWhisperColor)
                                         .cornerRadius(20)
                                 }
-                                .shadow(color: .sunGlowColor, radius: 15, y: 0)
+                                .shadow(color: .lavenderBlueColor, radius: 8, y: 4)
                                 .padding(.top, 20)
-//                                .padding(.bottom, 20)
                             }
                             .padding(.top, 80)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)
@@ -129,8 +114,11 @@ struct WhoIsMyPairView: View {
         } //VStack
         .navigationBarBackButtonHidden(true)
         .background{
-            Color.greenNeonGrassColor
-                .ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(colors: [.skyWhisperColor, .cherryMilkColor]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ).ignoresSafeArea()
         }
         .onAppear {
             viewModel.loadQuestions()
