@@ -19,15 +19,15 @@ struct OptionButtonView: View {
             RoundedRectangle(cornerRadius: 44)
                 .fill(backgroundColor)
                 .stroke(cornerColor, lineWidth: 4)
-                .frame(height: 160)
+//                .frame(height: 160)
             
             if let option = image {
                 VStack {
                     Image(option)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 100)
-                        .padding(.horizontal)
+//                        .frame(height: 100)
+                        .padding(.horizontal, 20)
                 }
             }
         }

@@ -23,9 +23,10 @@ struct GameCardView: View {
                 .cornerRadius(16)
                 .padding(.top)
             
-            Text(gameType.cardDesign.question.capitalized)
+            Text(gameType.title.capitalized)
                 .foregroundStyle(Color.burntOrangeColor)
-                .chalkboardFont(size: 36)
+                .chalkboardFont(size: 20)
+                .multilineTextAlignment(.center)
             Spacer()
             VStack (alignment: .leading) {
                 Text("Last Score: \(score.recent) from \(score.recentCount)")

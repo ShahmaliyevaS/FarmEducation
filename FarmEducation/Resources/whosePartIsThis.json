@@ -1,0 +1,494 @@
+[
+    {
+        "id": 1,
+        "question": "cat",
+        "trueAnswer": "cat",
+        "falseAnswer": ["fox", "dog"]
+    },
+    {
+        "id": 2,
+        "question": "cat",
+        "trueAnswer": "cat",
+        "falseAnswer": ["lion", "tiger"]
+    },
+    {
+        "id": 3,
+        "question": "dog",
+        "trueAnswer": "dog",
+        "falseAnswer": ["cat", "fox"]
+    },
+    {
+        "id": 4,
+        "question": "dog",
+        "trueAnswer": "dog",
+        "falseAnswer": ["jackal", "leopard"]
+    },
+    {
+        "id": 5,
+        "question": "cow",
+        "trueAnswer": "cow",
+        "falseAnswer": ["goose", "zebra"]
+    },
+    {
+        "id": 6,
+        "question": "cow",
+        "trueAnswer": "cow",
+        "falseAnswer": ["panda", "llama"]
+    },
+    {
+        "id": 7,
+        "question": "sheep",
+        "trueAnswer": "sheep",
+        "falseAnswer": ["llama", "cow"]
+    },
+    {
+        "id": 8,
+        "question": "sheep",
+        "trueAnswer": "sheep",
+        "falseAnswer": ["camel", "donkey"]
+    },
+    {
+        "id": 9,
+        "question": "pig",
+        "trueAnswer": "pig",
+        "falseAnswer": ["elephant", "bear"]
+    },
+    {
+        "id": 10,
+        "question": "pig",
+        "trueAnswer": "pig",
+        "falseAnswer": ["rhinoceros", "hippopotamus"]
+    },
+    {
+        "id": 11,
+        "question": "rabbit",
+        "trueAnswer": "rabbit",
+        "falseAnswer": ["kangaroo", "meerkat"]
+    },
+    {
+        "id": 12,
+        "question": "rabbit",
+        "trueAnswer": "rabbit",
+        "falseAnswer": ["squirrel", "cat"]
+    },
+    {
+        "id": 13,
+        "question": "horse",
+        "trueAnswer": "horse",
+        "falseAnswer": ["donkey", "gazelle"]
+    },
+    {
+        "id": 14,
+        "question": "horse",
+        "trueAnswer": "horse",
+        "falseAnswer": ["goat", "antelope"]
+    },
+    {
+        "id": 15,
+        "question": "donkey",
+        "trueAnswer": "donkey",
+        "falseAnswer": ["horse", "goat"]
+    },
+    {
+        "id": 16,
+        "question": "donkey",
+        "trueAnswer": "donkey",
+        "falseAnswer": ["antelope", "gazelle"]
+    },
+    {
+        "id": 17,
+        "question": "chicken",
+        "trueAnswer": "chicken",
+        "falseAnswer": ["duck", "kangaroo"]
+    },
+    {
+        "id": 18,
+        "question": "chicken",
+        "trueAnswer": "chicken",
+        "falseAnswer": ["goose", "cat"]
+    },
+    {
+        "id": 19,
+        "question": "duck",
+        "trueAnswer": "duck",
+        "falseAnswer": ["goose", "chicken"]
+    },
+    {
+        "id": 20,
+        "question": "duck",
+        "trueAnswer": "duck",
+        "falseAnswer": ["chicken", "fox"]
+    },
+    {
+        "id": 21,
+        "question": "goose",
+        "trueAnswer": "goose",
+        "falseAnswer": ["chicken", "cow"]
+    },
+    {
+        "id": 22,
+        "question": "goose",
+        "trueAnswer": "goose",
+        "falseAnswer": ["llama", "sheep"]
+    },
+    {
+        "id": 23,
+        "question": "goat",
+        "trueAnswer": "goat",
+        "falseAnswer": ["antelope", "donkey"]
+    },
+    {
+        "id": 24,
+        "question": "goat",
+        "trueAnswer": "goat",
+        "falseAnswer": ["gazelle", "jackal"]
+    },
+    {
+        "id": 25,
+        "question": "fox",
+        "trueAnswer": "fox",
+        "falseAnswer": ["cat", "dog"]
+    },
+    {
+        "id": 26,
+        "question": "fox",
+        "trueAnswer": "fox",
+        "falseAnswer": ["jackal", "tiger"]
+    },
+    {
+        "id": 27,
+        "question": "lion",
+        "trueAnswer": "lion",
+        "falseAnswer": ["tiger", "cat"]
+    },
+    {
+        "id": 28,
+        "question": "lion",
+        "trueAnswer": "lion",
+        "falseAnswer": ["leopard", "fox"]
+    },
+    {
+        "id": 29,
+        "question": "wolf",
+        "trueAnswer": "wolf",
+        "falseAnswer": ["elephant", "hippopotamus"]
+    },
+    {
+        "id": 30,
+        "question": "wolf",
+        "trueAnswer": "wolf",
+        "falseAnswer": ["rhinoceros", "badger"]
+    },
+    {
+        "id": 31,
+        "question": "bear",
+        "trueAnswer": "bear",
+        "falseAnswer": ["beaver", "deer"]
+    },
+    {
+        "id": 32,
+        "question": "bear",
+        "trueAnswer": "bear",
+        "falseAnswer": ["monkey", "squirrel"]
+    },
+    {
+        "id": 33,
+        "question": "deer",
+        "trueAnswer": "deer",
+        "falseAnswer": ["antelope", "donkey"]
+    },
+    {
+        "id": 34,
+        "question": "deer",
+        "trueAnswer": "deer",
+        "falseAnswer": ["gazelle", "goat"]
+    },
+    {
+        "id": 35,
+        "question": "antelope",
+        "trueAnswer": "antelope",
+        "falseAnswer": ["deer", "goat"]
+    },
+    {
+        "id": 36,
+        "question": "antelope",
+        "trueAnswer": "antelope",
+        "falseAnswer": ["gazelle", "donkey"]
+    },
+    {
+        "id": 37,
+        "question": "panda",
+        "trueAnswer": "panda",
+        "falseAnswer": ["zebra", "badger"]
+    },
+    {
+        "id": 38,
+        "question": "panda",
+        "trueAnswer": "panda",
+        "falseAnswer": ["cow", "goose"]
+    },
+    {
+        "id": 39,
+        "question": "giraffe",
+        "trueAnswer": "giraffe",
+        "falseAnswer": ["leopard", "cat"]
+    },
+    {
+        "id": 40,
+        "question": "giraffe",
+        "trueAnswer": "giraffe",
+        "falseAnswer": ["camel", "meerkat"]
+    },
+    {
+        "id": 41,
+        "question": "monkey",
+        "trueAnswer": "monkey",
+        "falseAnswer": ["mouse", "rabbit"]
+    },
+    {
+        "id": 42,
+        "question": "monkey",
+        "trueAnswer": "monkey",
+        "falseAnswer": ["bear", "squirrel"]
+    },
+    {
+        "id": 43,
+        "question": "zebra",
+        "trueAnswer": "zebra",
+        "falseAnswer": ["panda", "llama"]
+    },
+    {
+        "id": 44,
+        "question": "zebra",
+        "trueAnswer": "zebra",
+        "falseAnswer": ["cow", "sheep"]
+    },
+    {
+        "id": 45,
+        "question": "tiger",
+        "trueAnswer": "tiger",
+        "falseAnswer": ["leopard", "cat"]
+    },
+    {
+        "id": 46,
+        "question": "tiger",
+        "trueAnswer": "tiger",
+        "falseAnswer": ["fox", "lion"]
+    },
+    {
+        "id": 47,
+        "question": "leopard",
+        "trueAnswer": "leopard",
+        "falseAnswer": ["giraffe", "tiger"]
+    },
+    {
+        "id": 48,
+        "question": "leopard",
+        "trueAnswer": "leopard",
+        "falseAnswer": ["cat", "dog"]
+    },
+    {
+        "id": 49,
+        "question": "elephant",
+        "trueAnswer": "elephant",
+        "falseAnswer": ["hippopotamus", "wolf"]
+    },
+    {
+        "id": 50,
+        "question": "elephant",
+        "trueAnswer": "elephant",
+        "falseAnswer": ["rhinoceros", "badger"]
+    },
+    {
+        "id": 51,
+        "question": "hippopotamus",
+        "trueAnswer": "hippopotamus",
+        "falseAnswer": ["elephant", "badger"]
+    },
+    {
+        "id": 52,
+        "question": "hippopotamus",
+        "trueAnswer": "hippopotamus",
+        "falseAnswer": ["rhinoceros", "wolf"]
+    },
+    {
+        "id": 53,
+        "question": "camel",
+        "trueAnswer": "camel",
+        "falseAnswer": ["horse", "giraffe"]
+    },
+    {
+        "id": 54,
+        "question": "camel",
+        "trueAnswer": "camel",
+        "falseAnswer": ["fox", "gazelle"]
+    },
+    {
+        "id": 55,
+        "question": "rhinoceros",
+        "trueAnswer": "rhinoceros",
+        "falseAnswer": ["hippopotamus", "wolf"]
+    },
+    {
+        "id": 56,
+        "question": "rhinoceros",
+        "trueAnswer": "rhinoceros",
+        "falseAnswer": ["elephant", "badger"]
+    },
+    {
+        "id": 141,
+        "question": "hedgehog",
+        "trueAnswer": "hedgehog",
+        "falseAnswer": ["monkey", "llama"]
+    },
+    {
+        "id": 142,
+        "question": "hedgehog",
+        "trueAnswer": "hedgehog",
+        "falseAnswer": ["meerkat", "rabbit"]
+    },
+    {
+        "id": 146,
+        "question": "turtle",
+        "trueAnswer": "turtle",
+        "falseAnswer": ["snake", "crocodile"]
+    },
+    {
+        "id": 147,
+        "question": "turtle",
+        "trueAnswer": "turtle",
+        "falseAnswer": ["frog", "deer"]
+    },
+    {
+        "id": 151,
+        "question": "beaver",
+        "trueAnswer": "beaver",
+        "falseAnswer": ["squirrel", "meerkat"]
+    },
+    {
+        "id": 152,
+        "question": "beaver",
+        "trueAnswer": "beaver",
+        "falseAnswer": ["monkey", "kangaroo"]
+    },
+    {
+        "id": 156,
+        "question": "squirrel",
+        "trueAnswer": "squirrel",
+        "falseAnswer": ["kangaroo", "monkey"]
+    },
+    {
+        "id": 157,
+        "question": "squirrel",
+        "trueAnswer": "squirrel",
+        "falseAnswer": ["rabbit", "mouse"]
+    },
+    {
+        "id": 161,
+        "question": "gazelle",
+        "trueAnswer": "gazelle",
+        "falseAnswer": ["deer", "goat"]
+    },
+    {
+        "id": 162,
+        "question": "gazelle",
+        "trueAnswer": "gazelle",
+        "falseAnswer": ["antelope", "donkey"]
+    },
+    {
+        "id": 166,
+        "question": "badger",
+        "trueAnswer": "badger",
+        "falseAnswer": ["elephant", "hippopotamus"]
+    },
+    {
+        "id": 167,
+        "question": "badger",
+        "trueAnswer": "badger",
+        "falseAnswer": ["rhinoceros", "wolf"]
+    },
+    {
+        "id": 171,
+        "question": "jackal",
+        "trueAnswer": "jackal",
+        "falseAnswer": ["dog", "donkey"]
+    },
+    {
+        "id": 172,
+        "question": "jackal",
+        "trueAnswer": "jackal",
+        "falseAnswer": ["horse", "goat"]
+    },
+    {
+        "id": 176,
+        "question": "llama",
+        "trueAnswer": "llama",
+        "falseAnswer": ["sheep", "goose"]
+    },
+    {
+        "id": 177,
+        "question": "llama",
+        "trueAnswer": "llama",
+        "falseAnswer": ["camel", "cow"]
+    },
+    {
+        "id": 181,
+        "question": "mouse",
+        "trueAnswer": "mouse",
+        "falseAnswer": ["monkey", "rabbit"]
+    },
+    {
+        "id": 182,
+        "question": "mouse",
+        "trueAnswer": "mouse",
+        "falseAnswer": ["squirrel", "beaver"]
+    },
+    {
+        "id": 186,
+        "question": "kangaroo",
+        "trueAnswer": "kangaroo",
+        "falseAnswer": ["rabbit", "squirrel"]
+    },
+    {
+        "id": 187,
+        "question": "kangaroo",
+        "trueAnswer": "kangaroo",
+        "falseAnswer": ["meerkat", "mouse"]
+    },
+    {
+        "id": 191,
+        "question": "meerkat",
+        "trueAnswer": "meerkat",
+        "falseAnswer": ["kangaroo", "mouse"]
+    },
+    {
+        "id": 192,
+        "question": "meerkat",
+        "trueAnswer": "meerkat",
+        "falseAnswer": ["rabbit", "squirrel"]
+    },
+    {
+        "id": 196,
+        "question": "crocodile",
+        "trueAnswer": "crocodile",
+        "falseAnswer": ["frog", "turtle"]
+    },
+    {
+        "id": 197,
+        "question": "crocodile",
+        "trueAnswer": "crocodile",
+        "falseAnswer": ["snake", "frog"]
+    },
+    {
+        "id": 201,
+        "question": "fish",
+        "trueAnswer": "fish",
+        "falseAnswer": ["cat", "tiger"]
+    },
+    {
+        "id": 202,
+        "question": "fish",
+        "trueAnswer": "fish",
+        "falseAnswer": ["dog", "fox"]
+    }
+]

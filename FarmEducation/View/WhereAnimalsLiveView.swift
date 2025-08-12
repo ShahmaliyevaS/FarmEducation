@@ -45,22 +45,7 @@ struct WhereAnimalsLiveView: View {
                                     Button {
                                         saveScore()
                                     } label: {
-                                        Image("smallCould")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .opacity(0.8)
-                                            .frame(height: 50)
-                                            .shadow(color: Color.lavenderBlueColor.opacity(0.6), radius: 10, x: 5, y: 5)
-                                            .overlay(
-                                                HStack(spacing: 1) {
-                                                    Image(systemName: "arrowshape.turn.up.backward.fill")
-                                                    Text("Exit")
-                                                        .bold()
-                                                }
-                                                    .chalkboardFont(size: 16)
-                                                    .foregroundStyle(Color.skyBlueColor.opacity(0.7))
-                                                    .offset(y: 4)
-                                            )
+                                        ExitView()
                                     }
                                     Spacer()
                                 } // Exit button
@@ -69,13 +54,19 @@ struct WhereAnimalsLiveView: View {
                                 .padding(.horizontal)
                                 
                                 Spacer()
-                                
+                                Text(gameType.title)
+                                    .chalkboardFont(size: 28)
+                                    .bold()
+                                    .foregroundStyle(Color.burntOrangeColor)
+                                    .animation(.spring, value: questionImageAnimation)
+                                    .padding(.bottom, 32)
                                 HStack(spacing: 20) {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
                                         let size = screenWidth / 12
                                         let image = answer == option && answer != round.correctAnswer ? "falseImage" : option
-                                        let backgroundColor = answer == option ? Color.clear : .sunGlowColor
+                                        let backgroundColor = Color.clear
+//                                        answer == option ? Color.clear : .sunGlowColor
                                         let cornerColor =  answer == option ? Color.clear : .burntOrangeColor
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         OptionButtonView(backgroundColor:  backgroundColor ,
@@ -83,6 +74,7 @@ struct WhereAnimalsLiveView: View {
                                                          image: image,
                                                          shadow: answer == option ? false : true
                                         )
+                                        .frame(height: 160)
                                         .offset(x: answer == option ? centerOffset : 0,
                                                 y: answer == option ? -screenHeight/10 : 0)
                                         .animation(.smooth, value: offsetAnimation)

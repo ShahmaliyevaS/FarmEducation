@@ -48,22 +48,7 @@ struct WhichAnimalsShadowView: View {
                                     Button {
                                         saveScore()
                                     } label: {
-                                        Image("smallCould")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .opacity(0.8)
-                                            .frame(height: 50)
-                                            .shadow(color: Color.lavenderBlueColor.opacity(0.6), radius: 10, x: 5, y: 5)
-                                            .overlay(
-                                                HStack(spacing: 1) {
-                                                    Image(systemName: "arrowshape.turn.up.backward.fill")
-                                                    Text("Exit")
-                                                        .bold()
-                                                }
-                                                    .chalkboardFont(size: 16)
-                                                    .foregroundStyle(Color.skyBlueColor.opacity(0.7))
-                                                    .offset(y: 4)
-                                            )
+                                        ExitView()
                                     }
                                     Spacer()
                                 } // Exit button
@@ -92,7 +77,7 @@ struct WhichAnimalsShadowView: View {
                                     
                                 }
                                 
-                                Text(round.question.capitalized)
+                                Text(gameType.title)
                                     .chalkboardFont(size: 28)
                                     .bold()
                                     .foregroundStyle(Color.burntOrangeColor)
@@ -112,6 +97,7 @@ struct WhichAnimalsShadowView: View {
                                                          image: image,
                                                          shadow: answer == option ? false : true
                                         )
+                                        .frame(height: 160)
                                         .offset(x: answer == option ? centerOffset : 0,
                                                 y: answer == option ? -screenHeight/12 : 0)
                                         .scaleEffect(answer == option ? 5 : 1)

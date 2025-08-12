@@ -20,8 +20,11 @@
 		ED4632432DF8571B009CF8FD /* TwirlingDropAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */; };
 		ED4632452DFAF162009CF8FD /* FireWorksComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */; };
 		ED4632472E028E24009CF8FD /* FireWorksAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */; };
-		ED5504652E27807000114A11 /* WhoseTailIsThisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5504642E27807000114A11 /* WhoseTailIsThisView.swift */; };
+		ED5504652E27807000114A11 /* WhosePartIsThisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5504642E27807000114A11 /* WhosePartIsThisView.swift */; };
 		ED5504672E297A5F00114A11 /* WhoIsMyPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5504662E297A5F00114A11 /* WhoIsMyPairView.swift */; };
+		ED5504692E2C349A00114A11 /* whoIsMyPair.json in Resources */ = {isa = PBXBuildFile; fileRef = ED5504682E2C349A00114A11 /* whoIsMyPair.json */; };
+		ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */ = {isa = PBXBuildFile; fileRef = ED55046A2E3370F300114A11 /* whosePartIsThis.json */; };
+		ED55046F2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */; };
 		EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CB92DDF0AE10082C349 /* Question.swift */; };
 		EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC42DDF0C960082C349 /* JSONLoader.swift */; };
 		EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */; };
@@ -32,13 +35,17 @@
 		EDC360D22E054C7A00BC66FB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D12E054C7A00BC66FB /* Score.swift */; };
 		EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D32E054E5600BC66FB /* ScoreManager.swift */; };
 		EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */; };
-		EDC360E02E1D482100BC66FB /* FarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360DF2E1D482100BC66FB /* FarmData.swift */; };
+		EDC360E02E1D482100BC66FB /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360DF2E1D482100BC66FB /* DataLoader.swift */; };
 		EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC360E12E20F45700BC66FB /* whatAnimalsEat.json */; };
 		EDC360E42E20F45C00BC66FB /* whereAnimalsLive.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC360E32E20F45C00BC66FB /* whereAnimalsLive.json */; };
 		EDC360E62E2130BC00BC66FB /* WhereAnimalsLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360E52E2130BC00BC66FB /* WhereAnimalsLiveView.swift */; };
 		EDC360E82E2186A900BC66FB /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360E72E2186A800BC66FB /* Places.swift */; };
 		EDC360EA2E22DDA300BC66FB /* WhichAnimalsShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360E92E22DDA300BC66FB /* WhichAnimalsShadowView.swift */; };
 		EDC360EC2E22E77400BC66FB /* whichAnimalsShadow.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC360EB2E22E77400BC66FB /* whichAnimalsShadow.json */; };
+		EDE26BEB2E4A024E009F9213 /* ImageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BEA2E4A024E009F9213 /* ImageLayout.swift */; };
+		EDE26BED2E4A0441009F9213 /* StaticStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BEC2E4A0441009F9213 /* StaticStore.swift */; };
+		EDE26BEF2E4B2655009F9213 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BEE2E4B2655009F9213 /* Constants.swift */; };
+		EDE26BF12E4B2E2F009F9213 /* ExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BF02E4B2E2F009F9213 /* ExitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +63,11 @@
 		ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwirlingDropAnimationView.swift; sourceTree = "<group>"; };
 		ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWorksComponentView.swift; sourceTree = "<group>"; };
 		ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWorksAnimationView.swift; sourceTree = "<group>"; };
-		ED5504642E27807000114A11 /* WhoseTailIsThisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoseTailIsThisView.swift; sourceTree = "<group>"; };
+		ED5504642E27807000114A11 /* WhosePartIsThisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosePartIsThisView.swift; sourceTree = "<group>"; };
 		ED5504662E297A5F00114A11 /* WhoIsMyPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsMyPairView.swift; sourceTree = "<group>"; };
+		ED5504682E2C349A00114A11 /* whoIsMyPair.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whoIsMyPair.json; sourceTree = "<group>"; };
+		ED55046A2E3370F300114A11 /* whosePartIsThis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whosePartIsThis.json; sourceTree = "<group>"; };
+		ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsMyPairViewModel.swift; sourceTree = "<group>"; };
 		EDC27CB92DDF0AE10082C349 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		EDC27CC42DDF0C960082C349 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
@@ -68,13 +78,17 @@
 		EDC360D12E054C7A00BC66FB /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		EDC360D32E054E5600BC66FB /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
-		EDC360DF2E1D482100BC66FB /* FarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmData.swift; sourceTree = "<group>"; };
+		EDC360DF2E1D482100BC66FB /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		EDC360E12E20F45700BC66FB /* whatAnimalsEat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whatAnimalsEat.json; sourceTree = "<group>"; };
 		EDC360E32E20F45C00BC66FB /* whereAnimalsLive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whereAnimalsLive.json; sourceTree = "<group>"; };
 		EDC360E52E2130BC00BC66FB /* WhereAnimalsLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAnimalsLiveView.swift; sourceTree = "<group>"; };
 		EDC360E72E2186A800BC66FB /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		EDC360E92E22DDA300BC66FB /* WhichAnimalsShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichAnimalsShadowView.swift; sourceTree = "<group>"; };
 		EDC360EB2E22E77400BC66FB /* whichAnimalsShadow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whichAnimalsShadow.json; sourceTree = "<group>"; };
+		EDE26BEA2E4A024E009F9213 /* ImageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayout.swift; sourceTree = "<group>"; };
+		EDE26BEC2E4A0441009F9213 /* StaticStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticStore.swift; sourceTree = "<group>"; };
+		EDE26BEE2E4B2655009F9213 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EDE26BF02E4B2E2F009F9213 /* ExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +152,7 @@
 				ED0E22DA2DDB159E007DAC08 /* WhatAnimalsEatView.swift */,
 				EDC360E52E2130BC00BC66FB /* WhereAnimalsLiveView.swift */,
 				EDC360E92E22DDA300BC66FB /* WhichAnimalsShadowView.swift */,
-				ED5504642E27807000114A11 /* WhoseTailIsThisView.swift */,
+				ED5504642E27807000114A11 /* WhosePartIsThisView.swift */,
 				ED5504662E297A5F00114A11 /* WhoIsMyPairView.swift */,
 			);
 			path = View;
@@ -149,6 +163,7 @@
 			children = (
 				ED0E22DD2DDB1E62007DAC08 /* OptionButtonView.swift */,
 				ED0E22DF2DDB4FE0007DAC08 /* GameCardView.swift */,
+				EDE26BF02E4B2E2F009F9213 /* ExitView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -169,6 +184,7 @@
 				EDC27CB92DDF0AE10082C349 /* Question.swift */,
 				EDC27CC92DDF14640082C349 /* QuestionRound.swift */,
 				EDC360D12E054C7A00BC66FB /* Score.swift */,
+				EDE26BEA2E4A024E009F9213 /* ImageLayout.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,8 +196,8 @@
 				ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */,
 				ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */,
 				ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */,
-				EDC360CB2E03ED2100BC66FB /* ExplosionAnimationView.swift */,
 				EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */,
+				EDC360CB2E03ED2100BC66FB /* ExplosionAnimationView.swift */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -190,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC27CC42DDF0C960082C349 /* JSONLoader.swift */,
+				EDC360DF2E1D482100BC66FB /* DataLoader.swift */,
 				EDC360D32E054E5600BC66FB /* ScoreManager.swift */,
 			);
 			path = Utils;
@@ -198,10 +215,13 @@
 		EDC27CBF2DDF0BE40082C349 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED55046A2E3370F300114A11 /* whosePartIsThis.json */,
+				ED5504682E2C349A00114A11 /* whoIsMyPair.json */,
 				EDC360EB2E22E77400BC66FB /* whichAnimalsShadow.json */,
 				EDC360E32E20F45C00BC66FB /* whereAnimalsLive.json */,
 				EDC360E12E20F45700BC66FB /* whatAnimalsEat.json */,
-				EDC360DF2E1D482100BC66FB /* FarmData.swift */,
+				EDE26BEC2E4A0441009F9213 /* StaticStore.swift */,
+				EDE26BEE2E4B2655009F9213 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -210,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */,
+				ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -284,6 +305,8 @@
 				ED0E22D32DDB140F007DAC08 /* Preview Assets.xcassets in Resources */,
 				EDC360EC2E22E77400BC66FB /* whichAnimalsShadow.json in Resources */,
 				EDC360E42E20F45C00BC66FB /* whereAnimalsLive.json in Resources */,
+				ED5504692E2C349A00114A11 /* whoIsMyPair.json in Resources */,
+				ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */,
 				EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */,
 				ED0E22D02DDB140F007DAC08 /* Assets.xcassets in Resources */,
 			);
@@ -296,6 +319,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDE26BEB2E4A024E009F9213 /* ImageLayout.swift in Sources */,
+				EDE26BED2E4A0441009F9213 /* StaticStore.swift in Sources */,
 				EDC27CCD2DDF1DF70082C349 /* ColorExtention.swift in Sources */,
 				ED4632452DFAF162009CF8FD /* FireWorksComponentView.swift in Sources */,
 				ED0E22CE2DDB140C007DAC08 /* ContentView.swift in Sources */,
@@ -309,19 +334,22 @@
 				EDC360E82E2186A900BC66FB /* Places.swift in Sources */,
 				ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */,
 				EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */,
-				EDC360E02E1D482100BC66FB /* FarmData.swift in Sources */,
+				EDC360E02E1D482100BC66FB /* DataLoader.swift in Sources */,
 				EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */,
 				ED4632432DF8571B009CF8FD /* TwirlingDropAnimationView.swift in Sources */,
 				EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */,
+				EDE26BEF2E4B2655009F9213 /* Constants.swift in Sources */,
 				ED0E22DE2DDB1E62007DAC08 /* OptionButtonView.swift in Sources */,
 				ED0E22DB2DDB159E007DAC08 /* WhatAnimalsEatView.swift in Sources */,
-				ED5504652E27807000114A11 /* WhoseTailIsThisView.swift in Sources */,
+				ED5504652E27807000114A11 /* WhosePartIsThisView.swift in Sources */,
 				EDC360D22E054C7A00BC66FB /* Score.swift in Sources */,
+				ED55046F2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift in Sources */,
 				ED0E22E02DDB4FE0007DAC08 /* GameCardView.swift in Sources */,
 				ED0E22E62DDC796F007DAC08 /* CardDesign.swift in Sources */,
 				EDC360CC2E03ED2100BC66FB /* ExplosionAnimationView.swift in Sources */,
 				ED0E22CC2DDB140C007DAC08 /* FarmEducationApp.swift in Sources */,
 				ED0E22E32DDC6DD9007DAC08 /* GameType.swift in Sources */,
+				EDE26BF12E4B2E2F009F9213 /* ExitView.swift in Sources */,
 				ED5504672E297A5F00114A11 /* WhoIsMyPairView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

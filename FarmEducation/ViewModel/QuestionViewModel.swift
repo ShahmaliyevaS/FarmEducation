@@ -18,13 +18,14 @@ class QuestionViewModel: ObservableObject {
     @Published var currentRound: QuestionRound?
     
     func loadQuestions(for gameType: GameType) {
-        switch gameType {
-        case .whatAnimalsEat:
-            allQuestions = FarmData.whatAnimalsEatQuestions
-        case .whereAnimalsLive:
-            allQuestions = FarmData.whereAnimalsLiveQuestions
-        case .whichAnimalsShadow:
-            allQuestions = FarmData.whichAnimalsShadow
+        if gameType == .whatAnimalsEat {
+            allQuestions = DataLoader.whatAnimalsEatQuestions
+        } else if gameType == .whereAnimalsLive {
+            allQuestions = DataLoader.whereAnimalsLiveQuestions
+        } else if gameType == .whichAnimalsShadow {
+            allQuestions = DataLoader.whichAnimalsShadowQuestions
+        } else if gameType == .whosePartIsThis {
+            allQuestions = DataLoader.whosePartIsThisQuestions
         }
         
         allQuestionsId = Array(0..<allQuestions.count)

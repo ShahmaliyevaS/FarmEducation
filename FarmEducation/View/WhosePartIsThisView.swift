@@ -15,11 +15,14 @@ struct WhosePartIsThisView: View {
     @State var disabledAnswers: Set<Int> = []
     @State var offsetAnimation = false
     @State var questionImageAnimation = false
-    @State var correctAnswersCount = 0
     @State var isHidden = false
+    @State var correctAnswersCount = 0
+    @State var selectedParts: [Int] = [4]
     @StateObject var viewModel = QuestionViewModel()
     
-    var gameType: GameType = .whichAnimalsShadow
+    let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
+    var gameType: GameType = .whosePartIsThis
+    var data = Array(repeating: "", count: 9)
     
     var body: some View {
         ZStack {
@@ -29,40 +32,12 @@ struct WhosePartIsThisView: View {
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
                         ZStack (alignment: .topLeading) {
-                            Image("farm2")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 0.6)
-                                .overlay {
-                                    LinearGradient(
-                                        stops: [
-                                            .init(color: .clear, location: 0),
-                                            .init(color: .greenNeonGrassColor, location: 1)
-                                        ],
-                                        startPoint: .center,
-                                        endPoint: .bottom)
-                                }
                             VStack {
                                 HStack {
                                     Button {
                                         saveScore()
                                     } label: {
-                                        Image("smallCould")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .opacity(0.8)
-                                            .frame(height: 50)
-                                            .shadow(color: Color.lavenderBlueColor.opacity(0.6), radius: 10, x: 5, y: 5)
-                                            .overlay(
-                                                HStack(spacing: 1) {
-                                                    Image(systemName: "arrowshape.turn.up.backward.fill")
-                                                    Text("Exit")
-                                                        .bold()
-                                                }
-                                                    .chalkboardFont(size: 16)
-                                                    .foregroundStyle(Color.skyBlueColor.opacity(0.7))
-                                                    .offset(y: 4)
-                                            )
+                                        ExitView()
                                     }
                                     Spacer()
                                 } // Exit button
@@ -71,27 +46,41 @@ struct WhosePartIsThisView: View {
                                 .padding(.horizontal)
                                 
                                 Spacer()
-                                ZStack(alignment: .bottom) {
+                                ZStack {
                                     Image(round.question)
                                         .resizable()
                                         .scaledToFit()
-                                        .scaledToFill()
-                                        .frame(height: screenHeight/2.2)
+                                        .frame(height: 400)
                                         .shadow(radius: 10)
-                                        .opacity(isHidden ? 0 : 1)
                                         .animation(.snappy, value: questionImageAnimation)
-                                        .animation(.smooth(duration: TimeInterval(1.8)), value: isHidden)
-                                    Image("hay")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .scaleEffect(x: -1.2, y: 2)
-                                        .offset(x: -140, y: -150)
+                                        .opacity(isHidden ? 0 : 1)
+                                        .animation(.smooth(duration: TimeInterval(0.8)), value: isHidden)
+                                    
+                                    LazyVGrid(columns: columns, spacing: 0) {
+                                        ForEach(Array(data.enumerated()), id: \.offset) { index, item in
+                                            Rectangle()
+                                                .fill(selectedParts.last == index ? .clear : StaticStore.pastelColors[index])
+                                                .frame(width: (screenWidth-8)/3.25, height: 160)
+                                                .border(Color.lavenderBlueColor)
+                                                .animation(.smooth, value: selectedParts.last != index)
+                                                .onTapGesture {
+                                                    if selectedParts.count == 1 && selectedParts.last != index {
+                                                        selectedParts.append(index)
+                                                    }
+                                                }
+                                        }
+                                    }
+                                    .cornerRadius(44)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 44)
+                                            .stroke(Color.lavenderBlueColor, lineWidth: 4)
+                                    )
+                                    .padding(.horizontal)
                                 }
-                                
-                                Text(round.question.capitalized)
+                                Text(gameType.title)
                                     .chalkboardFont(size: 28)
                                     .bold()
-                                    .foregroundStyle(Color.burntOrangeColor)
+                                    .foregroundStyle(Color.lavenderBlueColor)
                                     .animation(.spring, value: questionImageAnimation)
                                     .padding(.bottom, 32)
                                 
@@ -99,22 +88,24 @@ struct WhosePartIsThisView: View {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
                                         let size = screenWidth / 16
-                                        let image = answer == option && answer != round.correctAnswer ? "falseImage" : option
-                                        let backgroundColor = answer == option ? Color.clear : .sunGlowColor
-                                        let cornerColor =  answer == option ? Color.clear : .burntOrangeColor
+                                        let image = answer == option && answer != round.correctAnswer
+                                        ? Constants.falseImage : option
+                                        let cornerColor =  answer == option ? Color.clear : .lavenderBlueColor
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
-                                        OptionButtonView(backgroundColor:  backgroundColor ,
-                                                         cornerColor: cornerColor,
-                                                         image: image,
-                                                         shadow: answer == option ? false : true
+                                        OptionButtonView(
+                                            backgroundColor: .clear ,
+                                            cornerColor: cornerColor,
+                                            image: image,
+                                            shadow: answer == option ? false : true
                                         )
+                                        .frame(height: 160)
                                         .offset(x: answer == option ? centerOffset : 0,
                                                 y: answer == option ? -screenHeight/12 : 0)
                                         .scaleEffect(answer == option ? 5 : 1)
                                         .animation(.smooth, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
-                                                Image("falseImage")
+                                                Image(Constants.falseImage)
                                                     .resizable()
                                                     .scaledToFit()
                                             }
@@ -125,7 +116,6 @@ struct WhosePartIsThisView: View {
                                                     firstFalseAnswer = option
                                                     disabledAnswers.insert(i)
                                                 } else {
-                                                    isHidden = true
                                                     answer = option
                                                     offsetAnimation.toggle()
                                                     
@@ -135,16 +125,18 @@ struct WhosePartIsThisView: View {
                                                     }
                                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                                         firstFalseAnswer = ""
+                                                        isHidden = false
                                                         answer = ""
                                                         disabledAnswers = []
                                                         offsetAnimation.toggle()
-                                                        isHidden = false
                                                         questionImageAnimation.toggle()
                                                         viewModel.loadNextQuestion()
+                                                        selectedParts = [4]
                                                     }
                                                 }
                                             }
                                             if option == round.correctAnswer {
+                                                isHidden = true
                                                 correctAnswersCount += 1
                                             }
                                         }
@@ -159,15 +151,17 @@ struct WhosePartIsThisView: View {
                         }
                     } //GeometryReader
                     .ignoresSafeArea()
-                } // end of if statement
+                } // if statement
             } //VStack
             .navigationBarBackButtonHidden(true)
-            .background{
-                Color.greenNeonGrassColor
-                    .ignoresSafeArea()
+            .background {
+                LinearGradient(
+                    gradient: Gradient(colors: [.skyWhisperColor, .cherryMilkColor]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ).ignoresSafeArea()
             }
             .onAppear {
-                //onAppear
                 viewModel.loadQuestions(for: gameType)
             }
         } //ZStack

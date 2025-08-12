@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct ImageLayout {
+    let image: String
+    let size: CGFloat
+    let offsetX: CGFloat
+    let offsetY: CGFloat?
+}

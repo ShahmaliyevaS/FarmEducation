@@ -26,12 +26,16 @@ struct ContentView: View {
             }
             .navigationDestination(item: $selectedGame) { game in
                 switch game {
-                case .whatAnimalsEat:
-                     WhatAnimalsEatView()
-                case .whereAnimalsLive:
-                     WhereAnimalsLiveView()
-                case .whichAnimalsShadow:
-                    WhichAnimalsShadowView()
+                    case .whatAnimalsEat:
+                        WhatAnimalsEatView()
+                    case .whereAnimalsLive:
+                        WhereAnimalsLiveView()
+                    case .whichAnimalsShadow:
+                        WhichAnimalsShadowView()
+                    case .whosePartIsThis:
+                        WhosePartIsThisView()
+                    case .whoIsMyPair:
+                        WhoIsMyPairView()
                 }
             }
             .background{

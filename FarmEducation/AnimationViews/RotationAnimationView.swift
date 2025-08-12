@@ -13,7 +13,7 @@ struct RotationAnimationView: View {
     @State var isVisable = false
     private let arrayX = Array(-250...250).shuffled()
     private let arrayY = Array(-450...450).shuffled()
-    var word = "bravo"
+    var word: String = "Bravo"
     
     var body: some View {
         ZStack {

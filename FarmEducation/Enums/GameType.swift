@@ -12,22 +12,27 @@ enum GameType: String, Codable, CaseIterable, Identifiable {
     case whatAnimalsEat = "whatAnimalsEat"
     case whereAnimalsLive = "whereAnimalsLive"
     case whichAnimalsShadow = "whichAnimalsShadow"
+    case whosePartIsThis = "whosePartIsThis"
+    case whoIsMyPair = "whoIsMyPair"
     
     var id: String { self.rawValue }
     
     var title: String {
         switch self {
         case .whatAnimalsEat:
-            return "What Do Animals Eat?"
+            return "What does this animal eat?"
         case .whereAnimalsLive:
-            return "Where Do Animals Live?"
+            return "Which animal lives here?"
         case .whichAnimalsShadow:
             return "Whose shadow is this?"
+        case .whosePartIsThis:
+            return "Whose body part is this?"
+        case .whoIsMyPair:
+            return "Match the Animals"
         }
     }
 }
 
-//Add extensionds for Game Card design
 extension GameType {
     var cardDesign: CardDesign {
         switch self {
@@ -37,6 +42,10 @@ extension GameType {
             return CardDesign(question: "forest", options: ["cat", "deer"])
         case .whichAnimalsShadow:
             return CardDesign(question: "blackAntelope", options: ["antelope", "deer"])
+        case .whosePartIsThis:
+            return CardDesign(question: "cow", options: ["carrot", "egg"])
+        case .whoIsMyPair:
+            return CardDesign(question: "cow", options: ["carrot", "egg"])
         }
     }
 }

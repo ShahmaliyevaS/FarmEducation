@@ -32,4 +32,5 @@ extension Color {
     static let cherryMilkColor = Color("cherryMilkColor")
     static let freshLimeColor = Color("freshLimeColor")
     static let electricAvocadoColor = Color("electricAvocadoColor")
+    static let oceanColor = Color("oceanColor")
 }

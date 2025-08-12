@@ -47,22 +47,7 @@ struct WhatAnimalsEatView: View {
                                     Button {
                                         saveScore()
                                     } label: {
-                                        Image("smallCould")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .opacity(0.8)
-                                            .frame(height: 50)
-                                            .shadow(color: Color.lavenderBlueColor.opacity(0.6), radius: 10, x: 5, y: 5)
-                                            .overlay(
-                                                HStack(spacing: 1) {
-                                                    Image(systemName: "arrowshape.turn.up.backward.fill")
-                                                    Text("Exit")
-                                                        .bold()
-                                                }
-                                                    .chalkboardFont(size: 16)
-                                                    .foregroundStyle(Color.skyBlueColor.opacity(0.7))
-                                                    .offset(y: 4)
-                                            )
+                                        ExitView()
                                     }
                                     Spacer()
                                 } // Exit button
@@ -85,7 +70,7 @@ struct WhatAnimalsEatView: View {
                                         .animation(.snappy, value: questionImageAnimation)
                                 }
                                 
-                                Text(round.question.capitalized)
+                                Text(gameType.title)
                                     .chalkboardFont(size: 28)
                                     .bold()
                                     .foregroundStyle(Color.burntOrangeColor)
@@ -97,7 +82,7 @@ struct WhatAnimalsEatView: View {
                                         let option = round.options[i]
                                         let size = screenWidth / 5.1
                                         let image = answer == option && answer == round.correctAnswer ? "rightImage" : (answer == option && answer != round.correctAnswer ? "falseImage" : option )
-                                        let backgroundColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor.opacity(0.2) : (answer == option && answer != round.correctAnswer ? .brickRedColor.opacity(0.2) : .sunGlowColor)
+                                        let backgroundColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor.opacity(0.2) : (answer == option && answer != round.correctAnswer ? .brickRedColor.opacity(0.2) : .clear)
                                         let cornerColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor : (answer == option && answer != round.correctAnswer ? .brickRedColor : .burntOrangeColor)
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         
@@ -105,6 +90,7 @@ struct WhatAnimalsEatView: View {
                                                          cornerColor: cornerColor,
                                                          image: image
                                         )
+                                        .frame(height: 160)
                                         .offset(x: answer == option ? centerOffset : 0,
                                                 y: answer == option ? -screenHeight/4 : 0)
                                         .animation(.bouncy, value: offsetAnimation)

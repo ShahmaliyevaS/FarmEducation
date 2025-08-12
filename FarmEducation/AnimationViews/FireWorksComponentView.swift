@@ -11,18 +11,18 @@ struct FireWorksComponentView: View {
     @State private var animation = false
     var frameWidth: CGFloat = 40
     var lineWidth: CGFloat = 12
-    
+   
     var body: some View {
         ZStack {
             ForEach(0..<72, id: \.self) { i in
-                let color: Color = (i % 3 == 0) ? Color.customRandom : .clear
+                let color: Color = (i % 3 == 0) ? StaticStore.brightColors.randomElement()! : .clear
                 Circle()
                     .trim(from: CGFloat(i) / 72, to: CGFloat(i + 1) / 72)
                     .stroke(color, lineWidth: lineWidth)
                     .frame(width: animation ? frameWidth + 100 : frameWidth-20)
                     .rotationEffect(.degrees(Double(i) * (360.0 / 72)))
             }
-               }
+        }
         .frame(width: frameWidth+20)
         .clipShape(Circle())
         .onAppear {
