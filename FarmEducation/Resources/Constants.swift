@@ -10,10 +10,15 @@ import Foundation
 struct Constants {
     static let smallCould = "smallCould"
     static let falseImage = "falseImage"
+    static let rightImage = "rightImage"
     static let exit = "Exit"
     static let turnUp = "arrowshape.turn.up.backward.fill"
     static let whosePart = "whosePart"
     static let newGame = "New game"
+    
+    //places
+    static let farmBackground = "farmBackground"
+    static let questionBackgroud = "questionBackgroud"
     
     
     //animals
@@ -59,4 +64,32 @@ struct Constants {
     static let crocodile = "crocodile"
     static let fish = "fish"
     static let snake = "snake"
+    
+    // meal
+    static let apple = "apple"
+    static let banana = "banana"
+    static let bamboo = "bamboo"
+    static let broccoli = "broccoli"
+    static let cabbage = "cabbage"
+    static let carrot = "carrot"
+    static let cherry = "cherry"
+    static let corn = "corn"
+    static let cucumber = "cucumber"
+    static let egg = "egg"
+    static let grass = "grass"
+    static let grapes = "grapes"
+    static let hay = "hay"
+    static let meat = "meat"
+    static let mushroom = "mushroom"
+    static let nuts = "nuts"
+    static let pear = "pear"
+    static let pineapple = "pineapple"
+    static let potato = "potato"
+    static let pumpkin = "pumpkin"
+    static let rice = "rice"
+    static let strawberry = "strawberry"
+    static let watermelon = "watermelon"
+    static let cheese = "cheese"
+    static let onion = "onion"
+    static let garlic = "garlic"
 }

@@ -368,7 +368,7 @@
     {
         "id": 62,
         "question": "fox",
-        "trueAnswer": "rabbits",
+        "trueAnswer": "rabbit",
         "falseAnswer": ["chocolate", "garlic"]
     },
     {
@@ -1190,7 +1190,7 @@
     {
         "id": 199,
         "question": "crocodile",
-        "trueAnswer": "rabbits",
+        "trueAnswer": "rabbit",
         "falseAnswer": ["corn", "tomato"]
     },
     {

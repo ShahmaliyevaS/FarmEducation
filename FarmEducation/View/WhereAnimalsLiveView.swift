@@ -43,7 +43,8 @@ struct WhereAnimalsLiveView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        saveScore()
+                                        ScoreManager.score.saveScore(gameType, askedQuestionsCount: viewModel.getAskedQuestionCount()-1, correctAnswersCount: correctAnswersCount)
+                                        dismiss()
                                     } label: {
                                         ExitView()
                                     }
@@ -64,9 +65,8 @@ struct WhereAnimalsLiveView: View {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
                                         let size = screenWidth / 12
-                                        let image = answer == option && answer != round.correctAnswer ? "falseImage" : option
+                                        let image = answer == option && answer != round.correctAnswer ? Constants.falseImage : option
                                         let backgroundColor = Color.clear
-//                                        answer == option ? Color.clear : .sunGlowColor
                                         let cornerColor =  answer == option ? Color.clear : .burntOrangeColor
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         OptionButtonView(backgroundColor:  backgroundColor ,
@@ -80,7 +80,7 @@ struct WhereAnimalsLiveView: View {
                                         .animation(.smooth, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
-                                                Image("falseImage")
+                                                Image(Constants.falseImage)
                                                     .resizable()
                                                     .scaledToFit()
                                             }
@@ -133,36 +133,10 @@ struct WhereAnimalsLiveView: View {
             } //VStack
             .navigationBarBackButtonHidden(true)
             .onAppear {
-                //onAppear
                 viewModel.loadQuestions(for: gameType)
-                
             }
+            AnimationManager(score: correctAnswersCount)
         } //ZStack
-    }
-    
-    func saveScore() {
-        var bestScore = 0
-        var bestScoreQuestionCount = 0
-        let askedQuestionsCount = viewModel.getAskedQuestionCount()
-        if let score = ScoreManager.score.get(for: gameType) {
-            bestScore = score.best
-            bestScoreQuestionCount = score.bestCount
-        }else {
-            bestScore = correctAnswersCount
-            bestScoreQuestionCount = askedQuestionsCount
-        }
-        
-        if bestScore == correctAnswersCount {
-            bestScoreQuestionCount = bestScoreQuestionCount < askedQuestionsCount ? bestScoreQuestionCount : askedQuestionsCount
-        } else {
-            bestScoreQuestionCount = bestScore>=correctAnswersCount ? bestScoreQuestionCount : askedQuestionsCount
-            bestScore = bestScore>=correctAnswersCount ? bestScore : correctAnswersCount
-        }
-        
-        let newScore = Score(recent: correctAnswersCount, recentCount: askedQuestionsCount, best: bestScore, bestCount: bestScoreQuestionCount)
-        ScoreManager.score.save(newScore, for: gameType.rawValue)
-        
-        dismiss()
     }
 }
 

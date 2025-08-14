@@ -23,19 +23,20 @@ struct GameCardView: View {
                 .cornerRadius(16)
                 .padding(.top)
             
-            Text(gameType.title.capitalized)
+            Text(gameType.title)
                 .foregroundStyle(Color.lavenderBlueColor)
-                .chalkboardFont(size: 32)
+                .chalkboardFont(size: 20)
+                .bold()
                 .multilineTextAlignment(.center)
             Spacer()
             VStack (alignment: .leading) {
                 Text("Last Score: \(score.recent) from \(score.recentCount)")
                     .foregroundStyle(Color.lavenderBlueColor)
-                    .chalkboardFont(size: 20)
+                    .chalkboardFont(size: 16)
                 
                 Text("Best Score: \(score.best) from \(score.bestCount)")
                     .foregroundStyle(Color.lavenderBlueColor)
-                    .chalkboardFont(size: 20)
+                    .chalkboardFont(size: 16)
             }
             .padding(.bottom)
             Spacer()

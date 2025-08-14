@@ -37,15 +37,15 @@ extension GameType {
     var cardDesign: CardDesign {
         switch self {
         case .whatAnimalsEat:
-            return CardDesign(question: "cow", options: ["carrot", "egg"])
+            return CardDesign(question: Constants.camel, options: [Constants.pumpkin, Constants.garlic])
         case .whereAnimalsLive:
-            return CardDesign(question: "forest", options: ["cat", "deer"])
+            return CardDesign(question: "forest", options: [Constants.cat, Constants.deer])
         case .whichAnimalsShadow:
-            return CardDesign(question: "blackAntelope", options: ["antelope", "deer"])
+            return CardDesign(question: "blackAntelope", options: [Constants.antelope, Constants.deer])
         case .whosePartIsThis:
             return CardDesign(question: Constants.whosePart, options: [Constants.crocodile, Constants.snake])
         case .whoIsMyPair:
-            return CardDesign(question: "cow", options: ["carrot", "egg"])
+            return CardDesign(question: Constants.badger, options: [Constants.badger, Constants.giraffe])
         }
     }
 }

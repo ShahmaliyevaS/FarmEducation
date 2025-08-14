@@ -40,7 +40,7 @@ struct StaticStore {
         [ "ball\(number)", "ball\(number)" ]
     }
     
-    static let candies = (1...21).flatMap { number in
+    static let candies = (1...20).flatMap { number in
         [ "candy\(number)" ]
     }
     

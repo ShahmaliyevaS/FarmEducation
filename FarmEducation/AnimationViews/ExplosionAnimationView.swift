@@ -15,7 +15,7 @@ struct ExplosionAnimationView: View {
     var body: some View {
         ZStack {
             ForEach(0...100, id: \.self) { i in
-                Image(StaticStore.flowers.randomElement() ?? StaticStore.flowers[0])
+                Image(StaticStore.candies.randomElement() ?? StaticStore.flowers[0])
                     .resizable()
                     .foregroundColor(Color.customRandom)
                     .frame(width: 52, height: 52)

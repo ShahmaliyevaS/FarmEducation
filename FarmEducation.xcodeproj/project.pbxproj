@@ -46,6 +46,7 @@
 		EDE26BED2E4A0441009F9213 /* StaticStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BEC2E4A0441009F9213 /* StaticStore.swift */; };
 		EDE26BEF2E4B2655009F9213 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BEE2E4B2655009F9213 /* Constants.swift */; };
 		EDE26BF12E4B2E2F009F9213 /* ExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BF02E4B2E2F009F9213 /* ExitView.swift */; };
+		EDE26BF52E4DBC2F009F9213 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		EDE26BEC2E4A0441009F9213 /* StaticStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticStore.swift; sourceTree = "<group>"; };
 		EDE26BEE2E4B2655009F9213 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EDE26BF02E4B2E2F009F9213 /* ExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitView.swift; sourceTree = "<group>"; };
+		EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */,
 				EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */,
 				EDC360CB2E03ED2100BC66FB /* ExplosionAnimationView.swift */,
+				EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				EDC360EA2E22DDA300BC66FB /* WhichAnimalsShadowView.swift in Sources */,
 				EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */,
 				EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */,
+				EDE26BF52E4DBC2F009F9213 /* AnimationManager.swift in Sources */,
 				EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */,
 				EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */,
 				EDC360E62E2130BC00BC66FB /* WhereAnimalsLiveView.swift in Sources */,

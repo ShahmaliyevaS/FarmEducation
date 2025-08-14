@@ -21,7 +21,7 @@ struct WhosePartIsThisView: View {
     @StateObject var viewModel = QuestionViewModel()
     
     let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
-    var gameType: GameType = .whosePartIsThis
+    let gameType: GameType = .whosePartIsThis
     var data = Array(repeating: "", count: 9)
     
     var body: some View {
@@ -35,7 +35,8 @@ struct WhosePartIsThisView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        saveScore()
+                                        ScoreManager.score.saveScore(gameType, askedQuestionsCount: viewModel.getAskedQuestionCount()-1, correctAnswersCount: correctAnswersCount)
+                                        dismiss()
                                     } label: {
                                         ExitView()
                                     }
@@ -60,7 +61,7 @@ struct WhosePartIsThisView: View {
                                         ForEach(Array(data.enumerated()), id: \.offset) { index, item in
                                             Rectangle()
                                                 .fill(selectedParts.last == index ? .clear : StaticStore.pastelColors[index])
-                                                .frame(width: (screenWidth-8)/3.25, height: 160)
+                                                .frame(width: (screenWidth-8)/3.25, height: 140)
                                                 .border(Color.lavenderBlueColor)
                                                 .animation(.smooth, value: selectedParts.last != index)
                                                 .onTapGesture {
@@ -164,32 +165,8 @@ struct WhosePartIsThisView: View {
             .onAppear {
                 viewModel.loadQuestions(for: gameType)
             }
+            AnimationManager(score: correctAnswersCount)
         } //ZStack
-    }
-    
-    func saveScore() {
-        var bestScore = 0
-        var bestScoreQuestionCount = 0
-        let askedQuestionsCount = viewModel.getAskedQuestionCount()
-        if let score = ScoreManager.score.get(for: gameType) {
-            bestScore = score.best
-            bestScoreQuestionCount = score.bestCount
-        }else {
-            bestScore = correctAnswersCount
-            bestScoreQuestionCount = askedQuestionsCount
-        }
-        
-        if bestScore == correctAnswersCount {
-            bestScoreQuestionCount = bestScoreQuestionCount < askedQuestionsCount ? bestScoreQuestionCount : askedQuestionsCount
-        } else {
-            bestScoreQuestionCount = bestScore>=correctAnswersCount ? bestScoreQuestionCount : askedQuestionsCount
-            bestScore = bestScore>=correctAnswersCount ? bestScore : correctAnswersCount
-        }
-        
-        let newScore = Score(recent: correctAnswersCount, recentCount: askedQuestionsCount, best: bestScore, bestCount: bestScoreQuestionCount)
-        ScoreManager.score.save(newScore, for: gameType.rawValue)
-        
-        dismiss()
     }
 }
 

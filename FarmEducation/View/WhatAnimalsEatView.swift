@@ -29,7 +29,7 @@ struct WhatAnimalsEatView: View {
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
                         ZStack (alignment: .topLeading) {
-                            Image("farm2")
+                            Image(Constants.farmBackground)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width / 0.6)
@@ -45,7 +45,8 @@ struct WhatAnimalsEatView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        saveScore()
+                                        ScoreManager.score.saveScore(gameType, askedQuestionsCount: viewModel.getAskedQuestionCount()-1, correctAnswersCount: correctAnswersCount)
+                                        dismiss()
                                     } label: {
                                         ExitView()
                                     }
@@ -57,7 +58,7 @@ struct WhatAnimalsEatView: View {
                                 
                                 Spacer()
                                 ZStack(alignment: .bottom) {
-                                    Image("questionBackgroud")
+                                    Image(Constants.questionBackgroud)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 300)
@@ -73,7 +74,7 @@ struct WhatAnimalsEatView: View {
                                 Text(gameType.title)
                                     .chalkboardFont(size: 28)
                                     .bold()
-                                    .foregroundStyle(Color.burntOrangeColor)
+                                    .foregroundStyle( Color.lavenderBlueColor)
                                     .animation(.spring, value: questionImageAnimation)
                                     .padding(.bottom, 32)
                                 
@@ -81,9 +82,9 @@ struct WhatAnimalsEatView: View {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
                                         let size = screenWidth / 5.1
-                                        let image = answer == option && answer == round.correctAnswer ? "rightImage" : (answer == option && answer != round.correctAnswer ? "falseImage" : option )
+                                        let image = answer == option && answer == round.correctAnswer ? Constants.rightImage : (answer == option && answer != round.correctAnswer ? Constants.falseImage : option )
                                         let backgroundColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor.opacity(0.2) : (answer == option && answer != round.correctAnswer ? .brickRedColor.opacity(0.2) : .clear)
-                                        let cornerColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor : (answer == option && answer != round.correctAnswer ? .brickRedColor : .burntOrangeColor)
+                                        let cornerColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor : (answer == option && answer != round.correctAnswer ? .brickRedColor : .lavenderBlueColor)
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         
                                         OptionButtonView(backgroundColor:  backgroundColor ,
@@ -96,7 +97,7 @@ struct WhatAnimalsEatView: View {
                                         .animation(.bouncy, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
-                                                Image("falseImage")
+                                                Image(Constants.falseImage)
                                                     .resizable()
                                                     .scaledToFit()
                                             }
@@ -149,45 +150,9 @@ struct WhatAnimalsEatView: View {
             }
             .onAppear {
                 viewModel.loadQuestions(for: gameType)
-                
             }
-            //            RotationAnimationView()
-            //            ExplosionAnimationView()
-            //            if correctAnswersCount > 0 {
-            //                if correctAnswersCount % 50 == 0 {
-            //                    FlyUpAnimationView(score: String(correctAnswersCount))
-            //                } else if correctAnswersCount % 20 == 0 {
-            //                    TwirlingDropAnimationView()
-            //                } else if correctAnswersCount % 10 == 0 {
-            //                    FireWorksAnimationView()
-            //                }
-            //            }
+           AnimationManager(score: correctAnswersCount)
         } //ZStack
-    }
-    
-    func saveScore() {
-        var bestScore = 0
-        var bestScoreQuestionCount = 0
-        let askedQuestionsCount = viewModel.getAskedQuestionCount()
-        if let score = ScoreManager.score.get(for: gameType) {
-            bestScore = score.best
-            bestScoreQuestionCount = score.bestCount
-        }else {
-            bestScore = correctAnswersCount
-            bestScoreQuestionCount = askedQuestionsCount
-        }
-        
-        if bestScore == correctAnswersCount {
-            bestScoreQuestionCount = bestScoreQuestionCount < askedQuestionsCount ? bestScoreQuestionCount : askedQuestionsCount
-        } else {
-            bestScoreQuestionCount = bestScore>=correctAnswersCount ? bestScoreQuestionCount : askedQuestionsCount
-            bestScore = bestScore>=correctAnswersCount ? bestScore : correctAnswersCount
-        }
-        
-        let newScore = Score(recent: correctAnswersCount, recentCount: askedQuestionsCount, best: bestScore, bestCount: bestScoreQuestionCount)
-        ScoreManager.score.save(newScore, for: gameType.rawValue)
-        
-        dismiss()
     }
 }
 

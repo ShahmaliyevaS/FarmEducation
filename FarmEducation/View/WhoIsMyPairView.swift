@@ -15,8 +15,9 @@ struct WhoIsMyPairView: View {
     @State var i = 0
     @State var selectedImages: [Int] = []
     @State var correctImages: [Int] = []
-    @State var balance: Int = 0
-    
+    @State var allAnswers: Int = 0
+    @State var correctAnswers: Int = 0
+    let gameType: GameType = .whoIsMyPair
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
     
     var body: some View {
@@ -29,7 +30,8 @@ struct WhoIsMyPairView: View {
                         ZStack (alignment: .topLeading) {
                             HStack {
                                 Button {
-                                    
+                                    ScoreManager.score.saveScore(gameType, askedQuestionsCount: allAnswers, correctAnswersCount: correctAnswers)
+                                    dismiss()
                                 } label: {
                                     ExitView()
                                 }
@@ -61,13 +63,12 @@ struct WhoIsMyPairView: View {
                                                     }
                                                     
                                                     if selectedImages.count == 2 {
+                                                        allAnswers += 1
                                                         if data[selectedImages[0]] == data[selectedImages[1]] {
                                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                                                 correctImages += selectedImages
-                                                                balance += 10
+                                                                correctAnswers += 1
                                                             }
-                                                        } else  {
-                                                            balance -= 5
                                                         }
                                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                                             selectedImages = []
@@ -88,7 +89,9 @@ struct WhoIsMyPairView: View {
                                 .padding(.horizontal)
                                 
                                 Button {
-                                    print(balance)
+                                    ScoreManager.score.saveScore(gameType, askedQuestionsCount: allAnswers, correctAnswersCount: correctAnswers)
+                                    correctAnswers = 0
+                                    allAnswers = 0
                                     viewModel.loadNextQuestion()
                                     data1 = viewModel.currentRound
                                     correctImages = []
@@ -109,9 +112,12 @@ struct WhoIsMyPairView: View {
                         }
                     } //GeometryReader
                     .ignoresSafeArea()
-                }
-            } // end of if statement
-        } //VStack
+                }  // end of if statement
+            } //VStack
+            if correctAnswers == 6 {
+                AnimationManager(score: Int.random(in: 1...6) * 10)
+            }
+        } //ZStack
         .navigationBarBackButtonHidden(true)
         .background{
             LinearGradient(
@@ -129,33 +135,4 @@ struct WhoIsMyPairView: View {
 
 #Preview {
     WhoIsMyPairView()
-}
-
-
-struct testView: View {
-    
-    var backgroundColor: Color
-    var cornerColor: Color
-    var image: String?
-    var shadow: Bool = true
-    
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 44)
-                .fill(backgroundColor)
-                .stroke(cornerColor, lineWidth: 4)
-//                .frame(height: 160)
-            
-            if let option = image {
-                VStack {
-                    Image(option)
-                        .resizable()
-                        .scaledToFit()
-//                        .frame(height: 100)
-                        .padding(.horizontal, 20)
-                }
-            }
-        }
-        .shadow(color: shadow ? .black.opacity(0.5) : .clear, radius: 10, x: 5, y: 5)
-    }
 }

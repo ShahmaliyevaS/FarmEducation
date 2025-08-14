@@ -24,4 +24,26 @@ class ScoreManager {
         }
         return nil
     }
+    
+    func saveScore(_ gameType:GameType, askedQuestionsCount: Int, correctAnswersCount: Int) {
+        var bestScore = 0
+        var bestScoreQuestionCount = 0
+        if let score = ScoreManager.score.get(for: gameType) {
+            bestScore = score.best
+            bestScoreQuestionCount = score.bestCount
+        }else {
+            bestScore = correctAnswersCount
+            bestScoreQuestionCount = askedQuestionsCount
+        }
+        
+        if bestScore == correctAnswersCount {
+            bestScoreQuestionCount = bestScoreQuestionCount < askedQuestionsCount ? bestScoreQuestionCount : askedQuestionsCount
+        } else {
+            bestScoreQuestionCount = bestScore>=correctAnswersCount ? bestScoreQuestionCount : askedQuestionsCount
+            bestScore = bestScore>=correctAnswersCount ? bestScore : correctAnswersCount
+        }
+        
+        let newScore = Score(recent: correctAnswersCount, recentCount: askedQuestionsCount, best: bestScore, bestCount: bestScoreQuestionCount)
+        ScoreManager.score.save(newScore, for: gameType.rawValue)
+    }
 }
