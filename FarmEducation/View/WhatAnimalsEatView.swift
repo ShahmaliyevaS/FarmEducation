@@ -128,9 +128,11 @@ struct WhatAnimalsEatView: View {
                                             }
                                             if option == round.correctAnswer {
                                                 correctAnswersCount += 1
-                                                AudioManager.playSound(name: Constants.correct)
+                                                playSoundWav(name: Constants.correct)
+                                                playNotificationHaptic(type: .success)
                                             } else {
-                                                AudioManager.playSound(name: Constants.error)
+                                                playSoundWav(name: Constants.error)
+                                                playNotificationHaptic(type: .error)
                                             }
                                         }
                                     }

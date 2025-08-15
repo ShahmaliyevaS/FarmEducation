@@ -65,13 +65,15 @@ struct WhoIsMyPairView: View {
                                                     if selectedImages.count == 2 {
                                                         allAnswers += 1
                                                         if data[selectedImages[0]] == data[selectedImages[1]] {
-                                                            AudioManager.playSound(name: Constants.correct)
+                                                            playSoundWav(name: Constants.correct)
+                                                            playNotificationHaptic(type: .success)
                                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                                                 correctImages += selectedImages
                                                                 correctAnswers += 1
                                                             }
                                                         } else {
-                                                            AudioManager.playSound(name: Constants.error)
+                                                            playSoundWav(name: Constants.error)
+                                                            playNotificationHaptic(type: .error)
                                                         }
                                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                                             selectedImages = []

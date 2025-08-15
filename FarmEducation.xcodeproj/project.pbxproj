@@ -50,6 +50,7 @@
 		EDE26BF72E4E0981009F9213 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BF62E4E0981009F9213 /* AudioManager.swift */; };
 		EDE26BFE2E4E0B5B009F9213 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDE26BFD2E4E0B5B009F9213 /* correct.wav */; };
 		EDE26C002E4E0B65009F9213 /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDE26BFF2E4E0B65009F9213 /* error.wav */; };
+		EDE26C022E4F4D03009F9213 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26C012E4F4D03009F9213 /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		EDE26BF62E4E0981009F9213 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EDE26BFD2E4E0B5B009F9213 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = correct.wav; path = ../../../../../im/sounds/correct.wav; sourceTree = "<group>"; };
 		EDE26BFF2E4E0B65009F9213 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = error.wav; path = ../../../../../im/sounds/error.wav; sourceTree = "<group>"; };
+		EDE26C012E4F4D03009F9213 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				EDC360DF2E1D482100BC66FB /* DataLoader.swift */,
 				EDC360D32E054E5600BC66FB /* ScoreManager.swift */,
 				EDE26BF62E4E0981009F9213 /* AudioManager.swift */,
+				EDE26C012E4F4D03009F9213 /* HapticManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				EDC360E82E2186A900BC66FB /* Places.swift in Sources */,
 				ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */,
 				EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */,
+				EDE26C022E4F4D03009F9213 /* HapticManager.swift in Sources */,
 				EDC360E02E1D482100BC66FB /* DataLoader.swift in Sources */,
 				EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */,
 				ED4632432DF8571B009CF8FD /* TwirlingDropAnimationView.swift in Sources */,
