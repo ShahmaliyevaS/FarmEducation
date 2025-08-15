@@ -34,6 +34,6 @@ struct OptionButtonView: View {
 }
 
 #Preview {
-    OptionButtonView(backgroundColor: .orange, cornerColor: .red , image: "egg")
+    OptionButtonView(backgroundColor: .orange, cornerColor: .red , image: Constants.egg)
         .frame(width: 120)
 }

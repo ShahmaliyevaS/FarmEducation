@@ -15,10 +15,17 @@ struct Constants {
     static let turnUp = "arrowshape.turn.up.backward.fill"
     static let whosePart = "whosePart"
     static let newGame = "New game"
+    static let play = "Play"
+    static let lastScore = "Last Score:"
+    static let bestScore = "Best Score:"
+    static let from = "from"
+    static let correct = "correct"
+    static let error = "error"
     
     //places
     static let farmBackground = "farmBackground"
     static let questionBackgroud = "questionBackgroud"
+    static let forest = "forest"
     
     
     //animals
@@ -64,6 +71,7 @@ struct Constants {
     static let crocodile = "crocodile"
     static let fish = "fish"
     static let snake = "snake"
+    static let blackAntelope = "blackAntelope"
     
     // meal
     static let apple = "apple"
@@ -92,4 +100,18 @@ struct Constants {
     static let cheese = "cheese"
     static let onion = "onion"
     static let garlic = "garlic"
+    
+    //gametype
+    static let whatAnimalsEat = "What does this animal eat?"
+    static let whereAnimalsLive = "Which animal lives here?"
+    static let whichAnimalsShadow = "Whose shadow is this?"
+    static let whosePartIsThis = "Whose body part is this?"
+    static let whoIsMyPair = "Match the Animals"
+    
+    //colors
+    static let  forestColor = "forestColor"
+    static let homeColor = "homeColor"
+    static let farmColor = "farmColor"
+    static let desertColor = "desertColor"
+    static let oceanColor = "oceanColor"
 }

@@ -139,6 +139,9 @@ struct WhichAnimalsShadowView: View {
                                             }
                                             if option == round.correctAnswer {
                                                 correctAnswersCount += 1
+                                                AudioManager.playSound(name: Constants.correct)
+                                            } else {
+                                                AudioManager.playSound(name: Constants.error)
                                             }
                                         }
                                     }

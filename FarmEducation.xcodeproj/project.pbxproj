@@ -47,6 +47,9 @@
 		EDE26BEF2E4B2655009F9213 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BEE2E4B2655009F9213 /* Constants.swift */; };
 		EDE26BF12E4B2E2F009F9213 /* ExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BF02E4B2E2F009F9213 /* ExitView.swift */; };
 		EDE26BF52E4DBC2F009F9213 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */; };
+		EDE26BF72E4E0981009F9213 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26BF62E4E0981009F9213 /* AudioManager.swift */; };
+		EDE26BFE2E4E0B5B009F9213 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDE26BFD2E4E0B5B009F9213 /* correct.wav */; };
+		EDE26C002E4E0B65009F9213 /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDE26BFF2E4E0B65009F9213 /* error.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +94,9 @@
 		EDE26BEE2E4B2655009F9213 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EDE26BF02E4B2E2F009F9213 /* ExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitView.swift; sourceTree = "<group>"; };
 		EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		EDE26BF62E4E0981009F9213 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		EDE26BFD2E4E0B5B009F9213 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = correct.wav; path = ../../../../../im/sounds/correct.wav; sourceTree = "<group>"; };
+		EDE26BFF2E4E0B65009F9213 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = error.wav; path = ../../../../../im/sounds/error.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,7 @@
 				EDC27CC42DDF0C960082C349 /* JSONLoader.swift */,
 				EDC360DF2E1D482100BC66FB /* DataLoader.swift */,
 				EDC360D32E054E5600BC66FB /* ScoreManager.swift */,
+				EDE26BF62E4E0981009F9213 /* AudioManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -218,6 +225,7 @@
 		EDC27CBF2DDF0BE40082C349 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDE26BF82E4E0AE5009F9213 /* Sounds */,
 				ED55046A2E3370F300114A11 /* whosePartIsThis.json */,
 				ED5504682E2C349A00114A11 /* whoIsMyPair.json */,
 				EDC360EB2E22E77400BC66FB /* whichAnimalsShadow.json */,
@@ -245,6 +253,15 @@
 				EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		EDE26BF82E4E0AE5009F9213 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				EDE26BFF2E4E0B65009F9213 /* error.wav */,
+				EDE26BFD2E4E0B5B009F9213 /* correct.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,9 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED0E22D32DDB140F007DAC08 /* Preview Assets.xcassets in Resources */,
+				EDE26BFE2E4E0B5B009F9213 /* correct.wav in Resources */,
 				EDC360EC2E22E77400BC66FB /* whichAnimalsShadow.json in Resources */,
 				EDC360E42E20F45C00BC66FB /* whereAnimalsLive.json in Resources */,
 				ED5504692E2C349A00114A11 /* whoIsMyPair.json in Resources */,
+				EDE26C002E4E0B65009F9213 /* error.wav in Resources */,
 				ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */,
 				EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */,
 				ED0E22D02DDB140F007DAC08 /* Assets.xcassets in Resources */,
@@ -342,6 +361,7 @@
 				EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */,
 				ED4632432DF8571B009CF8FD /* TwirlingDropAnimationView.swift in Sources */,
 				EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */,
+				EDE26BF72E4E0981009F9213 /* AudioManager.swift in Sources */,
 				EDE26BEF2E4B2655009F9213 /* Constants.swift in Sources */,
 				ED0E22DE2DDB1E62007DAC08 /* OptionButtonView.swift in Sources */,
 				ED0E22DB2DDB159E007DAC08 /* WhatAnimalsEatView.swift in Sources */,

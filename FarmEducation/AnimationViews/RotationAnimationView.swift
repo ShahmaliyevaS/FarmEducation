@@ -20,7 +20,7 @@ struct RotationAnimationView: View {
             ForEach(0...100, id: \.self) { i in
                 Text(isExplosion ? String(word.randomElement()!) : word)
                     .foregroundColor(.customRandom)
-                    .font(.custom("Chalkboard SE", size: 80))
+                    .chalkboardFont(size: 80)
                     .rotation3DEffect(
                         .degrees(isRotation ? 0 : 90),
                         axis: (x: 0.0, y: 1.0, z: 0.0))

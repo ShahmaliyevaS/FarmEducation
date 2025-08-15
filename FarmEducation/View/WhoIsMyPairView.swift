@@ -65,10 +65,13 @@ struct WhoIsMyPairView: View {
                                                     if selectedImages.count == 2 {
                                                         allAnswers += 1
                                                         if data[selectedImages[0]] == data[selectedImages[1]] {
+                                                            AudioManager.playSound(name: Constants.correct)
                                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                                                 correctImages += selectedImages
                                                                 correctAnswers += 1
                                                             }
+                                                        } else {
+                                                            AudioManager.playSound(name: Constants.error)
                                                         }
                                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                                             selectedImages = []
@@ -76,8 +79,7 @@ struct WhoIsMyPairView: View {
                                                     }
                                                 }
                                             }
-                                        }
-                                        else {
+                                        } else {
                                             OptionButtonView(
                                                 backgroundColor: .clear,
                                                 cornerColor: .clear

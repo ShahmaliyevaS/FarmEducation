@@ -9,26 +9,26 @@ import Foundation
 import SwiftUI
 
 enum GameType: String, Codable, CaseIterable, Identifiable {
-    case whatAnimalsEat = "whatAnimalsEat"
-    case whereAnimalsLive = "whereAnimalsLive"
-    case whichAnimalsShadow = "whichAnimalsShadow"
-    case whosePartIsThis = "whosePartIsThis"
-    case whoIsMyPair = "whoIsMyPair"
+    case whatAnimalsEat
+    case whereAnimalsLive
+    case whichAnimalsShadow
+    case whosePartIsThis
+    case whoIsMyPair
     
     var id: String { self.rawValue }
     
     var title: String {
         switch self {
         case .whatAnimalsEat:
-            return "What does this animal eat?"
+            return Constants.whatAnimalsEat
         case .whereAnimalsLive:
-            return "Which animal lives here?"
+            return Constants.whereAnimalsLive
         case .whichAnimalsShadow:
-            return "Whose shadow is this?"
+            return Constants.whichAnimalsShadow
         case .whosePartIsThis:
-            return "Whose body part is this?"
+            return Constants.whosePartIsThis
         case .whoIsMyPair:
-            return "Match the Animals"
+            return Constants.whoIsMyPair
         }
     }
 }
@@ -39,9 +39,9 @@ extension GameType {
         case .whatAnimalsEat:
             return CardDesign(question: Constants.camel, options: [Constants.pumpkin, Constants.garlic])
         case .whereAnimalsLive:
-            return CardDesign(question: "forest", options: [Constants.cat, Constants.deer])
+            return CardDesign(question: Constants.forest, options: [Constants.cat, Constants.deer])
         case .whichAnimalsShadow:
-            return CardDesign(question: "blackAntelope", options: [Constants.antelope, Constants.deer])
+            return CardDesign(question: Constants.blackAntelope, options: [Constants.antelope, Constants.deer])
         case .whosePartIsThis:
             return CardDesign(question: Constants.whosePart, options: [Constants.crocodile, Constants.snake])
         case .whoIsMyPair:

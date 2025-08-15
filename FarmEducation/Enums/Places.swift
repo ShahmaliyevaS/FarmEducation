@@ -9,24 +9,24 @@ import Foundation
 import SwiftUI
 
 enum Places: String {
-    case forest = "forest"
-    case home = "home"
-    case farm = "farm"
-    case desert = "desert"
-    case ocean = "ocean"
+    case forest
+    case home
+    case farm
+    case desert
+    case ocean
     
     var backgroundColor: Color {
         switch self {
         case .forest :
-            return Color("forestColor")
+            return Color(Constants.forestColor)
         case .home :
-            return Color("homeColor")
+            return Color(Constants.homeColor)
         case .farm :
-            return Color("farmColor")
+            return Color(Constants.farmColor)
         case .desert :
-            return Color("desertColor")
+            return Color(Constants.desertColor)
         case .ocean :
-            return Color("oceanColor")
+            return Color(Constants.oceanColor)
         }
     }
 }

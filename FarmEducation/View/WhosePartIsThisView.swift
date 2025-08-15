@@ -139,6 +139,9 @@ struct WhosePartIsThisView: View {
                                             if option == round.correctAnswer {
                                                 isHidden = true
                                                 correctAnswersCount += 1
+                                                AudioManager.playSound(name: Constants.correct)
+                                            } else {
+                                                AudioManager.playSound(name: Constants.error)
                                             }
                                         }
                                     }

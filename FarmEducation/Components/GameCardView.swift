@@ -30,11 +30,11 @@ struct GameCardView: View {
                 .multilineTextAlignment(.center)
             Spacer()
             VStack (alignment: .leading) {
-                Text("Last Score: \(score.recent) from \(score.recentCount)")
+                Text("\(Constants.lastScore) \(score.recent)  \(Constants.from) \(score.recentCount)")
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
                 
-                Text("Best Score: \(score.best) from \(score.bestCount)")
+                Text("\(Constants.bestScore) \(score.best) \(Constants.from) \(score.bestCount)")
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
             }
@@ -54,7 +54,7 @@ struct GameCardView: View {
             Button {
                 selectedGame = gameType
             } label: {
-                Text("Play")
+                Text(Constants.play)
                     .frame(width: 200)
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 28)
