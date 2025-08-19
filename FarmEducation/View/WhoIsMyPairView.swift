@@ -65,14 +65,14 @@ struct WhoIsMyPairView: View {
                                                     if selectedImages.count == 2 {
                                                         allAnswers += 1
                                                         if data[selectedImages[0]] == data[selectedImages[1]] {
-                                                            playSoundWav(name: Constants.correct)
+                                                            playSoundWav(name: Constants.UI.correct)
                                                             playNotificationHaptic(type: .success)
                                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                                                 correctImages += selectedImages
                                                                 correctAnswers += 1
                                                             }
                                                         } else {
-                                                            playSoundWav(name: Constants.error)
+                                                            playSoundWav(name: Constants.UI.error)
                                                             playNotificationHaptic(type: .error)
                                                         }
                                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -100,7 +100,7 @@ struct WhoIsMyPairView: View {
                                     data1 = viewModel.currentRound
                                     correctImages = []
                                 } label: {
-                                    Text(Constants.newGame)
+                                    Text(NSLocalizedString(Constants.UI.newGame, comment: ""))
                                         .fontWeight(.bold)
                                         .padding(.horizontal, 60)
                                         .padding(.vertical)

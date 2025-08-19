@@ -29,7 +29,7 @@ struct WhatAnimalsEatView: View {
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
                         ZStack (alignment: .topLeading) {
-                            Image(Constants.farmBackground)
+                            Image(Constants.Background.farm)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width / 0.6)
@@ -58,7 +58,7 @@ struct WhatAnimalsEatView: View {
                                 
                                 Spacer()
                                 ZStack(alignment: .bottom) {
-                                    Image(Constants.questionBackgroud)
+                                    Image(Constants.Background.question)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 300)
@@ -71,8 +71,8 @@ struct WhatAnimalsEatView: View {
                                         .animation(.snappy, value: questionImageAnimation)
                                 }
                                 
-                                Text(gameType.title)
-                                    .chalkboardFont(size: 28)
+                                Text(NSLocalizedString(gameType.rawValue, comment: ""))
+                                    .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle( Color.lavenderBlueColor)
                                     .animation(.spring, value: questionImageAnimation)
@@ -82,7 +82,7 @@ struct WhatAnimalsEatView: View {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
                                         let size = screenWidth / 5.1
-                                        let image = answer == option && answer == round.correctAnswer ? Constants.rightImage : (answer == option && answer != round.correctAnswer ? Constants.falseImage : option )
+                                        let image = answer == option && answer == round.correctAnswer ? Constants.UI.rightImage : (answer == option && answer != round.correctAnswer ? Constants.UI.falseImage : option )
                                         let backgroundColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor.opacity(0.2) : (answer == option && answer != round.correctAnswer ? .brickRedColor.opacity(0.2) : .clear)
                                         let cornerColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor : (answer == option && answer != round.correctAnswer ? .brickRedColor : .lavenderBlueColor)
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
@@ -97,7 +97,7 @@ struct WhatAnimalsEatView: View {
                                         .animation(.bouncy, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
-                                                Image(Constants.falseImage)
+                                                Image(Constants.UI.falseImage)
                                                     .resizable()
                                                     .scaledToFit()
                                             }
@@ -128,10 +128,10 @@ struct WhatAnimalsEatView: View {
                                             }
                                             if option == round.correctAnswer {
                                                 correctAnswersCount += 1
-                                                playSoundWav(name: Constants.correct)
+                                                playSoundWav(name: Constants.UI.correct)
                                                 playNotificationHaptic(type: .success)
                                             } else {
-                                                playSoundWav(name: Constants.error)
+                                                playSoundWav(name: Constants.UI.error)
                                                 playNotificationHaptic(type: .error)
                                             }
                                         }

@@ -25,6 +25,7 @@
 		ED5504692E2C349A00114A11 /* whoIsMyPair.json in Resources */ = {isa = PBXBuildFile; fileRef = ED5504682E2C349A00114A11 /* whoIsMyPair.json */; };
 		ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */ = {isa = PBXBuildFile; fileRef = ED55046A2E3370F300114A11 /* whosePartIsThis.json */; };
 		ED55046F2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */; };
+		EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */; };
 		EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CB92DDF0AE10082C349 /* Question.swift */; };
 		EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC42DDF0C960082C349 /* JSONLoader.swift */; };
 		EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */; };
@@ -73,6 +74,7 @@
 		ED5504682E2C349A00114A11 /* whoIsMyPair.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whoIsMyPair.json; sourceTree = "<group>"; };
 		ED55046A2E3370F300114A11 /* whosePartIsThis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whosePartIsThis.json; sourceTree = "<group>"; };
 		ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsMyPairViewModel.swift; sourceTree = "<group>"; };
+		EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EDC27CB92DDF0AE10082C349 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		EDC27CC42DDF0C960082C349 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				ED0E22CD2DDB140C007DAC08 /* ContentView.swift */,
 				ED0E22CF2DDB140F007DAC08 /* Assets.xcassets */,
 				ED0E22D12DDB140F007DAC08 /* Preview Content */,
+				EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */,
 			);
 			path = FarmEducation;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 		ED0E22E12DDC6D6F007DAC08 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				EDE26BEE2E4B2655009F9213 /* Constants.swift */,
 				ED0E22E22DDC6DD9007DAC08 /* GameType.swift */,
 				EDC360E72E2186A800BC66FB /* Places.swift */,
 			);
@@ -235,7 +239,6 @@
 				EDC360E32E20F45C00BC66FB /* whereAnimalsLive.json */,
 				EDC360E12E20F45700BC66FB /* whatAnimalsEat.json */,
 				EDE26BEC2E4A0441009F9213 /* StaticStore.swift */,
-				EDE26BEE2E4B2655009F9213 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -309,6 +312,16 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				de,
+				az,
+				ru,
+				"zh-Hans",
+				es,
+				ja,
+				ko,
+				tr,
+				ar,
 			);
 			mainGroup = ED0E22BF2DDB140C007DAC08;
 			productRefGroup = ED0E22C92DDB140C007DAC08 /* Products */;
@@ -331,6 +344,7 @@
 				EDC360E42E20F45C00BC66FB /* whereAnimalsLive.json in Resources */,
 				ED5504692E2C349A00114A11 /* whoIsMyPair.json in Resources */,
 				EDE26C002E4E0B65009F9213 /* error.wav in Resources */,
+				EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */,
 				ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */,
 				EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */,
 				ED0E22D02DDB140F007DAC08 /* Assets.xcassets in Resources */,

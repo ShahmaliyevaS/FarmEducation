@@ -16,36 +16,21 @@ enum GameType: String, Codable, CaseIterable, Identifiable {
     case whoIsMyPair
     
     var id: String { self.rawValue }
-    
-    var title: String {
-        switch self {
-        case .whatAnimalsEat:
-            return Constants.whatAnimalsEat
-        case .whereAnimalsLive:
-            return Constants.whereAnimalsLive
-        case .whichAnimalsShadow:
-            return Constants.whichAnimalsShadow
-        case .whosePartIsThis:
-            return Constants.whosePartIsThis
-        case .whoIsMyPair:
-            return Constants.whoIsMyPair
-        }
-    }
 }
 
 extension GameType {
     var cardDesign: CardDesign {
         switch self {
         case .whatAnimalsEat:
-            return CardDesign(question: Constants.camel, options: [Constants.pumpkin, Constants.garlic])
+            return CardDesign(question: Constants.Animamals.camel, options: [Constants.Meal.pumpkin, Constants.Meal.garlic])
         case .whereAnimalsLive:
-            return CardDesign(question: Constants.forest, options: [Constants.cat, Constants.deer])
+            return CardDesign(question: Constants.Background.forest, options: [Constants.Animamals.cat, Constants.Animamals.deer])
         case .whichAnimalsShadow:
-            return CardDesign(question: Constants.blackAntelope, options: [Constants.antelope, Constants.deer])
+            return CardDesign(question: Constants.Animamals.blackAntelope, options: [Constants.Animamals.antelope, Constants.Animamals.deer])
         case .whosePartIsThis:
-            return CardDesign(question: Constants.whosePart, options: [Constants.crocodile, Constants.snake])
+            return CardDesign(question: Constants.UI.whosePart, options: [Constants.Animamals.crocodile, Constants.Animamals.snake])
         case .whoIsMyPair:
-            return CardDesign(question: Constants.badger, options: [Constants.badger, Constants.giraffe])
+            return CardDesign(question: Constants.Animamals.badger, options: [Constants.Animamals.badger, Constants.Animamals.giraffe])
         }
     }
 }

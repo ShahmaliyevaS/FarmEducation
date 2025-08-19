@@ -23,18 +23,18 @@ struct GameCardView: View {
                 .cornerRadius(16)
                 .padding(.top)
             
-            Text(gameType.title)
+            Text(NSLocalizedString(gameType.rawValue, comment: ""))
                 .foregroundStyle(Color.lavenderBlueColor)
                 .chalkboardFont(size: 20)
                 .bold()
                 .multilineTextAlignment(.center)
             Spacer()
             VStack (alignment: .leading) {
-                Text("\(Constants.lastScore) \(score.recent)  \(Constants.from) \(score.recentCount)")
+                Text(String(format: NSLocalizedString(Constants.UI.lastScore, comment: ""), score.recent, score.recentCount))
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
                 
-                Text("\(Constants.bestScore) \(score.best) \(Constants.from) \(score.bestCount)")
+                Text(String(format: NSLocalizedString(Constants.UI.bestScore, comment: ""), score.best, score.bestCount))
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
             }
@@ -54,7 +54,7 @@ struct GameCardView: View {
             Button {
                 selectedGame = gameType
             } label: {
-                Text(Constants.play)
+                Text(NSLocalizedString(Constants.UI.play, comment: ""))
                     .frame(width: 200)
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 28)
@@ -97,3 +97,5 @@ struct GameCardView: View {
     GameCardView(gameType: .whatAnimalsEat, selectedGame: .constant(nil))
         .padding(.all)
 }
+
+

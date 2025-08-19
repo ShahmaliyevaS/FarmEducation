@@ -55,8 +55,8 @@ struct WhereAnimalsLiveView: View {
                                 .padding(.horizontal)
                                 
                                 Spacer()
-                                Text(gameType.title)
-                                    .chalkboardFont(size: 28)
+                                Text(NSLocalizedString(gameType.rawValue, comment: ""))
+                                    .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle(Color.burntOrangeColor)
                                     .animation(.spring, value: questionImageAnimation)
@@ -65,7 +65,7 @@ struct WhereAnimalsLiveView: View {
                                     ForEach(0..<round.options.count, id: \.self) { i in
                                         let option = round.options[i]
                                         let size = screenWidth / 12
-                                        let image = answer == option && answer != round.correctAnswer ? Constants.falseImage : option
+                                        let image = answer == option && answer != round.correctAnswer ? Constants.UI.falseImage : option
                                         let backgroundColor = Color.clear
                                         let cornerColor =  answer == option ? Color.clear : .burntOrangeColor
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
@@ -80,7 +80,7 @@ struct WhereAnimalsLiveView: View {
                                         .animation(.smooth, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
-                                                Image(Constants.falseImage)
+                                                Image(Constants.UI.falseImage)
                                                     .resizable()
                                                     .scaledToFit()
                                             }
@@ -111,10 +111,10 @@ struct WhereAnimalsLiveView: View {
                                             }
                                             if option == round.correctAnswer {
                                                 correctAnswersCount += 1
-                                                playSoundWav(name: Constants.correct)
+                                                playSoundWav(name: Constants.UI.correct)
                                                 playNotificationHaptic(type: .success)
                                             } else {
-                                                playSoundWav(name: Constants.error)
+                                                playSoundWav(name: Constants.UI.error)
                                                 playNotificationHaptic(type: .error)
                                             }
                                         }

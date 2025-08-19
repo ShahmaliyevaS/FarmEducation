@@ -18,15 +18,15 @@ enum Places: String {
     var backgroundColor: Color {
         switch self {
         case .forest :
-            return Color(Constants.forestColor)
+            return Color(Constants.Colors.forest)
         case .home :
-            return Color(Constants.homeColor)
+            return Color(Constants.Colors.home)
         case .farm :
-            return Color(Constants.farmColor)
+            return Color(Constants.Colors.farm)
         case .desert :
-            return Color(Constants.desertColor)
+            return Color(Constants.Colors.desert)
         case .ocean :
-            return Color(Constants.oceanColor)
+            return Color(Constants.Colors.ocean)
         }
     }
 }

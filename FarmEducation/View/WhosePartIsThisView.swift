@@ -78,8 +78,8 @@ struct WhosePartIsThisView: View {
                                     )
                                     .padding(.horizontal)
                                 }
-                                Text(gameType.title)
-                                    .chalkboardFont(size: 28)
+                                Text(NSLocalizedString(gameType.rawValue, comment: ""))
+                                    .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle(Color.lavenderBlueColor)
                                     .animation(.spring, value: questionImageAnimation)
@@ -90,7 +90,7 @@ struct WhosePartIsThisView: View {
                                         let option = round.options[i]
                                         let size = screenWidth / 16
                                         let image = answer == option && answer != round.correctAnswer
-                                        ? Constants.falseImage : option
+                                        ? Constants.UI.falseImage : option
                                         let cornerColor =  answer == option ? Color.clear : .lavenderBlueColor
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         OptionButtonView(
@@ -106,7 +106,7 @@ struct WhosePartIsThisView: View {
                                         .animation(.smooth, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
-                                                Image(Constants.falseImage)
+                                                Image(Constants.UI.falseImage)
                                                     .resizable()
                                                     .scaledToFit()
                                             }
@@ -139,10 +139,10 @@ struct WhosePartIsThisView: View {
                                             if option == round.correctAnswer {
                                                 isHidden = true
                                                 correctAnswersCount += 1
-                                                playSoundWav(name: Constants.correct)
+                                                playSoundWav(name: Constants.UI.correct)
                                                 playNotificationHaptic(type: .success)
                                             } else {
-                                                playSoundWav(name: Constants.error)
+                                                playSoundWav(name: Constants.UI.error)
                                                 playNotificationHaptic(type: .error)
                                             }
                                         }
