@@ -26,6 +26,9 @@
 		ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */ = {isa = PBXBuildFile; fileRef = ED55046A2E3370F300114A11 /* whosePartIsThis.json */; };
 		ED55046F2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */; };
 		EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */; };
+		EDAF04A22E69715C00E25DA6 /* cards.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A12E69715C00E25DA6 /* cards.wav */; };
+		EDAF04A52E69798700E25DA6 /* woow1.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A32E69798700E25DA6 /* woow1.wav */; };
+		EDAF04A62E69798700E25DA6 /* woow2.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A42E69798700E25DA6 /* woow2.wav */; };
 		EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CB92DDF0AE10082C349 /* Question.swift */; };
 		EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC42DDF0C960082C349 /* JSONLoader.swift */; };
 		EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */; };
@@ -75,6 +78,9 @@
 		ED55046A2E3370F300114A11 /* whosePartIsThis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whosePartIsThis.json; sourceTree = "<group>"; };
 		ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsMyPairViewModel.swift; sourceTree = "<group>"; };
 		EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		EDAF04A12E69715C00E25DA6 /* cards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cards.wav; path = ../../../../../im/sounds/cards.wav; sourceTree = "<group>"; };
+		EDAF04A32E69798700E25DA6 /* woow1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = woow1.wav; path = ../../../../../../Downloads/woow1.wav; sourceTree = "<group>"; };
+		EDAF04A42E69798700E25DA6 /* woow2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = woow2.wav; path = ../../../../../../Downloads/woow2.wav; sourceTree = "<group>"; };
 		EDC27CB92DDF0AE10082C349 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		EDC27CC42DDF0C960082C349 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
@@ -96,7 +102,7 @@
 		EDE26BEC2E4A0441009F9213 /* StaticStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticStore.swift; sourceTree = "<group>"; };
 		EDE26BEE2E4B2655009F9213 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EDE26BF02E4B2E2F009F9213 /* ExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitView.swift; sourceTree = "<group>"; };
-		EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimationManager.swift; path = ../AnimationViews/AnimationManager.swift; sourceTree = "<group>"; };
 		EDE26BF62E4E0981009F9213 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EDE26BFD2E4E0B5B009F9213 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = correct.wav; path = ../../../../../im/sounds/correct.wav; sourceTree = "<group>"; };
 		EDE26BFF2E4E0B65009F9213 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = error.wav; path = ../../../../../im/sounds/error.wav; sourceTree = "<group>"; };
@@ -212,7 +218,6 @@
 				ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */,
 				EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */,
 				EDC360CB2E03ED2100BC66FB /* ExplosionAnimationView.swift */,
-				EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 		EDC27CBE2DDF0B9A0082C349 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EDE26BF42E4DBC2F009F9213 /* AnimationManager.swift */,
 				EDC27CC42DDF0C960082C349 /* JSONLoader.swift */,
 				EDC360DF2E1D482100BC66FB /* DataLoader.swift */,
 				EDC360D32E054E5600BC66FB /* ScoreManager.swift */,
@@ -264,6 +270,9 @@
 		EDE26BF82E4E0AE5009F9213 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				EDAF04A32E69798700E25DA6 /* woow1.wav */,
+				EDAF04A42E69798700E25DA6 /* woow2.wav */,
+				EDAF04A12E69715C00E25DA6 /* cards.wav */,
 				EDE26BFF2E4E0B65009F9213 /* error.wav */,
 				EDE26BFD2E4E0B5B009F9213 /* correct.wav */,
 			);
@@ -338,15 +347,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDAF04A22E69715C00E25DA6 /* cards.wav in Resources */,
 				ED0E22D32DDB140F007DAC08 /* Preview Assets.xcassets in Resources */,
 				EDE26BFE2E4E0B5B009F9213 /* correct.wav in Resources */,
 				EDC360EC2E22E77400BC66FB /* whichAnimalsShadow.json in Resources */,
 				EDC360E42E20F45C00BC66FB /* whereAnimalsLive.json in Resources */,
 				ED5504692E2C349A00114A11 /* whoIsMyPair.json in Resources */,
+				EDAF04A62E69798700E25DA6 /* woow2.wav in Resources */,
 				EDE26C002E4E0B65009F9213 /* error.wav in Resources */,
 				EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */,
 				ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */,
 				EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */,
+				EDAF04A52E69798700E25DA6 /* woow1.wav in Resources */,
 				ED0E22D02DDB140F007DAC08 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

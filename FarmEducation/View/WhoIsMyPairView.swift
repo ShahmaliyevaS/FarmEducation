@@ -17,6 +17,7 @@ struct WhoIsMyPairView: View {
     @State var correctImages: [Int] = []
     @State var allAnswers: Int = 0
     @State var correctAnswers: Int = 0
+    @State var newGame = false
     let gameType: GameType = .whoIsMyPair
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
     
@@ -56,8 +57,13 @@ struct WhoIsMyPairView: View {
                                                 axis: (x: 0, y: 1, z: 0)
                                             )
                                             .animation(.smooth, value: selectedImages.contains(index))
+                                            .rotation3DEffect(
+                                                .degrees(newGame ? 180 : 0),
+                                                axis: (x: 0, y: 1, z: 0)
+                                            )
+                                            .animation(.smooth, value: newGame)
                                             .onTapGesture {
-                                                if !selectedImages.contains(index) {
+                                                if !selectedImages.contains(index) && selectedImages.count != 2 {
                                                     if selectedImages.count <= 1 {
                                                         selectedImages.append(index)
                                                     }
@@ -96,9 +102,13 @@ struct WhoIsMyPairView: View {
                                     ScoreManager.score.saveScore(gameType, askedQuestionsCount: allAnswers, correctAnswersCount: correctAnswers)
                                     correctAnswers = 0
                                     allAnswers = 0
+                                    selectedImages = []
+                                    correctImages = []
                                     viewModel.loadNextQuestion()
                                     data1 = viewModel.currentRound
-                                    correctImages = []
+                                    newGame.toggle()
+                                    playSoundWav(name: Constants.UI.cards)
+                                    playNotificationHaptic(type: .error)
                                 } label: {
                                     Text(NSLocalizedString(Constants.UI.newGame, comment: ""))
                                         .fontWeight(.bold)

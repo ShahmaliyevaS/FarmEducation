@@ -21,6 +21,9 @@ enum Constants {
         static let bestScore = "best_score"
         static let correct = "correct"
         static let error = "error"
+        static let cards = "cards"
+        static let woow1 = "woow1"
+        static let woow2 = "woow2"
     }
     
     enum Background{
