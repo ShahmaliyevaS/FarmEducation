@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedGame: GameType?
+    @State private var tabVersion = 0
     
     var body: some View {
         NavigationStack {
@@ -16,8 +17,10 @@ struct ContentView: View {
                 TabView {
                     ForEach(GameType.allCases) {
                         type in
-                        GameCardView(gameType: type, selectedGame: $selectedGame)
+                        GameCardView(selectedGame: $selectedGame, gameType: type)
                     }
+                    
+                    SettingsView()
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                 .ignoresSafeArea()

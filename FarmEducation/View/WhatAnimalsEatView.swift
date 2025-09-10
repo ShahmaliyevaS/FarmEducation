@@ -71,7 +71,7 @@ struct WhatAnimalsEatView: View {
                                         .animation(.snappy, value: questionImageAnimation)
                                 }
                                 
-                                Text(NSLocalizedString(gameType.rawValue, comment: ""))
+                                Text(gameType.rawValue.localized())
                                     .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle( Color.lavenderBlueColor)

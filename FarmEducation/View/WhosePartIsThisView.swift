@@ -78,7 +78,7 @@ struct WhosePartIsThisView: View {
                                     )
                                     .padding(.horizontal)
                                 }
-                                Text(NSLocalizedString(gameType.rawValue, comment: ""))
+                                Text(gameType.rawValue.localized())
                                     .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle(Color.lavenderBlueColor)

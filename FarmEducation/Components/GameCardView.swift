@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct GameCardView: View {
-    
-    var gameType: GameType
-    @Binding var selectedGame: GameType?
+    @EnvironmentObject var localizableManager: LocalizableManager
     @State var score = Score(recent: 0, recentCount: 0, best: 0, bestCount: 0)
-    var gradientColors: [Color] = [.sunGlowColor, .freshLimeColor, .electricAvocadoColor, .greenNeonGrassColor, ]
+    @Binding var selectedGame: GameType?
+    var gameType: GameType
+    
     var body: some View {
         VStack {
             Spacer()
@@ -23,18 +23,18 @@ struct GameCardView: View {
                 .cornerRadius(16)
                 .padding(.top)
             
-            Text(NSLocalizedString(gameType.rawValue, comment: ""))
+            Text(gameType.rawValue.localized())
                 .foregroundStyle(Color.lavenderBlueColor)
                 .chalkboardFont(size: 20)
                 .bold()
                 .multilineTextAlignment(.center)
             Spacer()
             VStack (alignment: .leading) {
-                Text(String(format: NSLocalizedString(Constants.UI.lastScore, comment: ""), score.recent, score.recentCount))
+                Text(String(format: Constants.UI.lastScore.localized(), score.recent, score.recentCount))
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
                 
-                Text(String(format: NSLocalizedString(Constants.UI.bestScore, comment: ""), score.best, score.bestCount))
+                Text(String(format: Constants.UI.bestScore.localized(), score.best, score.bestCount))
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
             }
@@ -54,7 +54,7 @@ struct GameCardView: View {
             Button {
                 selectedGame = gameType
             } label: {
-                Text(NSLocalizedString(Constants.UI.play, comment: ""))
+                Text(Constants.UI.play.localized())
                     .frame(width: 200)
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 28)
@@ -94,7 +94,7 @@ struct GameCardView: View {
 }
 
 #Preview {
-    GameCardView(gameType: .whatAnimalsEat, selectedGame: .constant(nil))
+    GameCardView(selectedGame: .constant(nil), gameType: .whatAnimalsEat)
         .padding(.all)
 }
 

@@ -115,4 +115,10 @@ enum Constants {
         static let desert = "desertColor"
         static let ocean = "oceanColor"
     }
+    
+    enum Settings {
+        static let Settings = "Settings"
+        static let Language = "Language"
+        static let Sound = "Sound"
+    }
 }

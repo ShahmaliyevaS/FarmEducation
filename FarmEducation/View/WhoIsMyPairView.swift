@@ -110,7 +110,7 @@ struct WhoIsMyPairView: View {
                                     playSoundWav(name: Constants.UI.cards)
                                     playNotificationHaptic(type: .error)
                                 } label: {
-                                    Text(NSLocalizedString(Constants.UI.newGame, comment: ""))
+                                    Text(Constants.UI.newGame.localized())
                                         .fontWeight(.bold)
                                         .padding(.horizontal, 60)
                                         .padding(.vertical)

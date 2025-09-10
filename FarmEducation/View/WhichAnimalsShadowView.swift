@@ -77,7 +77,7 @@ struct WhichAnimalsShadowView: View {
                                         .animation(.smooth(duration: TimeInterval(1.8)), value: isHidden)
                                 }
                                 
-                                Text(NSLocalizedString(gameType.rawValue, comment: ""))
+                                Text(gameType.rawValue.localized())
                                     .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle(Color.burntOrangeColor)

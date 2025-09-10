@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct FarmEducationApp: App {
+    @EnvironmentObject var localizableManager: LocalizableManager
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(LocalizableManager.shared)
         }
     }
 }

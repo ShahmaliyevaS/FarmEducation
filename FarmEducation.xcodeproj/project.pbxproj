@@ -26,6 +26,9 @@
 		ED55046B2E3370F300114A11 /* whosePartIsThis.json in Resources */ = {isa = PBXBuildFile; fileRef = ED55046A2E3370F300114A11 /* whosePartIsThis.json */; };
 		ED55046F2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */; };
 		ED6B90802E6ED95F007C6AAD /* GameProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B907F2E6ED95F007C6AAD /* GameProgressView.swift */; };
+		ED6B90822E7149B9007C6AAD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B90812E7149B9007C6AAD /* SettingsView.swift */; };
+		ED6B90842E715725007C6AAD /* LocalizableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B90832E715725007C6AAD /* LocalizableManager.swift */; };
+		ED6B90862E715CB0007C6AAD /* LanguageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B90852E715CB0007C6AAD /* LanguageTypes.swift */; };
 		EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */; };
 		EDAF04A22E69715C00E25DA6 /* cards.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A12E69715C00E25DA6 /* cards.wav */; };
 		EDAF04A52E69798700E25DA6 /* woow1.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A32E69798700E25DA6 /* woow1.wav */; };
@@ -79,6 +82,9 @@
 		ED55046A2E3370F300114A11 /* whosePartIsThis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whosePartIsThis.json; sourceTree = "<group>"; };
 		ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsMyPairViewModel.swift; sourceTree = "<group>"; };
 		ED6B907F2E6ED95F007C6AAD /* GameProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProgressView.swift; sourceTree = "<group>"; };
+		ED6B90812E7149B9007C6AAD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		ED6B90832E715725007C6AAD /* LocalizableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableManager.swift; sourceTree = "<group>"; };
+		ED6B90852E715CB0007C6AAD /* LanguageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTypes.swift; sourceTree = "<group>"; };
 		EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EDAF04A12E69715C00E25DA6 /* cards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cards.wav; path = ../../../../../im/sounds/cards.wav; sourceTree = "<group>"; };
 		EDAF04A32E69798700E25DA6 /* woow1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = woow1.wav; path = ../../../../../../Downloads/woow1.wav; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				EDC360E92E22DDA300BC66FB /* WhichAnimalsShadowView.swift */,
 				ED5504642E27807000114A11 /* WhosePartIsThisView.swift */,
 				ED5504662E297A5F00114A11 /* WhoIsMyPairView.swift */,
+				ED6B90812E7149B9007C6AAD /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 				EDE26BEE2E4B2655009F9213 /* Constants.swift */,
 				ED0E22E22DDC6DD9007DAC08 /* GameType.swift */,
 				EDC360E72E2186A800BC66FB /* Places.swift */,
+				ED6B90852E715CB0007C6AAD /* LanguageTypes.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -234,6 +242,7 @@
 				EDC360D32E054E5600BC66FB /* ScoreManager.swift */,
 				EDE26BF62E4E0981009F9213 /* AudioManager.swift */,
 				EDE26C012E4F4D03009F9213 /* HapticManager.swift */,
+				ED6B90832E715725007C6AAD /* LocalizableManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -376,9 +385,11 @@
 				EDE26BEB2E4A024E009F9213 /* ImageLayout.swift in Sources */,
 				EDE26BED2E4A0441009F9213 /* StaticStore.swift in Sources */,
 				EDC27CCD2DDF1DF70082C349 /* ColorExtention.swift in Sources */,
+				ED6B90842E715725007C6AAD /* LocalizableManager.swift in Sources */,
 				ED4632452DFAF162009CF8FD /* FireWorksComponentView.swift in Sources */,
 				ED0E22CE2DDB140C007DAC08 /* ContentView.swift in Sources */,
 				ED4632472E028E24009CF8FD /* FireWorksAnimationView.swift in Sources */,
+				ED6B90822E7149B9007C6AAD /* SettingsView.swift in Sources */,
 				EDC360EA2E22DDA300BC66FB /* WhichAnimalsShadowView.swift in Sources */,
 				EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */,
 				EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */,
@@ -387,6 +398,7 @@
 				EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */,
 				EDC360E62E2130BC00BC66FB /* WhereAnimalsLiveView.swift in Sources */,
 				EDC360E82E2186A900BC66FB /* Places.swift in Sources */,
+				ED6B90862E715CB0007C6AAD /* LanguageTypes.swift in Sources */,
 				ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */,
 				EDC27CBA2DDF0AE10082C349 /* Question.swift in Sources */,
 				EDE26C022E4F4D03009F9213 /* HapticManager.swift in Sources */,

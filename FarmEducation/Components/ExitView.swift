@@ -18,7 +18,7 @@ struct ExitView: View {
             .overlay(
                 HStack(spacing: 1) {
                     Image(systemName: Constants.UI.turnUp)
-                    Text(NSLocalizedString(Constants.UI.exit, comment: "")).bold()
+                    Text(Constants.UI.exit.localized()).bold()
                 }
                     .chalkboardFont(size: 16)
                     .foregroundStyle(Color.skyBlueColor.opacity(0.7))

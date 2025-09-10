@@ -55,7 +55,7 @@ struct WhereAnimalsLiveView: View {
                                 .padding(.horizontal)
                                 
                                 Spacer()
-                                Text(NSLocalizedString(gameType.rawValue, comment: ""))
+                                Text(gameType.rawValue.localized())
                                     .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle(Color.lavenderBlueColor)
