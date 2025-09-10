@@ -24,6 +24,7 @@ enum Constants {
         static let cards = "cards"
         static let woow1 = "woow1"
         static let woow2 = "woow2"
+        static let tractor = "tractor"
     }
     
     enum Background{

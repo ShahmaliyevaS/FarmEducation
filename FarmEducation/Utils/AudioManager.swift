@@ -6,16 +6,15 @@
 //
 
 import AVFoundation
+import AudioToolbox
 
-var audioPlayer: AVAudioPlayer?
+var soundID: SystemSoundID = 0
 
-func playSoundWav(name: String) {
-    if let url = Bundle.main.url(forResource: name, withExtension: "wav") {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
-        } catch {
-            print("Could not found and playthe sound file", error.localizedDescription)
-        }
+func playSoundWav(name: String, ext: String = "wav") {
+    if let url = Bundle.main.url(forResource: name, withExtension: ext) {
+        AudioServicesCreateSystemSoundID(url as CFURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    } else {
+        print("Sound file not found")
     }
 }

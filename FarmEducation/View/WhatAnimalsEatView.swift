@@ -136,10 +136,12 @@ struct WhatAnimalsEatView: View {
                                             }
                                         }
                                     }
-                                } //options HStack
+                                } //options HStack 
                                 .padding(.horizontal)
-                                .padding(.bottom, 40)
+                                .padding(.bottom, 20)
                                 .ignoresSafeArea()
+                                
+                                GameProgressView(correctAnswers: $correctAnswersCount )
                             }
                             .padding(6.0)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)

@@ -31,6 +31,10 @@ struct ExplosionAnimationView: View {
         }
         .onAppear{
             up.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                playSoundWav(name: Constants.UI.woow2)
+                playNotificationHaptic(type: .error)
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 down.toggle()
             }

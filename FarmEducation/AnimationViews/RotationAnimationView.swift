@@ -38,6 +38,8 @@ struct RotationAnimationView: View {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 isExplosion.toggle()
+                playSoundWav(name: Constants.UI.woow2)
+                playNotificationHaptic(type: .error)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 isVisable.toggle()

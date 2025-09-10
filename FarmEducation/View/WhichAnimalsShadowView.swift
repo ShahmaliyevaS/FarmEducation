@@ -99,7 +99,7 @@ struct WhichAnimalsShadowView: View {
                                         )
                                         .frame(height: 160)
                                         .offset(x: answer == option ? centerOffset : 0,
-                                                y: answer == option ? -screenHeight/12 : 0)
+                                                y: answer == option ? -screenHeight/13 : 0)
                                         .scaleEffect(answer == option ? 5 : 1)
                                         .scaleEffect(x: answer == option ? -1 : 1, anchor: .center)
                                         .animation(.smooth, value: offsetAnimation)

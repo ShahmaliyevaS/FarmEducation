@@ -37,6 +37,10 @@ struct FlyUpAnimationView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     isHidden.toggle()
                 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    playSoundWav(name: Constants.UI.woow2)
+                    playNotificationHaptic(type: .error)
+                }
             }
         }
     }

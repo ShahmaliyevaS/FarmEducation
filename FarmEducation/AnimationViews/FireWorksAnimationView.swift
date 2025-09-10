@@ -28,6 +28,10 @@ struct FireWorksAnimationView: View {
         }
         .onAppear {
             startFireworks()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                playSoundWav(name: Constants.UI.woow1)
+                playNotificationHaptic(type: .error)
+            }
         }
     }
     

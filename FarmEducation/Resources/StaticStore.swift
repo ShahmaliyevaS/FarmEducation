@@ -47,5 +47,7 @@ struct StaticStore {
     static let cakesArray = ["appleCake", "cupCake", "dropCake", "lemonCake", "orangeCake",
                         "pineappleCake", "pinkStarCake", "strawberryCake", "yellowStarCake"]
     
+    static let vegetables = ["cucumber", "garlic", "carrot", "cabbage", "eggplant",  "potato", "pumpkin", "strawberry", "onion", "watermelon"]
+    
     static let cakes = Array(repeating: StaticStore.cakesArray, count: 3).flatMap { $0 }
 }

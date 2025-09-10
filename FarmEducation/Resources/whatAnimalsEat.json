@@ -81,7 +81,7 @@
         "id": 14,
         "question": "cow",
         "trueAnswer": "pumpkin",
-        "falseAnswer": ["avocado", "chestnut"]
+        "falseAnswer": ["avocado", "nuts"]
     },
     {
         "id": 15,
@@ -212,7 +212,7 @@
     {
         "id": 36,
         "question": "donkey",
-        "trueAnswer": "beetroot",
+        "trueAnswer": "leaves",
         "falseAnswer": ["potato", "fish"]
     },
     {
@@ -489,7 +489,7 @@
         "id": 82,
         "question": "deer",
         "trueAnswer": "apple",
-        "falseAnswer": ["onions", "tomato"]
+        "falseAnswer": ["onion", "tomato"]
     },
     {
         "id": 83,
@@ -513,7 +513,7 @@
         "id": 86,
         "question": "antelope",
         "trueAnswer": "grass",
-        "falseAnswer": ["oranges", "eggplant"]
+        "falseAnswer": ["orange", "eggplant"]
     },
     {
         "id": 87,
@@ -614,7 +614,7 @@
     {
         "id": 103,
         "question": "monkey",
-        "trueAnswer": "grape",
+        "trueAnswer": "grapes",
         "falseAnswer": ["garlic", "orange"]
     },
     {
@@ -860,7 +860,7 @@
     {
         "id": 144,
         "question": "hedgehog",
-        "trueAnswer": "strawberries",
+        "trueAnswer": "strawberry",
         "falseAnswer": ["chocolate", "avocado"]
     },
     {
@@ -963,7 +963,7 @@
         "id": 161,
         "question": "gazelle",
         "trueAnswer": "grass",
-        "falseAnswer": ["oranges", "eggplant"]
+        "falseAnswer": ["orange", "eggplant"]
     },
     {
         "id": 162,
@@ -1005,7 +1005,7 @@
         "id": 168,
         "question": "badger",
         "trueAnswer": "mushroom",
-        "falseAnswer": ["avokado", "rabbit"]
+        "falseAnswer": ["avocado", "rabbit"]
     },
     {
         "id": 169,
@@ -1142,7 +1142,7 @@
     {
         "id": 191,
         "question": "meerkat",
-        "trueAnswer": "eggs",
+        "trueAnswer": "egg",
         "falseAnswer": ["bread", "goat"]
     },
     {

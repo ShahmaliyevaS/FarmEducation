@@ -58,7 +58,7 @@ struct WhereAnimalsLiveView: View {
                                 Text(NSLocalizedString(gameType.rawValue, comment: ""))
                                     .chalkboardFont(size: 20)
                                     .bold()
-                                    .foregroundStyle(Color.burntOrangeColor)
+                                    .foregroundStyle(Color.lavenderBlueColor)
                                     .animation(.spring, value: questionImageAnimation)
                                     .padding(.bottom, 32)
                                 HStack(spacing: 20) {
@@ -67,7 +67,7 @@ struct WhereAnimalsLiveView: View {
                                         let size = screenWidth / 12
                                         let image = answer == option && answer != round.correctAnswer ? Constants.UI.falseImage : option
                                         let backgroundColor = Color.clear
-                                        let cornerColor =  answer == option ? Color.clear : .burntOrangeColor
+                                        let cornerColor =  answer == option ? Color.clear : .lavenderBlueColor
                                         let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
                                         OptionButtonView(backgroundColor:  backgroundColor ,
                                                          cornerColor: cornerColor,
