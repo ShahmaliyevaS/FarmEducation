@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedGame: GameType?
+    @State private var type: GameType?
     @State private var tabVersion = 0
     
     var body: some View {
         NavigationStack {
             ZStack {
                 TabView {
-                    ForEach(GameType.allCases) {
-                        type in
-                        GameCardView(selectedGame: $selectedGame, gameType: type)
+                    ForEach(GameType.allCases, id: \.self) { type in
+                        GameCardView(game: $type, gameType: type)
                     }
-                    
                     SettingsView()
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
@@ -27,7 +25,7 @@ struct ContentView: View {
                 .padding(.bottom, -16)
                 .padding(.vertical)
             }
-            .navigationDestination(item: $selectedGame) { game in
+            .navigationDestination(item: $type) { game in
                 switch game {
                     case .whatAnimalsEat:
                         WhatAnimalsEatView()

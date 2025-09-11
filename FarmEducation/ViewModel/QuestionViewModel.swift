@@ -33,7 +33,7 @@ class QuestionViewModel: ObservableObject {
         unAskedQuestions.shuffle()
         loadNextQuestion()
     }
-    
+
     func loadNextQuestion() {
         if unAskedQuestions.isEmpty{
             unAskedQuestions = allQuestionsId

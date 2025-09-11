@@ -10,7 +10,7 @@ import SwiftUI
 struct GameCardView: View {
     @EnvironmentObject var localizableManager: LocalizableManager
     @State var score = Score(recent: 0, recentCount: 0, best: 0, bestCount: 0)
-    @Binding var selectedGame: GameType?
+    @Binding var game: GameType?
     var gameType: GameType
     
     var body: some View {
@@ -52,7 +52,7 @@ struct GameCardView: View {
             Spacer()
             
             Button {
-                selectedGame = gameType
+                game = gameType
             } label: {
                 Text(Constants.UI.play.localized())
                     .frame(width: 200)
@@ -94,7 +94,7 @@ struct GameCardView: View {
 }
 
 #Preview {
-    GameCardView(selectedGame: .constant(nil), gameType: .whatAnimalsEat)
+    GameCardView(game: .constant(nil), gameType: .whatAnimalsEat)
         .padding(.all)
 }
 

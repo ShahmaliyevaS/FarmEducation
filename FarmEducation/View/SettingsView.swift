@@ -79,7 +79,7 @@ struct SettingsView: View {
                 .scaleEffect(x: -1)
             Spacer()
         }
-        .padding(.all)
+//        .padding(.all)
         .background{
             LinearGradient(
                 gradient: Gradient(colors: [.skyWhisperColor, .cherryMilkColor]),

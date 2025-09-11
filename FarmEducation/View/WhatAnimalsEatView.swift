@@ -166,4 +166,5 @@ struct WhatAnimalsEatView: View {
 
 #Preview {
     WhatAnimalsEatView()
+        .environmentObject(AudioManager.shared)
 }

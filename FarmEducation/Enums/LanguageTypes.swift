@@ -8,17 +8,17 @@
 import Foundation
 
 enum LanguageTypes: String, CaseIterable, RawRepresentable {
-    case english = "en"
-    case arabic = "ar"
     case azerbaijani = "az"
-    case chinese = "zh-Hans"
-    case german = "de"
-    case japanese = "ja"
-    case french = "fr"
-    case korean = "ko"
-    case spanish = "es"
+    case english = "en"
     case russinan = "ru"
     case turkish = "tr"
+    case german = "de"
+    case french = "fr"
+    case spanish = "es"
+    case chinese = "zh-Hans"
+    case japanese = "ja"
+    case korean = "ko"
+    case arabic = "ar"
 
     var displayName: String {
         switch self {
