@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct FarmEducationApp: App {
     @EnvironmentObject var localizableManager: LocalizableManager
+    @StateObject var audio = AudioManager.shared
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(audio)
                 .environmentObject(LocalizableManager.shared)
         }
     }

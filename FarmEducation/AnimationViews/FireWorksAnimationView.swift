@@ -12,6 +12,7 @@ struct Firework: Identifiable {
 }
 
 struct FireWorksAnimationView: View {
+    @EnvironmentObject var audio: AudioManager
     
     @State private var fireworks: [Firework] = []
     @State private var fireCount = 0
@@ -29,7 +30,7 @@ struct FireWorksAnimationView: View {
         .onAppear {
             startFireworks()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                playSoundWav(name: Constants.UI.woow1)
+                audio.play(name: Constants.UI.woow1)
                 playNotificationHaptic(type: .error)
             }
         }

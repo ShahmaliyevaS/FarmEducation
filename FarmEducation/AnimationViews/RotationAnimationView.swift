@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RotationAnimationView: View {
+    @EnvironmentObject var audio: AudioManager
+    
     @State var isRotation = false
     @State var isExplosion = false
     @State var isVisable = false
@@ -38,7 +40,7 @@ struct RotationAnimationView: View {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 isExplosion.toggle()
-                playSoundWav(name: Constants.UI.woow2)
+                audio.play(name: Constants.UI.woow2)
                 playNotificationHaptic(type: .error)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

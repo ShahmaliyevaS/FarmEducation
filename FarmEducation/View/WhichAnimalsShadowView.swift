@@ -10,6 +10,7 @@ import CoreImage
 
 struct WhichAnimalsShadowView: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var audio: AudioManager
     
     @State var firstFalseAnswer: String = ""
     @State var answer: String = ""
@@ -139,10 +140,10 @@ struct WhichAnimalsShadowView: View {
                                             }
                                             if option == round.correctAnswer {
                                                 correctAnswersCount += 1
-                                                playSoundWav(name: Constants.UI.correct)
+                                                audio.play(name: Constants.UI.correct)
                                                 playNotificationHaptic(type: .success)
                                             } else {
-                                                playSoundWav(name: Constants.UI.error)
+                                                audio.play(name: Constants.UI.error)
                                                 playNotificationHaptic(type: .error)
                                             }
                                         }

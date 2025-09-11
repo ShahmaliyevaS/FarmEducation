@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "best_score" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -71,9 +74,6 @@
           }
         }
       }
-    },
-    "Dil seçin" : {
-
     },
     "exit" : {
       "extractionState" : "manual",

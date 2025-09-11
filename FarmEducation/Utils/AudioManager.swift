@@ -6,15 +6,27 @@
 //
 
 import AVFoundation
-import AudioToolbox
+import SwiftUI
 
-var soundID: SystemSoundID = 0
+class AudioManager: ObservableObject {
+    static let shared = AudioManager()
+    var player: AVAudioPlayer?
 
-func playSoundWav(name: String, ext: String = "wav") {
-    if let url = Bundle.main.url(forResource: name, withExtension: ext) {
-        AudioServicesCreateSystemSoundID(url as CFURL, &soundID)
-        AudioServicesPlaySystemSound(soundID)
-    } else {
-        print("Sound file not found")
+    @Published var volume: Float = 0.5 {
+        didSet {
+            player?.volume = volume
+        }
+    }
+
+    func play(name: String) {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "wav") else { return }
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.volume = volume
+            player?.prepareToPlay()
+            player?.play()
+        } catch {
+            print("Error: \(error)")
+        }
     }
 }

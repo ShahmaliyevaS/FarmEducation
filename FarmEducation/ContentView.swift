@@ -54,4 +54,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(AudioManager.shared)
+        .environmentObject(LocalizableManager.shared)
 }

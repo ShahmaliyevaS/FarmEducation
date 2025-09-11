@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FlyUpAnimationView: View {
+    @EnvironmentObject var audio: AudioManager
+    
     @State var animation: Bool = false
     @State var isHidden: Bool = false
     
@@ -38,7 +40,7 @@ struct FlyUpAnimationView: View {
                     isHidden.toggle()
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    playSoundWav(name: Constants.UI.woow2)
+                    audio.play(name: Constants.UI.woow2)
                     playNotificationHaptic(type: .error)
                 }
             }

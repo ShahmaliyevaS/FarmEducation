@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ExplosionAnimationView: View {
+    @EnvironmentObject var audio: AudioManager
+    
     @State var up = false
     @State var down = false
     var array = Array(-250...450)
@@ -32,7 +34,7 @@ struct ExplosionAnimationView: View {
         .onAppear{
             up.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                playSoundWav(name: Constants.UI.woow2)
+                audio.play(name: Constants.UI.woow2)
                 playNotificationHaptic(type: .error)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

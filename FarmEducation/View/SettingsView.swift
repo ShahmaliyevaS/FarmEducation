@@ -10,15 +10,13 @@ import AVFoundation
 
 struct SettingsView: View {
     @EnvironmentObject var localizableManager: LocalizableManager
-
+    @EnvironmentObject var audio: AudioManager
     
     @State private var volume: Float = 0.5
-    var player = AVAudioPlayer()
     
     var body: some View {
         VStack {
             Spacer()
-            
             Text(Constants.Settings.Settings.localized())
                 .foregroundStyle(Color.lavenderBlueColor)
                 .chalkboardFont(size: 20)
@@ -32,9 +30,26 @@ struct SettingsView: View {
                         .chalkboardFont(size: 20)
                         .bold()
                         .multilineTextAlignment(.center)
-                    Slider(value: $volume, in: 0...1)
+                    HStack(spacing: 0) {
+                        Button(action: {
+                            audio.volume = 0
+                        }) {
+                            Image(systemName: "speaker.slash.fill")
+                                .font(.title)
+                                .foregroundColor(Color.lavenderBlueColor)
+                        }
+                        Slider(value:  $audio.volume, in: 0...1)
                         .tint(Color.lavenderBlueColor)
                         .padding(.horizontal)
+                        Button(action: {
+                            audio.volume = 1
+                        }) {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .font(.title)
+                                .foregroundColor(Color.lavenderBlueColor)
+                        }
+                    }
+                    .padding(.horizontal)
                 }
                 
                 GridRow {
@@ -43,7 +58,7 @@ struct SettingsView: View {
                         .chalkboardFont(size: 20)
                         .bold()
                         .multilineTextAlignment(.center)
-                    Picker("Dil seçin", selection: $localizableManager.currentLanguage) {
+                    Picker("", selection: $localizableManager.currentLanguage) {
                         ForEach(LanguageTypes.allCases, id: \.self) { lang in
                             Text(lang.displayName)
                                 .foregroundStyle(Color.lavenderBlueColor)
@@ -54,7 +69,6 @@ struct SettingsView: View {
                     .pickerStyle(.inline)
                     .padding(.horizontal)
                 }
-                
             }
             .padding(.horizontal)
             Spacer()
@@ -79,11 +93,11 @@ struct SettingsView: View {
                 .stroke(Color.lavenderBlueColor, lineWidth: 4)
         )
         .padding(.all, 32)
-        
     }
 }
 
 #Preview {
     SettingsView()
         .environmentObject(LocalizableManager.shared)
+        .environmentObject(AudioManager.shared)
 }

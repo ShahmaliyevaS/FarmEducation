@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WhoIsMyPairView: View {
     @Environment(\.dismiss) var dismiss
-    
+    @EnvironmentObject var audio: AudioManager
     @StateObject var viewModel = WhoIsMyPairViewModel()
     @State var data1 : [String]?
     @State var i = 0
@@ -71,14 +71,14 @@ struct WhoIsMyPairView: View {
                                                     if selectedImages.count == 2 {
                                                         allAnswers += 1
                                                         if data[selectedImages[0]] == data[selectedImages[1]] {
-                                                            playSoundWav(name: Constants.UI.correct)
+                                                            audio.play(name: Constants.UI.correct)
                                                             playNotificationHaptic(type: .success)
                                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                                                 correctImages += selectedImages
                                                                 correctAnswers += 1
                                                             }
                                                         } else {
-                                                            playSoundWav(name: Constants.UI.error)
+                                                            audio.play(name: Constants.UI.error)
                                                             playNotificationHaptic(type: .error)
                                                         }
                                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -107,7 +107,7 @@ struct WhoIsMyPairView: View {
                                     viewModel.loadNextQuestion()
                                     data1 = viewModel.currentRound
                                     newGame.toggle()
-                                    playSoundWav(name: Constants.UI.cards)
+//                                    playSoundWav(name: Constants.UI.cards)
                                     playNotificationHaptic(type: .error)
                                 } label: {
                                     Text(Constants.UI.newGame.localized())
