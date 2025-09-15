@@ -37,7 +37,7 @@ struct ExplosionAnimationView: View {
                 audio.play(name: Constants.UI.woow2)
                 playNotificationHaptic(type: .error)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 down.toggle()
             }
         }
@@ -46,4 +46,5 @@ struct ExplosionAnimationView: View {
 
 #Preview {
     ExplosionAnimationView()
+        .environmentObject(AudioManager.shared)
 }

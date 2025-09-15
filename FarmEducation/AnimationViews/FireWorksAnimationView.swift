@@ -54,4 +54,5 @@ struct FireWorksAnimationView: View {
         FireWorksAnimationView()
     }
     .edgesIgnoringSafeArea(.all)
+    .environmentObject(AudioManager.shared)
 }

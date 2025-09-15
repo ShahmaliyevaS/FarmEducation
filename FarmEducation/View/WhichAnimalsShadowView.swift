@@ -81,7 +81,7 @@ struct WhichAnimalsShadowView: View {
                                 Text(gameType.rawValue.localized())
                                     .chalkboardFont(size: 20)
                                     .bold()
-                                    .foregroundStyle(Color.burntOrangeColor)
+                                    .foregroundStyle(Color.lavenderBlueColor)
                                     .animation(.spring, value: questionImageAnimation)
                                     .padding(.bottom, 32)
                                 
@@ -91,7 +91,7 @@ struct WhichAnimalsShadowView: View {
                                         let size = screenWidth / 16
                                         let image = answer == option && answer != round.correctAnswer ? Constants.UI.falseImage : option
                                         let backgroundColor = answer == option ? Color.clear : .sunGlowColor
-                                        let cornerColor =  answer == option ? Color.clear : .burntOrangeColor
+                                        let cornerColor =  answer == option ? Color.clear : .lavenderBlueColor
                                         let centerOffset = i == 0 ? -size : (i == 1 ? 0 : size)
                                         OptionButtonView(backgroundColor:  backgroundColor ,
                                                          cornerColor: cornerColor,
@@ -111,7 +111,6 @@ struct WhichAnimalsShadowView: View {
                                                     .scaledToFit()
                                             }
                                         }
-//                                        .scaleEffect(answer == option ? 4 : 1)
                                         .onTapGesture {
                                             if !disabledAnswers.contains(i) {
                                                 if firstFalseAnswer.isEmpty && option != round.correctAnswer {
@@ -134,15 +133,14 @@ struct WhichAnimalsShadowView: View {
                                                         isHidden = false
                                                         questionImageAnimation.toggle()
                                                         viewModel.loadNextQuestion()
-                                                        
                                                     }
                                                 }
                                             }
-                                            if option == round.correctAnswer {
+                                            if option == round.correctAnswer && !disabledAnswers.contains(i) {
                                                 correctAnswersCount += 1
                                                 audio.play(name: Constants.UI.correct)
                                                 playNotificationHaptic(type: .success)
-                                            } else {
+                                            } else if option != round.correctAnswer && !disabledAnswers.contains(i) {
                                                 audio.play(name: Constants.UI.error)
                                                 playNotificationHaptic(type: .error)
                                             }
@@ -150,8 +148,9 @@ struct WhichAnimalsShadowView: View {
                                     }
                                 } //options HStack
                                 .padding(.horizontal)
-                                .padding(.bottom, 40)
                                 .ignoresSafeArea()
+                                
+                                GameProgressView(gameType: gameType, correctAnswers: $correctAnswersCount )
                             }
                             .padding(6.0)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)
@@ -175,4 +174,6 @@ struct WhichAnimalsShadowView: View {
 
 #Preview {
     WhichAnimalsShadowView()
+        .environmentObject(AudioManager.shared)
+
 }

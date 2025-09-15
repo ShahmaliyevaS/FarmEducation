@@ -44,10 +44,12 @@ struct StaticStore {
         [ "candy\(number)" ]
     }
     
-    static let cakesArray = ["appleCake", "cupCake", "dropCake", "lemonCake", "orangeCake",
+    static let cakesArray = ["yellowStarCake", "appleCake", "cupCake", "dropCake", "lemonCake", "orangeCake",
                         "pineappleCake", "pinkStarCake", "strawberryCake", "yellowStarCake"]
     
     static let vegetables = ["cucumber", "garlic", "carrot", "cabbage", "eggplant",  "potato", "pumpkin", "strawberry", "onion", "watermelon"]
+    
+    static let animals = ["cow", "bear", "crocodile", "elephant", "fox",  "giraffe", "hedgehog", "kangaroo", "lion", "panda"]
     
     static let cakes = Array(repeating: StaticStore.cakesArray, count: 3).flatMap { $0 }
 }

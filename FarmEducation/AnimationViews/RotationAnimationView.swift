@@ -52,4 +52,5 @@ struct RotationAnimationView: View {
 
 #Preview {
     RotationAnimationView()
+        .environmentObject(AudioManager.shared)
 }

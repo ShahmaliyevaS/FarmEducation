@@ -11,7 +11,7 @@ struct WhoIsMyPairView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
     @StateObject var viewModel = WhoIsMyPairViewModel()
-    @State var data1 : [String]?
+    @State var currentRound : [String]?
     @State var i = 0
     @State var selectedImages: [Int] = []
     @State var correctImages: [Int] = []
@@ -24,7 +24,7 @@ struct WhoIsMyPairView: View {
     var body: some View {
         ZStack {
             VStack {
-                if let data = data1 {
+                if let data = currentRound {
                     GeometryReader { geo in
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
@@ -105,9 +105,9 @@ struct WhoIsMyPairView: View {
                                     selectedImages = []
                                     correctImages = []
                                     viewModel.loadNextQuestion()
-                                    data1 = viewModel.currentRound
+                                    currentRound = viewModel.currentRound
                                     newGame.toggle()
-//                                    playSoundWav(name: Constants.UI.cards)
+                                    audio.play(name: Constants.UI.cards)
                                     playNotificationHaptic(type: .error)
                                 } label: {
                                     Text(Constants.UI.newGame.localized())
@@ -126,7 +126,7 @@ struct WhoIsMyPairView: View {
                         }
                     } //GeometryReader
                     .ignoresSafeArea()
-                }  // end of if statement
+                }  //if statement
             } //VStack
             if correctAnswers == 6 {
                 AnimationManager(score: Int.random(in: 1...6) * 10)
@@ -142,11 +142,13 @@ struct WhoIsMyPairView: View {
         }
         .onAppear {
             viewModel.loadQuestions()
-            data1 = viewModel.currentRound ?? Array(repeating: "", count: 12)
+            currentRound = viewModel.currentRound ?? Array(repeating: "", count: 12)
         }
     } //ZStack
 }
 
 #Preview {
     WhoIsMyPairView()
+        .environmentObject(AudioManager.shared)
+
 }

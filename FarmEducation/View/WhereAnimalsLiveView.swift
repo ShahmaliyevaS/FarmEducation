@@ -77,7 +77,7 @@ struct WhereAnimalsLiveView: View {
                                         )
                                         .frame(height: 160)
                                         .offset(x: answer == option ? centerOffset : 0,
-                                                y: answer == option ? -screenHeight/10 : 0)
+                                                y: answer == option ? -screenHeight/11 : 0)
                                         .animation(.smooth, value: offsetAnimation)
                                         .overlay {
                                             if firstFalseAnswer == option {
@@ -110,11 +110,11 @@ struct WhereAnimalsLiveView: View {
                                                     }
                                                 }
                                             }
-                                            if option == round.correctAnswer {
+                                            if option == round.correctAnswer && !disabledAnswers.contains(i) {
                                                 correctAnswersCount += 1
                                                 audio.play(name: Constants.UI.correct)
                                                 playNotificationHaptic(type: .success)
-                                            } else {
+                                            } else if option != round.correctAnswer && !disabledAnswers.contains(i) {
                                                 audio.play(name: Constants.UI.error)
                                                 playNotificationHaptic(type: .error)
                                             }
@@ -122,8 +122,9 @@ struct WhereAnimalsLiveView: View {
                                     }
                                 } //options HStack
                                 .padding(.horizontal)
-                                .padding(.bottom, 40)
                                 .ignoresSafeArea()
+                                
+                                GameProgressView(gameType: gameType, correctAnswers: $correctAnswersCount )
                             }
                             .padding(6.0)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)
@@ -148,4 +149,6 @@ struct WhereAnimalsLiveView: View {
 
 #Preview {
     WhereAnimalsLiveView()
+        .environmentObject(AudioManager.shared)
+
 }

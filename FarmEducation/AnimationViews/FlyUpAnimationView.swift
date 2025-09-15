@@ -50,4 +50,5 @@ struct FlyUpAnimationView: View {
 
 #Preview {
     FlyUpAnimationView()
+        .environmentObject(AudioManager.shared)
 }

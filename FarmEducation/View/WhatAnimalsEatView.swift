@@ -127,11 +127,11 @@ struct WhatAnimalsEatView: View {
                                                     }
                                                 }
                                             }
-                                            if option == round.correctAnswer {
+                                            if option == round.correctAnswer && !disabledAnswers.contains(i) {
                                                 correctAnswersCount += 1
                                                 audio.play(name: Constants.UI.correct)
                                                 playNotificationHaptic(type: .success)
-                                            } else {
+                                            } else if option != round.correctAnswer && !disabledAnswers.contains(i) {
                                                 audio.play(name: Constants.UI.error)
                                                 playNotificationHaptic(type: .error)
                                             }
@@ -142,7 +142,7 @@ struct WhatAnimalsEatView: View {
                                 .padding(.bottom, 20)
                                 .ignoresSafeArea()
                                 
-                                GameProgressView(correctAnswers: $correctAnswersCount )
+                                GameProgressView(gameType: gameType, correctAnswers: $correctAnswersCount )
                             }
                             .padding(6.0)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)

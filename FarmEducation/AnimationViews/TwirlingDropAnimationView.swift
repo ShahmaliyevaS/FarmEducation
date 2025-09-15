@@ -43,4 +43,5 @@ struct TwirlingDropAnimationView: View {
 
 #Preview {
     TwirlingDropAnimationView(data: StaticStore.cakes)
+        .environmentObject(AudioManager.shared)
 }

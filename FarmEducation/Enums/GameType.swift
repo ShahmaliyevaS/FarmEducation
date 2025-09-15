@@ -33,4 +33,34 @@ extension GameType {
             return CardDesign(question: Constants.Animamals.badger, options: [Constants.Animamals.badger, Constants.Animamals.giraffe])
         }
     }
+    
+    var progressDesign: [String] {
+        switch self {
+        case .whatAnimalsEat:
+            return StaticStore.vegetables
+        case .whereAnimalsLive:
+            return StaticStore.animals
+        case .whichAnimalsShadow:
+            return StaticStore.animals
+        case .whosePartIsThis:
+            return StaticStore.cakesArray
+        case .whoIsMyPair:
+            return StaticStore.animals
+        }
+    }
+    
+    var carDesign: String {
+        switch self {
+        case .whatAnimalsEat:
+            return "tractor"
+        case .whereAnimalsLive:
+            return "animalCar"
+        case .whichAnimalsShadow:
+            return "tractor"
+        case .whosePartIsThis:
+            return "candyCar"
+        case .whoIsMyPair:
+            return "tractor"
+        }
+    }
 }
