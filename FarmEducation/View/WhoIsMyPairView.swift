@@ -11,27 +11,27 @@ struct WhoIsMyPairView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
     @StateObject var viewModel = WhoIsMyPairViewModel()
-    @State var currentRound : [String]?
-    @State var i = 0
-    @State var selectedImages: [Int] = []
-    @State var correctImages: [Int] = []
-    @State var allAnswers: Int = 0
-    @State var correctAnswers: Int = 0
     @State var newGame = false
+    
     let gameType: GameType = .whoIsMyPair
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
     
     var body: some View {
         ZStack {
             VStack {
-                if let data = currentRound {
+                if !viewModel.currentRound.isEmpty {
                     GeometryReader { geo in
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
-                        ZStack (alignment: .topLeading) {
+                        
+                        ZStack(alignment: .topLeading) {
                             HStack {
                                 Button {
-                                    ScoreManager.score.saveScore(gameType, askedQuestionsCount: allAnswers, correctAnswersCount: correctAnswers)
+                                    ScoreManager.score.saveScore(
+                                        gameType,
+                                        askedQuestionsCount: viewModel.allAnswers,
+                                        correctAnswersCount: viewModel.correctAnswers
+                                    )
                                     dismiss()
                                 } label: {
                                     ExitView()
@@ -39,53 +39,31 @@ struct WhoIsMyPairView: View {
                                 Spacer()
                             } // Exit button
                             .offset(CGSize(width: 0, height: 40))
-                            .frame(width: (geo.size.width.isNaN || geo.size.width < 32) ? 0 : geo.size.width - 32)
+                            .frame(width: max(geo.size.width - 32, 0))
                             .padding(.horizontal)
                             
                             VStack {
                                 LazyVGrid(columns: columns, spacing: 20) {
-                                    ForEach(Array(data.enumerated()), id: \.offset) { index, item in
-                                        if !correctImages.contains(index) {
+                                    ForEach(Array(viewModel.currentRound.enumerated()), id: \.offset) { index, item in
+                                        if !viewModel.correctImages.contains(index) {
                                             OptionButtonView(
                                                 backgroundColor: StaticStore.pastelColors.randomElement()!,
                                                 cornerColor: .lavenderBlueColor,
-                                                image: !selectedImages.contains(index) ? nil : item
+                                                image: !viewModel.selectedImages.contains(index) ? nil : item
                                             )
                                             .frame(height: (geo.size.height - 120)/5)
                                             .rotation3DEffect(
-                                                .degrees(selectedImages.contains(index) ? 180 : 0),
+                                                .degrees(viewModel.selectedImages.contains(index) ? 180 : 0),
                                                 axis: (x: 0, y: 1, z: 0)
                                             )
-                                            .animation(.smooth, value: selectedImages.contains(index))
+                                            .animation(.smooth, value: viewModel.selectedImages.contains(index))
                                             .rotation3DEffect(
                                                 .degrees(newGame ? 180 : 0),
                                                 axis: (x: 0, y: 1, z: 0)
                                             )
                                             .animation(.smooth, value: newGame)
                                             .onTapGesture {
-                                                if !selectedImages.contains(index) && selectedImages.count != 2 {
-                                                    if selectedImages.count <= 1 {
-                                                        selectedImages.append(index)
-                                                    }
-                                                    
-                                                    if selectedImages.count == 2 {
-                                                        allAnswers += 1
-                                                        if data[selectedImages[0]] == data[selectedImages[1]] {
-                                                            audio.play(name: Constants.UI.correct)
-                                                            playNotificationHaptic(type: .success)
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                                                                correctImages += selectedImages
-                                                                correctAnswers += 1
-                                                            }
-                                                        } else {
-                                                            audio.play(name: Constants.UI.error)
-                                                            playNotificationHaptic(type: .error)
-                                                        }
-                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                                            selectedImages = []
-                                                        }
-                                                    }
-                                                }
+                                                viewModel.selectImage(at: index, audio: audio)
                                             }
                                         } else {
                                             OptionButtonView(
@@ -99,13 +77,12 @@ struct WhoIsMyPairView: View {
                                 .padding(.horizontal)
                                 
                                 Button {
-                                    ScoreManager.score.saveScore(gameType, askedQuestionsCount: allAnswers, correctAnswersCount: correctAnswers)
-                                    correctAnswers = 0
-                                    allAnswers = 0
-                                    selectedImages = []
-                                    correctImages = []
+                                    ScoreManager.score.saveScore(
+                                        gameType,
+                                        askedQuestionsCount: viewModel.allAnswers,
+                                        correctAnswersCount: viewModel.correctAnswers
+                                    )
                                     viewModel.loadNextQuestion()
-                                    currentRound = viewModel.currentRound
                                     newGame.toggle()
                                     audio.play(name: Constants.UI.cards)
                                     playNotificationHaptic(type: .error)
@@ -128,7 +105,8 @@ struct WhoIsMyPairView: View {
                     .ignoresSafeArea()
                 }  //if statement
             } //VStack
-            if correctAnswers == 6 {
+            
+            if viewModel.correctAnswers == 6 {
                 AnimationManager(score: Int.random(in: 1...6) * 10)
             }
         } //ZStack
@@ -142,13 +120,12 @@ struct WhoIsMyPairView: View {
         }
         .onAppear {
             viewModel.loadQuestions()
-            currentRound = viewModel.currentRound ?? Array(repeating: "", count: 12)
         }
-    } //ZStack
+    }
 }
 
 #Preview {
     WhoIsMyPairView()
         .environmentObject(AudioManager.shared)
-
+    
 }
