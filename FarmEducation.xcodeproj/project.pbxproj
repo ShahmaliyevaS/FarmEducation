@@ -29,6 +29,9 @@
 		ED6B90822E7149B9007C6AAD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B90812E7149B9007C6AAD /* SettingsView.swift */; };
 		ED6B90842E715725007C6AAD /* LocalizableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B90832E715725007C6AAD /* LocalizableManager.swift */; };
 		ED6B90862E715CB0007C6AAD /* LanguageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B90852E715CB0007C6AAD /* LanguageTypes.swift */; };
+		ED7F9F642E7D3DBE000AEBD2 /* FarmEducationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F632E7D3DBE000AEBD2 /* FarmEducationTests.swift */; };
+		ED7F9F6B2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F6A2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift */; };
+		ED7F9F6D2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F6C2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift */; };
 		EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */; };
 		EDAF04A22E69715C00E25DA6 /* cards.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A12E69715C00E25DA6 /* cards.wav */; };
 		EDAF04A52E69798700E25DA6 /* woow1.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A32E69798700E25DA6 /* woow1.wav */; };
@@ -61,6 +64,16 @@
 		EDE26C022E4F4D03009F9213 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE26C012E4F4D03009F9213 /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		ED7F9F652E7D3DBE000AEBD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED0E22C02DDB140C007DAC08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED0E22C72DDB140C007DAC08;
+			remoteInfo = FarmEducation;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		ED0E22C82DDB140C007DAC08 /* FarmEducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmEducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0E22CB2DDB140C007DAC08 /* FarmEducationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmEducationApp.swift; sourceTree = "<group>"; };
@@ -85,6 +98,10 @@
 		ED6B90812E7149B9007C6AAD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		ED6B90832E715725007C6AAD /* LocalizableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableManager.swift; sourceTree = "<group>"; };
 		ED6B90852E715CB0007C6AAD /* LanguageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTypes.swift; sourceTree = "<group>"; };
+		ED7F9F612E7D3DBD000AEBD2 /* FarmEducationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarmEducationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED7F9F632E7D3DBE000AEBD2 /* FarmEducationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmEducationTests.swift; sourceTree = "<group>"; };
+		ED7F9F6A2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelTest.swift; sourceTree = "<group>"; };
+		ED7F9F6C2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsMyPairViewModelTest.swift; sourceTree = "<group>"; };
 		EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EDAF04A12E69715C00E25DA6 /* cards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cards.wav; path = ../../../../../im/sounds/cards.wav; sourceTree = "<group>"; };
 		EDAF04A32E69798700E25DA6 /* woow1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = woow1.wav; path = ../../../../../../Downloads/woow1.wav; sourceTree = "<group>"; };
@@ -125,6 +142,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED7F9F5E2E7D3DBD000AEBD2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -132,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				ED0E22CA2DDB140C007DAC08 /* FarmEducation */,
+				ED7F9F622E7D3DBE000AEBD2 /* FarmEducationTests */,
 				ED0E22C92DDB140C007DAC08 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -140,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				ED0E22C82DDB140C007DAC08 /* FarmEducation.app */,
+				ED7F9F612E7D3DBD000AEBD2 /* FarmEducationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +259,16 @@
 			path = AnimationViews;
 			sourceTree = "<group>";
 		};
+		ED7F9F622E7D3DBE000AEBD2 /* FarmEducationTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED7F9F632E7D3DBE000AEBD2 /* FarmEducationTests.swift */,
+				ED7F9F6A2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift */,
+				ED7F9F6C2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift */,
+			);
+			path = FarmEducationTests;
+			sourceTree = "<group>";
+		};
 		EDC27CBE2DDF0B9A0082C349 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +347,24 @@
 			productReference = ED0E22C82DDB140C007DAC08 /* FarmEducation.app */;
 			productType = "com.apple.product-type.application";
 		};
+		ED7F9F602E7D3DBD000AEBD2 /* FarmEducationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED7F9F692E7D3DBE000AEBD2 /* Build configuration list for PBXNativeTarget "FarmEducationTests" */;
+			buildPhases = (
+				ED7F9F5D2E7D3DBD000AEBD2 /* Sources */,
+				ED7F9F5E2E7D3DBD000AEBD2 /* Frameworks */,
+				ED7F9F5F2E7D3DBD000AEBD2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED7F9F662E7D3DBE000AEBD2 /* PBXTargetDependency */,
+			);
+			name = FarmEducationTests;
+			productName = FarmEducationTests;
+			productReference = ED7F9F612E7D3DBD000AEBD2 /* FarmEducationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -323,6 +377,10 @@
 				TargetAttributes = {
 					ED0E22C72DDB140C007DAC08 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					ED7F9F602E7D3DBD000AEBD2 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = ED0E22C72DDB140C007DAC08;
 					};
 				};
 			};
@@ -350,6 +408,7 @@
 			projectRoot = "";
 			targets = (
 				ED0E22C72DDB140C007DAC08 /* FarmEducation */,
+				ED7F9F602E7D3DBD000AEBD2 /* FarmEducationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -372,6 +431,13 @@
 				EDC360E22E20F45700BC66FB /* whatAnimalsEat.json in Resources */,
 				EDAF04A52E69798700E25DA6 /* woow1.wav in Resources */,
 				ED0E22D02DDB140F007DAC08 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED7F9F5F2E7D3DBD000AEBD2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +490,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED7F9F5D2E7D3DBD000AEBD2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED7F9F6D2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift in Sources */,
+				ED7F9F6B2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift in Sources */,
+				ED7F9F642E7D3DBE000AEBD2 /* FarmEducationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED7F9F662E7D3DBE000AEBD2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED0E22C72DDB140C007DAC08 /* FarmEducation */;
+			targetProxy = ED7F9F652E7D3DBE000AEBD2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ED0E22D42DDB140F007DAC08 /* Debug */ = {
@@ -604,6 +688,42 @@
 			};
 			name = Release;
 		};
+		ED7F9F672E7D3DBE000AEBD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RVVH9Q88YP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.farmeducation.FarmEducationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FarmEducation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FarmEducation";
+			};
+			name = Debug;
+		};
+		ED7F9F682E7D3DBE000AEBD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RVVH9Q88YP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.farmeducation.FarmEducationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FarmEducation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FarmEducation";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -621,6 +741,15 @@
 			buildConfigurations = (
 				ED0E22D72DDB140F007DAC08 /* Debug */,
 				ED0E22D82DDB140F007DAC08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED7F9F692E7D3DBE000AEBD2 /* Build configuration list for PBXNativeTarget "FarmEducationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED7F9F672E7D3DBE000AEBD2 /* Debug */,
+				ED7F9F682E7D3DBE000AEBD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
