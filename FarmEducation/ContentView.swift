@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var type: GameType?
-    @State private var tabVersion = 0
+    @State private var selectedTab = GameType.allCases.first!
+    @StateObject private var scoreManager = ScoreManager.shared
     
     var body: some View {
         NavigationStack {
             ZStack {
-                TabView {
+                TabView(selection: $selectedTab) {
                     ForEach(GameType.allCases, id: \.self) { type in
-                        GameCardView(game: $type, gameType: type)
+                        GameCardView(gameType: type, score: scoreManager.score)
+                            .tag(type)
                     }
                     SettingsView()
                 }
@@ -25,26 +26,22 @@ struct ContentView: View {
                 .padding(.bottom, -16)
                 .padding(.vertical)
             }
-            .navigationDestination(item: $type) { game in
-                switch game {
-                    case .whatAnimalsEat:
-                        WhatAnimalsEatView()
-                    case .whereAnimalsLive:
-                        WhereAnimalsLiveView()
-                    case .whichAnimalsShadow:
-                        WhichAnimalsShadowView()
-                    case .whosePartIsThis:
-                        WhosePartIsThisView()
-                    case .whoIsMyPair:
-                        WhoIsMyPairView()
-                }
-            }
             .background{
                 LinearGradient(
                     gradient:Gradient(colors: [.cherryMilkColor, .paleSkyColor, .lavenderBlueColor.opacity(0.8) ]),
                     startPoint: .top,
                     endPoint: .bottom)
                 .ignoresSafeArea()
+            }
+        }
+        .onAppear {
+            if let loaded = ScoreManager.shared.get(for: selectedTab) {
+                scoreManager.score = loaded
+            }
+        }
+        .onChange(of: selectedTab) {
+            if let loaded = ScoreManager.shared.get(for: selectedTab) {
+                scoreManager.score = loaded
             }
         }
     }

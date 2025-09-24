@@ -8,19 +8,15 @@
 import SwiftUI
 
 struct OptionButtonView: View {
-    
-    var backgroundColor: Color
-    var cornerColor: Color
-    var image: String?
-    var shadow: Bool = true
+    var design: OptionButtonDesign
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 44)
-                .fill(backgroundColor)
-                .stroke(cornerColor, lineWidth: 4)
+                .fill(design.backgroundColor)
+                .stroke(design.cornerColor, lineWidth: 4)
             
-            if let option = image {
+            if let option = design.image {
                 VStack {
                     Image(option)
                         .resizable()
@@ -29,11 +25,11 @@ struct OptionButtonView: View {
                 }
             }
         }
-        .shadow(color: shadow ? .black.opacity(0.5) : .clear, radius: 10, x: 5, y: 5)
+        .shadow(color: design.shadow ? .black.opacity(0.5) : .clear, radius: 10, x: 5, y: 5)
     }
 }
 
 #Preview {
-    OptionButtonView(backgroundColor: .orange, cornerColor: .red , image: Constants.Meal.egg)
+    OptionButtonView(design: OptionButtonDesign(backgroundColor: .orange, cornerColor: .red , image: Constants.Meal.egg))
         .frame(width: 120)
 }

@@ -10,21 +10,14 @@ import SwiftUI
 struct WhereAnimalsLiveView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
-    
-    @State var firstFalseAnswer: String = ""
-    @State var answer: String = ""
-    @State var disabledAnswers: Set<Int> = []
-    @State var offsetAnimation = false
-    @State var questionImageAnimation = false
-    @State var correctAnswersCount = 0
-    @StateObject var viewModel = QuestionViewModel()
+    @StateObject private var vm = WhereAnimalsLiveViewModel(.whereAnimalsLive, AudioManager.shared)
     
     var gameType: GameType = .whereAnimalsLive
     
     var body: some View {
         ZStack {
             VStack {
-                if let round = viewModel.currentRound {
+                if let round = vm.currentRound {
                     GeometryReader { geo in
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
@@ -44,7 +37,9 @@ struct WhereAnimalsLiveView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        ScoreManager.score.saveScore(gameType, askedQuestionsCount: viewModel.getAskedQuestionCount()-1, correctAnswersCount: correctAnswersCount)
+                                        ScoreManager.shared.saveScore(gameType,
+                                                                     askedQuestionsCount: vm.getAskedQuestionCount(),
+                                                                     correctAnswersCount: vm.correctAnswersCount)
                                         dismiss()
                                     } label: {
                                         ExitView()
@@ -60,79 +55,36 @@ struct WhereAnimalsLiveView: View {
                                     .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle(Color.lavenderBlueColor)
-                                    .animation(.spring, value: questionImageAnimation)
+                                    .animation(.spring, value: vm.questionImageAnimation)
                                     .padding(.bottom, 32)
                                 HStack(spacing: 20) {
-                                    ForEach(0..<round.options.count, id: \.self) { i in
-                                        let option = round.options[i]
-                                        let size = screenWidth / 12
-                                        let image = answer == option && answer != round.correctAnswer ? Constants.UI.falseImage : option
-                                        let backgroundColor = Color.clear
-                                        let cornerColor =  answer == option ? Color.clear : .lavenderBlueColor
-                                        let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
-                                        OptionButtonView(backgroundColor:  backgroundColor ,
-                                                         cornerColor: cornerColor,
-                                                         image: image,
-                                                         shadow: answer == option ? false : true
-                                        )
-                                        .frame(height: 160)
-                                        .offset(x: answer == option ? centerOffset : 0,
-                                                y: answer == option ? -screenHeight/11 : 0)
-                                        .animation(.smooth, value: offsetAnimation)
-                                        .overlay {
-                                            if firstFalseAnswer == option {
-                                                Image(Constants.UI.falseImage)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                            }
-                                        }
-                                        .scaleEffect(answer == option ? 4 : 1)
-                                        .onTapGesture {
-                                            if !disabledAnswers.contains(i) {
-                                                if firstFalseAnswer.isEmpty && option != round.correctAnswer {
-                                                    firstFalseAnswer = option
-                                                    disabledAnswers.insert(i)
-                                                } else {
-                                                    answer = option
-                                                    offsetAnimation.toggle()
-                                                    
-                                                    let filtered = (0...2).filter { $0 != i }
-                                                    for item in filtered {
-                                                        disabledAnswers.insert(item)
-                                                    }
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                        firstFalseAnswer = ""
-                                                        answer = ""
-                                                        disabledAnswers = []
-                                                        offsetAnimation.toggle()
-                                                        questionImageAnimation.toggle()
-                                                        viewModel.loadNextQuestion()
-                                                    }
+                                    ForEach(round.options, id: \.self) { option in
+                                        OptionButtonView(design: vm.getOptionView(option))
+                                            .frame(height: 160)
+                                            .offset(vm.getOffset(option, width: screenWidth/12, height: screenHeight/11))
+                                            .animation(.smooth, value: vm.offsetAnimation)
+                                            .overlay {
+                                                if vm.isFirstFalseAnswer(option) {
+                                                    Image(Constants.UI.falseImage)
+                                                        .resizable()
+                                                        .scaledToFit()
                                                 }
                                             }
-                                            if option == round.correctAnswer && !disabledAnswers.contains(i) {
-                                                correctAnswersCount += 1
-                                                audio.play(name: Constants.UI.correct)
-                                                playNotificationHaptic(type: .success)
-                                            } else if option != round.correctAnswer && !disabledAnswers.contains(i) {
-                                                audio.play(name: Constants.UI.error)
-                                                playNotificationHaptic(type: .error)
+                                            .scaleEffect(vm.isSelected(option) && !vm.isFirstFalseAnswer(option) ? 4 : 1)
+                                            .onTapGesture {
+                                                vm.handleAnswer(option)
                                             }
-                                        }
                                     }
                                 } //options HStack
                                 .padding(.horizontal)
                                 .ignoresSafeArea()
-                                
-                                GameProgressView(gameType: gameType, correctAnswers: $correctAnswersCount )
+                                GameProgressView(gameType: gameType, correctAnswers: $vm.correctAnswersCount )
                             }
                             .padding(6.0)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)
                         }
                         .background{
-                            Places(rawValue: round.question)?.backgroundColor ??
-                            Color.greenNeonGrassColor
-                            
+                            Places(rawValue: round.question)?.backgroundColor ?? Color.greenNeonGrassColor
                         }
                     } //GeometryReader
                     .ignoresSafeArea()
@@ -140,9 +92,9 @@ struct WhereAnimalsLiveView: View {
             } //VStack
             .navigationBarBackButtonHidden(true)
             .onAppear {
-                viewModel.loadQuestions(for: gameType)
+                vm.loadQuestions()
             }
-            AnimationManager(score: correctAnswersCount)
+            AnimationManager(score: vm.correctAnswersCount)
         } //ZStack
     }
 }
@@ -150,5 +102,5 @@ struct WhereAnimalsLiveView: View {
 #Preview {
     WhereAnimalsLiveView()
         .environmentObject(AudioManager.shared)
-
+    
 }

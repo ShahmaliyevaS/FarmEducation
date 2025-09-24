@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class WhoIsMyPairViewModel: ObservableObject {
     
@@ -14,8 +15,18 @@ class WhoIsMyPairViewModel: ObservableObject {
     @Published var correctImages: [Int] = []
     @Published var allAnswers: Int = 0
     @Published var correctAnswers: Int = 0
+    @Published var newGame = false
+    
+    private var audio: AudioManager
+    private var gameType: GameType
     
     private var allQuestions: [String] = []
+    
+    init(_ gameType: GameType, _ audioManager: AudioManager) {
+        self.gameType = gameType
+        self.audio = audioManager
+        loadQuestions()
+    }
     
     func loadQuestions() {
         allQuestions = DataLoader.whoIsMYpair
@@ -23,14 +34,41 @@ class WhoIsMyPairViewModel: ObservableObject {
     }
     
     func loadNextQuestion() {
-        currentRound = allQuestions.shuffled().prefix(6).flatMap { [$0, $0] }
+        currentRound = allQuestions.shuffled().prefix(6).flatMap { [$0, $0] }.shuffled()
         selectedImages = []
         correctImages = []
         allAnswers = 0
         correctAnswers = 0
     }
     
-    func selectImage(at index: Int, audio: AudioManager) {
+    func playNewGame() {
+        ScoreManager.shared.saveScore(
+            gameType,
+            askedQuestionsCount: allAnswers,
+            correctAnswersCount: correctAnswers
+        )
+        loadNextQuestion()
+        newGame.toggle()
+        audio.play(name: Constants.UI.cards)
+        playNotificationHaptic(type: .error)
+    }
+    
+    func getOptionView(_ index: Int, _ option: String) -> OptionButtonDesign {
+        if !correctImages.contains(index) {
+            return OptionButtonDesign( backgroundColor: StaticStore.pastelColors.randomElement()!, cornerColor: Color.lavenderBlueColor, image: !isSelected(index) ? nil : option)
+        }
+        return OptionButtonDesign(backgroundColor: .clear, cornerColor: .clear, shadow: false)
+    }
+    
+    func isSelected(_ index: Int) -> Bool {
+        return selectedImages.contains(index)
+    }
+    
+    func getDegress(_ condition: Bool) -> Double {
+        return condition ? 180 : 0
+    }
+    
+    func selectImage(at index: Int) {
         guard !selectedImages.contains(index) && selectedImages.count < 2 else { return }
         
         selectedImages.append(index)

@@ -32,6 +32,11 @@
 		ED7F9F642E7D3DBE000AEBD2 /* FarmEducationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F632E7D3DBE000AEBD2 /* FarmEducationTests.swift */; };
 		ED7F9F6B2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F6A2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift */; };
 		ED7F9F6D2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F6C2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift */; };
+		ED7F9F6F2E807582000AEBD2 /* WhosePartIsThisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F6E2E807582000AEBD2 /* WhosePartIsThisViewModel.swift */; };
+		ED7F9F712E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F702E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift */; };
+		ED7F9F732E814609000AEBD2 /* OptionButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F722E814609000AEBD2 /* OptionButtonDesign.swift */; };
+		ED7F9F752E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F742E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift */; };
+		ED7F9F772E815066000AEBD2 /* WhereAnimalsLiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F762E815065000AEBD2 /* WhereAnimalsLiveViewModel.swift */; };
 		EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */; };
 		EDAF04A22E69715C00E25DA6 /* cards.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A12E69715C00E25DA6 /* cards.wav */; };
 		EDAF04A52E69798700E25DA6 /* woow1.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A32E69798700E25DA6 /* woow1.wav */; };
@@ -102,6 +107,11 @@
 		ED7F9F632E7D3DBE000AEBD2 /* FarmEducationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmEducationTests.swift; sourceTree = "<group>"; };
 		ED7F9F6A2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelTest.swift; sourceTree = "<group>"; };
 		ED7F9F6C2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsMyPairViewModelTest.swift; sourceTree = "<group>"; };
+		ED7F9F6E2E807582000AEBD2 /* WhosePartIsThisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosePartIsThisViewModel.swift; sourceTree = "<group>"; };
+		ED7F9F702E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichAnimalsShadowViewModel.swift; sourceTree = "<group>"; };
+		ED7F9F722E814609000AEBD2 /* OptionButtonDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButtonDesign.swift; sourceTree = "<group>"; };
+		ED7F9F742E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatAnimalsEatViewModel.swift; sourceTree = "<group>"; };
+		ED7F9F762E815065000AEBD2 /* WhereAnimalsLiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAnimalsLiveViewModel.swift; sourceTree = "<group>"; };
 		EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EDAF04A12E69715C00E25DA6 /* cards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cards.wav; path = ../../../../../im/sounds/cards.wav; sourceTree = "<group>"; };
 		EDAF04A32E69798700E25DA6 /* woow1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = woow1.wav; path = ../../../../../../Downloads/woow1.wav; sourceTree = "<group>"; };
@@ -242,6 +252,7 @@
 				EDC27CC92DDF14640082C349 /* QuestionRound.swift */,
 				EDC360D12E054C7A00BC66FB /* Score.swift */,
 				EDE26BEA2E4A024E009F9213 /* ImageLayout.swift */,
+				ED7F9F722E814609000AEBD2 /* OptionButtonDesign.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +313,10 @@
 			children = (
 				EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */,
 				ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */,
+				ED7F9F6E2E807582000AEBD2 /* WhosePartIsThisViewModel.swift */,
+				ED7F9F702E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift */,
+				ED7F9F742E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift */,
+				ED7F9F762E815065000AEBD2 /* WhereAnimalsLiveViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -452,17 +467,20 @@
 				EDE26BED2E4A0441009F9213 /* StaticStore.swift in Sources */,
 				EDC27CCD2DDF1DF70082C349 /* ColorExtention.swift in Sources */,
 				ED6B90842E715725007C6AAD /* LocalizableManager.swift in Sources */,
+				ED7F9F712E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift in Sources */,
 				ED4632452DFAF162009CF8FD /* FireWorksComponentView.swift in Sources */,
 				ED0E22CE2DDB140C007DAC08 /* ContentView.swift in Sources */,
 				ED4632472E028E24009CF8FD /* FireWorksAnimationView.swift in Sources */,
 				ED6B90822E7149B9007C6AAD /* SettingsView.swift in Sources */,
 				EDC360EA2E22DDA300BC66FB /* WhichAnimalsShadowView.swift in Sources */,
+				ED7F9F752E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift in Sources */,
 				EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */,
 				EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */,
 				EDE26BF52E4DBC2F009F9213 /* AnimationManager.swift in Sources */,
 				EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */,
 				EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */,
 				EDC360E62E2130BC00BC66FB /* WhereAnimalsLiveView.swift in Sources */,
+				ED7F9F732E814609000AEBD2 /* OptionButtonDesign.swift in Sources */,
 				EDC360E82E2186A900BC66FB /* Places.swift in Sources */,
 				ED6B90862E715CB0007C6AAD /* LanguageTypes.swift in Sources */,
 				ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */,
@@ -475,6 +493,7 @@
 				EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */,
 				EDE26BF72E4E0981009F9213 /* AudioManager.swift in Sources */,
 				EDE26BEF2E4B2655009F9213 /* Constants.swift in Sources */,
+				ED7F9F772E815066000AEBD2 /* WhereAnimalsLiveViewModel.swift in Sources */,
 				ED0E22DE2DDB1E62007DAC08 /* OptionButtonView.swift in Sources */,
 				ED0E22DB2DDB159E007DAC08 /* WhatAnimalsEatView.swift in Sources */,
 				ED5504652E27807000114A11 /* WhosePartIsThisView.swift in Sources */,
@@ -486,6 +505,7 @@
 				ED0E22CC2DDB140C007DAC08 /* FarmEducationApp.swift in Sources */,
 				ED0E22E32DDC6DD9007DAC08 /* GameType.swift in Sources */,
 				EDE26BF12E4B2E2F009F9213 /* ExitView.swift in Sources */,
+				ED7F9F6F2E807582000AEBD2 /* WhosePartIsThisViewModel.swift in Sources */,
 				ED5504672E297A5F00114A11 /* WhoIsMyPairView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

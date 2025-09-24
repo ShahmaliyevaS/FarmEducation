@@ -9,9 +9,13 @@ import SwiftUI
 
 struct GameCardView: View {
     @EnvironmentObject var localizableManager: LocalizableManager
-    @State var score = Score(recent: 0, recentCount: 0, best: 0, bestCount: 0)
-    @Binding var game: GameType?
+    var score: Score
     var gameType: GameType
+    
+    init(gameType: GameType, score: Score) {
+        self.gameType = gameType
+        self.score = score
+    }
     
     var body: some View {
         VStack {
@@ -42,18 +46,13 @@ struct GameCardView: View {
             Spacer()
             HStack(spacing: 20){
                 ForEach(0...1, id: \.self) { i in
-                    OptionButtonView(
-                        backgroundColor: .clear,
-                        cornerColor: .lavenderBlueColor,
-                        image: gameType.cardDesign.options[i])
+                    OptionButtonView(design: OptionButtonDesign(backgroundColor: .clear, cornerColor: .lavenderBlueColor, image: gameType.cardDesign.options[i]))
                 }
             }
             .padding(.horizontal)
             Spacer()
             
-            Button {
-                game = gameType
-            } label: {
+            NavigationLink(destination: destinationView(for: gameType)) {
                 Text(Constants.UI.play.localized())
                     .frame(width: 200)
                     .foregroundStyle(Color.lavenderBlueColor)
@@ -69,7 +68,6 @@ struct GameCardView: View {
                     )
                     .shadow(color: .black.opacity(0.5), radius: 10, x: 5, y: 5)
             }
-            
             Spacer()
         } //VStack
         .padding(.all)
@@ -87,14 +85,27 @@ struct GameCardView: View {
         )
         .ignoresSafeArea()
         .padding(.all, 32)
-        .onAppear{
-            score =  ScoreManager.score.get(for: gameType) ?? Score(recent: 0, recentCount: 0, best: 0, bestCount: 0)
+    }
+    
+    @ViewBuilder
+    private func destinationView(for gameType: GameType) -> some View {
+        switch gameType {
+        case .whatAnimalsEat:
+            WhatAnimalsEatView()
+        case .whereAnimalsLive:
+            WhereAnimalsLiveView()
+        case .whichAnimalsShadow:
+            WhichAnimalsShadowView()
+        case .whosePartIsThis:
+            WhosePartIsThisView()
+        case .whoIsMyPair:
+            WhoIsMyPairView()
         }
     }
 }
 
 #Preview {
-    GameCardView(game: .constant(nil), gameType: .whatAnimalsEat)
+    GameCardView(gameType: .whatAnimalsEat, score: Score(recent: 0, recentCount: 0, best: 0, bestCount: 0))
         .padding(.all)
 }
 

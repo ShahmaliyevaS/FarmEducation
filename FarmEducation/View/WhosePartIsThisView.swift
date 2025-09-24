@@ -8,27 +8,20 @@
 import SwiftUI
 
 struct WhosePartIsThisView: View {
+    let gameType: GameType = .whosePartIsThis
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
     
-    @State var firstFalseAnswer: String = ""
-    @State var answer: String = ""
-    @State var disabledAnswers: Set<Int> = []
-    @State var offsetAnimation = false
-    @State var questionImageAnimation = false
-    @State var isHidden = false
-    @State var correctAnswersCount = 0
-    @State var selectedParts: [Int] = [4]
-    @StateObject var viewModel = QuestionViewModel()
+    @StateObject var vm = WhosePartIsThisViewModel(.whosePartIsThis, AudioManager.shared)
     
     let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
-    let gameType: GameType = .whosePartIsThis
+    
     var data = Array(repeating: "", count: 9)
     
     var body: some View {
         ZStack {
             VStack {
-                if let round = viewModel.currentRound {
+                if let round = vm.currentRound {
                     GeometryReader { geo in
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
@@ -36,7 +29,7 @@ struct WhosePartIsThisView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        ScoreManager.score.saveScore(gameType, askedQuestionsCount: viewModel.getAskedQuestionCount()-1, correctAnswersCount: correctAnswersCount)
+                                        ScoreManager.shared.saveScore(gameType, askedQuestionsCount: vm.getAskedQuestionCount(), correctAnswersCount: vm.correctAnswersCount)
                                         dismiss()
                                     } label: {
                                         ExitView()
@@ -54,21 +47,19 @@ struct WhosePartIsThisView: View {
                                         .scaledToFit()
                                         .frame(height: 400)
                                         .shadow(radius: 10)
-                                        .animation(.snappy, value: questionImageAnimation)
-                                        .opacity(isHidden ? 0 : 1)
-                                        .animation(.smooth(duration: TimeInterval(0.8)), value: isHidden)
+                                        .animation(.snappy, value: vm.questionImageAnimation)
+                                        .opacity(vm.isHidden() ? 0 : 1)
+                                        .animation(.smooth(duration: TimeInterval(0.8)), value: vm.isHidden())
                                     
                                     LazyVGrid(columns: columns, spacing: 0) {
                                         ForEach(Array(data.enumerated()), id: \.offset) { index, item in
                                             Rectangle()
-                                                .fill(selectedParts.last == index ? .clear : StaticStore.pastelColors[index])
+                                                .fill(vm.selectedParts.last == index ? .clear : StaticStore.pastelColors[index])
                                                 .frame(width: (screenWidth-8)/3.25, height: 140)
                                                 .border(Color.lavenderBlueColor)
-                                                .animation(.smooth, value: selectedParts.last != index)
+                                                .animation(.smooth, value: vm.selectedParts.last != index)
                                                 .onTapGesture {
-                                                    if selectedParts.count == 1 && selectedParts.last != index {
-                                                        selectedParts.append(index)
-                                                    }
+                                                    vm.setSelectPart(index)
                                                 }
                                         }
                                     }
@@ -83,76 +74,31 @@ struct WhosePartIsThisView: View {
                                     .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle(Color.lavenderBlueColor)
-                                    .animation(.spring, value: questionImageAnimation)
-                                    .padding(.bottom, 32)
+                                    .animation(.spring, value: vm.questionImageAnimation)
+                                    .padding(.bottom, 24)
                                 
                                 HStack(spacing: 20) {
-                                    ForEach(0..<round.options.count, id: \.self) { i in
-                                        let option = round.options[i]
-                                        let size = screenWidth / 16
-                                        let image = answer == option && answer != round.correctAnswer
-                                        ? Constants.UI.falseImage : option
-                                        let cornerColor =  answer == option ? Color.clear : .lavenderBlueColor
-                                        let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
-                                        OptionButtonView(
-                                            backgroundColor: .clear ,
-                                            cornerColor: cornerColor,
-                                            image: image,
-                                            shadow: answer == option ? false : true
-                                        )
-                                        .frame(height: 160)
-                                        .offset(x: answer == option ? centerOffset : 0,
-                                                y: answer == option ? -screenHeight/12 : 0)
-                                        .scaleEffect(answer == option ? 5 : 1)
-                                        .animation(.smooth, value: offsetAnimation)
-                                        .overlay {
-                                            if firstFalseAnswer == option {
-                                                Image(Constants.UI.falseImage)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                            }
-                                        }
-                                        .onTapGesture {
-                                            if !disabledAnswers.contains(i) {
-                                                if firstFalseAnswer.isEmpty && option != round.correctAnswer {
-                                                    firstFalseAnswer = option
-                                                    disabledAnswers.insert(i)
-                                                } else {
-                                                    answer = option
-                                                    offsetAnimation.toggle()
-                                                    
-                                                    let filtered = (0...2).filter { $0 != i }
-                                                    for item in filtered {
-                                                        disabledAnswers.insert(item)
-                                                    }
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                        firstFalseAnswer = ""
-                                                        isHidden = false
-                                                        answer = ""
-                                                        disabledAnswers = []
-                                                        offsetAnimation.toggle()
-                                                        questionImageAnimation.toggle()
-                                                        viewModel.loadNextQuestion()
-                                                        selectedParts = [4]
-                                                    }
+                                    ForEach(round.options, id: \.self) { option in
+                                        OptionButtonView(design: vm.getOptionView(option))
+                                            .frame(height: 160)
+                                            .offset(vm.getOffset(option, width: screenWidth / 16, height: screenHeight/12))
+                                            .scaleEffect(vm.isSelected(option) && !vm.isFirstFalseAnswer(option) ? 5 : 1)
+                                            .animation(.smooth, value: vm.offsetAnimation)
+                                            .overlay {
+                                                if vm.isFirstFalseAnswer(option) {
+                                                    Image(Constants.UI.falseImage)
+                                                        .resizable()
+                                                        .scaledToFit()
                                                 }
                                             }
-                                            if option == round.correctAnswer && !disabledAnswers.contains(i) {
-                                                isHidden = true
-                                                correctAnswersCount += 1
-                                                audio.play(name: Constants.UI.correct)
-                                                playNotificationHaptic(type: .success)
-                                            } else if option != round.correctAnswer && !disabledAnswers.contains(i) {
-                                                audio.play(name: Constants.UI.error)
-                                                playNotificationHaptic(type: .error)
+                                            .onTapGesture {
+                                                vm.handleAnswer(option)
                                             }
-                                        }
                                     }
                                 } //options HStack
                                 .padding(.horizontal)
                                 .ignoresSafeArea()
-                                
-                                GameProgressView(gameType: gameType, correctAnswers: $correctAnswersCount )
+                                GameProgressView(gameType: gameType, correctAnswers: $vm.correctAnswersCount )
                             }
                             .padding(6.0)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)
@@ -170,9 +116,9 @@ struct WhosePartIsThisView: View {
                 ).ignoresSafeArea()
             }
             .onAppear {
-                viewModel.loadQuestions(for: gameType)
+                vm.loadQuestions()
             }
-            AnimationManager(score: correctAnswersCount)
+            AnimationManager(score: vm.correctAnswersCount)
         } //ZStack
     }
 }
@@ -180,5 +126,5 @@ struct WhosePartIsThisView: View {
 #Preview {
     WhosePartIsThisView()
         .environmentObject(AudioManager.shared)
-
+    
 }

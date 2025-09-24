@@ -8,24 +8,16 @@
 import SwiftUI
 
 struct WhatAnimalsEatView: View {
-    
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
-    
-    @State var firstFalseAnswer: String = ""
-    @State var answer: String = ""
-    @State var disabledAnswers: Set<Int> = []
-    @State var offsetAnimation = false
-    @State var questionImageAnimation = false
-    @State var correctAnswersCount = 0
-    @StateObject var viewModel = QuestionViewModel()
+    @StateObject var vm = WhatAnimalsEatViewModel(.whatAnimalsEat, AudioManager.shared)
     
     var gameType: GameType = .whatAnimalsEat
     
     var body: some View {
         ZStack {
             VStack {
-                if let round = viewModel.currentRound {
+                if let round = vm.currentRound {
                     GeometryReader { geo in
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
@@ -33,7 +25,6 @@ struct WhatAnimalsEatView: View {
                             Image(Constants.Background.farm)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geo.size.width / 0.6)
                                 .overlay {
                                     LinearGradient(
                                         stops: [
@@ -46,7 +37,10 @@ struct WhatAnimalsEatView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        ScoreManager.score.saveScore(gameType, askedQuestionsCount: viewModel.getAskedQuestionCount()-1, correctAnswersCount: correctAnswersCount)
+                                        ScoreManager.shared.saveScore(
+                                            gameType,
+                                            askedQuestionsCount: vm.getAskedQuestionCount(),
+                                            correctAnswersCount: vm.correctAnswersCount)
                                         dismiss()
                                     } label: {
                                         ExitView()
@@ -58,91 +52,44 @@ struct WhatAnimalsEatView: View {
                                 .padding(.horizontal)
                                 
                                 Spacer()
-                                ZStack(alignment: .bottom) {
-                                    Image(Constants.Background.question)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 300)
-                                        .offset(y: 10)
-                                    Image(round.question)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 360)
-                                        .shadow(radius: 10)
-                                        .animation(.snappy, value: questionImageAnimation)
-                                }
+                                Image(round.question)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 300)
+                                    .shadow(radius: 10)
+                                    .animation(.snappy, value: vm.questionImageAnimation)
                                 
                                 Text(gameType.rawValue.localized())
                                     .chalkboardFont(size: 20)
                                     .bold()
                                     .foregroundStyle( Color.lavenderBlueColor)
-                                    .animation(.spring, value: questionImageAnimation)
-                                    .padding(.bottom, 32)
+                                    .animation(.spring, value: vm.questionImageAnimation)
+                                    .padding(.bottom, 20)
                                 
                                 HStack(spacing: 20) {
-                                    ForEach(0..<round.options.count, id: \.self) { i in
-                                        let option = round.options[i]
-                                        let size = screenWidth / 5.1
-                                        let image = answer == option && answer == round.correctAnswer ? Constants.UI.rightImage : (answer == option && answer != round.correctAnswer ? Constants.UI.falseImage : option )
-                                        let backgroundColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor.opacity(0.2) : (answer == option && answer != round.correctAnswer ? .brickRedColor.opacity(0.2) : .clear)
-                                        let cornerColor = answer == option && answer == round.correctAnswer ? Color.freshLawnColor : (answer == option && answer != round.correctAnswer ? .brickRedColor : .lavenderBlueColor)
-                                        let centerOffset = i == 0 ? size : (i == 1 ? 0 : -size)
-                                        
-                                        OptionButtonView(backgroundColor:  backgroundColor ,
-                                                         cornerColor: cornerColor,
-                                                         image: image
-                                        )
-                                        .frame(height: 160)
-                                        .offset(x: answer == option ? centerOffset : 0,
-                                                y: answer == option ? -screenHeight/4 : 0)
-                                        .animation(.bouncy, value: offsetAnimation)
-                                        .overlay {
-                                            if firstFalseAnswer == option {
-                                                Image(Constants.UI.falseImage)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                            }
-                                        }
-                                        .scaleEffect(answer == option ? 1.6 : 1)
-                                        .onTapGesture {
-                                            if !disabledAnswers.contains(i) {
-                                                if firstFalseAnswer.isEmpty && option != round.correctAnswer {
-                                                    firstFalseAnswer = option
-                                                    disabledAnswers.insert(i)
-                                                } else {
-                                                    answer = option
-                                                    offsetAnimation.toggle()
-                                                    
-                                                    let filtered = (0...2).filter { $0 != i }
-                                                    for item in filtered {
-                                                        disabledAnswers.insert(item)
-                                                    }
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                        firstFalseAnswer = ""
-                                                        answer = ""
-                                                        disabledAnswers = []
-                                                        offsetAnimation.toggle()
-                                                        questionImageAnimation.toggle()
-                                                        viewModel.loadNextQuestion()
-                                                    }
+                                    ForEach(round.options, id: \.self) { option in
+                                        OptionButtonView(design: vm.getOptionView(option))
+                                            .frame(height: 160)
+                                            .offset(vm.getOffset(option, width: screenWidth/5.1, height: screenHeight/4))
+                                            .animation(.bouncy, value: vm.offsetAnimation)
+                                            .overlay {
+                                                if vm.isFirstFalseAnswer(option) {
+                                                    Image(Constants.UI.falseImage)
+                                                        .resizable()
+                                                        .scaledToFit()
                                                 }
                                             }
-                                            if option == round.correctAnswer && !disabledAnswers.contains(i) {
-                                                correctAnswersCount += 1
-                                                audio.play(name: Constants.UI.correct)
-                                                playNotificationHaptic(type: .success)
-                                            } else if option != round.correctAnswer && !disabledAnswers.contains(i) {
-                                                audio.play(name: Constants.UI.error)
-                                                playNotificationHaptic(type: .error)
+                                            .scaleEffect(vm.isSelected(option) && !vm.isFirstFalseAnswer(option) ? 1.6 : 1)
+                                            .onTapGesture {
+                                                vm.handleAnswer(option)
                                             }
-                                        }
                                     }
-                                } //options HStack 
+                                } //options HStack
                                 .padding(.horizontal)
                                 .padding(.bottom, 20)
                                 .ignoresSafeArea()
                                 
-                                GameProgressView(gameType: gameType, correctAnswers: $correctAnswersCount )
+                                GameProgressView(gameType: gameType, correctAnswers: $vm.correctAnswersCount )
                             }
                             .padding(6.0)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)
@@ -157,9 +104,9 @@ struct WhatAnimalsEatView: View {
                     .ignoresSafeArea()
             }
             .onAppear {
-                viewModel.loadQuestions(for: gameType)
+                vm.loadQuestions()
             }
-           AnimationManager(score: correctAnswersCount)
+            AnimationManager(score: vm.correctAnswersCount)
         } //ZStack
     }
 }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-class ScoreManager {
-    static let score = ScoreManager()
+class ScoreManager: ObservableObject {
+    static let shared = ScoreManager()
+    @Published var score = Score(recent: 0, recentCount: 0, best: 0, bestCount: 0)
     
     func save(_ score: Score, for key: String) {
         let encoder = JSONEncoder()
@@ -28,7 +29,7 @@ class ScoreManager {
     func saveScore(_ gameType:GameType, askedQuestionsCount: Int, correctAnswersCount: Int) {
         var bestScore = 0
         var bestScoreQuestionCount = 0
-        if let score = ScoreManager.score.get(for: gameType) {
+        if let score = get(for: gameType) {
             bestScore = score.best
             bestScoreQuestionCount = score.bestCount
         }else {
@@ -44,6 +45,7 @@ class ScoreManager {
         }
         
         let newScore = Score(recent: correctAnswersCount, recentCount: askedQuestionsCount, best: bestScore, bestCount: bestScoreQuestionCount)
-        ScoreManager.score.save(newScore, for: gameType.rawValue)
+        save(newScore, for: gameType.rawValue)
+        self.score = newScore
     }
 }

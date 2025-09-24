@@ -10,8 +10,7 @@ import SwiftUI
 struct WhoIsMyPairView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
-    @StateObject var viewModel = WhoIsMyPairViewModel()
-    @State var newGame = false
+    @StateObject var vm = WhoIsMyPairViewModel(.whoIsMyPair, AudioManager.shared)
     
     let gameType: GameType = .whoIsMyPair
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
@@ -19,7 +18,7 @@ struct WhoIsMyPairView: View {
     var body: some View {
         ZStack {
             VStack {
-                if !viewModel.currentRound.isEmpty {
+                if !vm.currentRound.isEmpty {
                     GeometryReader { geo in
                         let screenWidth = geo.size.width
                         let screenHeight = geo.size.height
@@ -27,10 +26,10 @@ struct WhoIsMyPairView: View {
                         ZStack(alignment: .topLeading) {
                             HStack {
                                 Button {
-                                    ScoreManager.score.saveScore(
+                                    ScoreManager.shared.saveScore(
                                         gameType,
-                                        askedQuestionsCount: viewModel.allAnswers,
-                                        correctAnswersCount: viewModel.correctAnswers
+                                        askedQuestionsCount: vm.allAnswers,
+                                        correctAnswersCount: vm.correctAnswers
                                     )
                                     dismiss()
                                 } label: {
@@ -44,48 +43,28 @@ struct WhoIsMyPairView: View {
                             
                             VStack {
                                 LazyVGrid(columns: columns, spacing: 20) {
-                                    ForEach(Array(viewModel.currentRound.enumerated()), id: \.offset) { index, item in
-                                        if !viewModel.correctImages.contains(index) {
-                                            OptionButtonView(
-                                                backgroundColor: StaticStore.pastelColors.randomElement()!,
-                                                cornerColor: .lavenderBlueColor,
-                                                image: !viewModel.selectedImages.contains(index) ? nil : item
-                                            )
+                                    ForEach(Array(vm.currentRound.enumerated()), id: \.offset) {index, option in
+                                        OptionButtonView(design: vm.getOptionView(index, option))
                                             .frame(height: (geo.size.height - 120)/5)
                                             .rotation3DEffect(
-                                                .degrees(viewModel.selectedImages.contains(index) ? 180 : 0),
+                                                .degrees(vm.getDegress(vm.isSelected(index))),
                                                 axis: (x: 0, y: 1, z: 0)
                                             )
-                                            .animation(.smooth, value: viewModel.selectedImages.contains(index))
+                                            .animation(.smooth, value: vm.isSelected(index))
                                             .rotation3DEffect(
-                                                .degrees(newGame ? 180 : 0),
+                                                .degrees(vm.getDegress(vm.newGame)),
                                                 axis: (x: 0, y: 1, z: 0)
                                             )
-                                            .animation(.smooth, value: newGame)
+                                            .animation(.smooth, value: vm.newGame)
                                             .onTapGesture {
-                                                viewModel.selectImage(at: index, audio: audio)
+                                                vm.selectImage(at: index)
                                             }
-                                        } else {
-                                            OptionButtonView(
-                                                backgroundColor: .clear,
-                                                cornerColor: .clear
-                                            )
-                                            .frame(height: (geo.size.height - 120)/5)
-                                        }
                                     }
                                 }
                                 .padding(.horizontal)
                                 
                                 Button {
-                                    ScoreManager.score.saveScore(
-                                        gameType,
-                                        askedQuestionsCount: viewModel.allAnswers,
-                                        correctAnswersCount: viewModel.correctAnswers
-                                    )
-                                    viewModel.loadNextQuestion()
-                                    newGame.toggle()
-                                    audio.play(name: Constants.UI.cards)
-                                    playNotificationHaptic(type: .error)
+                                    vm.playNewGame()
                                 } label: {
                                     Text(Constants.UI.newGame.localized())
                                         .fontWeight(.bold)
@@ -101,12 +80,12 @@ struct WhoIsMyPairView: View {
                             .padding(.top, 80)
                             .frame(maxWidth: screenWidth, maxHeight: screenHeight)
                         }
-                    } //GeometryReader
+                    } //GeometryReaderaudio.
                     .ignoresSafeArea()
                 }  //if statement
             } //VStack
             
-            if viewModel.correctAnswers == 6 {
+            if vm.correctAnswers == 6 {
                 AnimationManager(score: Int.random(in: 1...6) * 10)
             }
         } //ZStack
@@ -117,9 +96,6 @@ struct WhoIsMyPairView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             ).ignoresSafeArea()
-        }
-        .onAppear {
-            viewModel.loadQuestions()
         }
     }
 }
