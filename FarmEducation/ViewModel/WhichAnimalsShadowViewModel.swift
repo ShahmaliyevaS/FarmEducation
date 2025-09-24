@@ -11,13 +11,6 @@ import SwiftUI
 class WhichAnimalsShadowViewModel: QuestionViewModel {
     @Published var hidden: Bool = false
     
-    func getOptionView(_ option: String) -> OptionButtonDesign {
-        if isSelected(option) && !isFirstFalseAnswer(option) {
-            return OptionButtonDesign(cornerColor: Color.clear, image: isCorrect(option) ? option : Constants.UI.falseImage, shadow: false)
-        }
-        return OptionButtonDesign(cornerColor: Color.lavenderBlue, image: option)
-    }
-    
     func isHidden() -> Bool{
         return hidden
     }

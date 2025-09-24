@@ -26,12 +26,7 @@ struct WhoIsMyPairView: View {
                         ZStack(alignment: .topLeading) {
                             HStack {
                                 Button {
-                                    ScoreManager.shared.saveScore(
-                                        gameType,
-                                        askedQuestionsCount: vm.allAnswers,
-                                        correctAnswersCount: vm.correctAnswers
-                                    )
-                                    dismiss()
+                                    vm.exitGame(dismiss: { dismiss() }, gameType: gameType)
                                 } label: {
                                     ExitView()
                                 }
@@ -44,7 +39,7 @@ struct WhoIsMyPairView: View {
                             VStack {
                                 LazyVGrid(columns: columns, spacing: 20) {
                                     ForEach(Array(vm.currentRound.enumerated()), id: \.offset) {index, option in
-                                        OptionButtonView(design: vm.getOptionView(index, option))
+                                        OptionButtonView(design: getOptionView(index, option))
                                             .frame(height: (geo.size.height - 120)/5)
                                             .rotation3DEffect(
                                                 .degrees(vm.getDegress(vm.isSelected(index))),
@@ -97,6 +92,13 @@ struct WhoIsMyPairView: View {
                 endPoint: .bottomTrailing
             ).ignoresSafeArea()
         }
+    }
+    
+    func getOptionView(_ index: Int, _ option: String) -> OptionButtonDesign {
+        if !vm.correctImages.contains(index) {
+            return OptionButtonDesign( backgroundColor: StaticStore.pastelColors.randomElement()!, cornerColor: Color.lavenderBlueColor, image: !vm.isSelected(index) ? nil : option)
+        }
+        return OptionButtonDesign(backgroundColor: .clear, cornerColor: .clear, shadow: false)
     }
 }
 

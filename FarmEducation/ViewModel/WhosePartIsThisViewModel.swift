@@ -12,13 +12,6 @@ class WhosePartIsThisViewModel: QuestionViewModel {
     @Published var hidden: Bool = false
     @Published var selectedParts: [Int] = [4]
     
-    func getOptionView(_ option: String) -> OptionButtonDesign {
-        if isSelected(option) && !isFirstFalseAnswer(option) {
-            return OptionButtonDesign(cornerColor: Color.clear, image: isCorrect(option) ? option : Constants.UI.falseImage, shadow: false)
-        }
-        return OptionButtonDesign(cornerColor: Color.lavenderBlue, image: option)
-    }
-    
     func setSelectPart(_ index: Int) {
         if selectedParts.count == 1 && selectedParts.last != index {
             selectedParts.append(index)

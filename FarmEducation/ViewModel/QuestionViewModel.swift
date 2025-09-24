@@ -135,4 +135,13 @@ class QuestionViewModel: ObservableObject {
         }
         return CGSize(width: 0, height: 0)
     }
+    
+    func exitGame(dismiss: @escaping () -> Void, gameType: GameType) {
+           ScoreManager.shared.saveScore(
+               gameType,
+               askedQuestionsCount: getAskedQuestionCount(),
+               correctAnswersCount: correctAnswersCount
+           )
+           dismiss()
+       }
 }

@@ -597,7 +597,7 @@
         "id": 100,
         "question": "ocean",
         "trueAnswer": "turtle",
-        "falseAnswer": ["wolf", "lama"]
+        "falseAnswer": ["wolf", "llama"]
     },
     {
         "id": 101,

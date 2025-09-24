@@ -10,7 +10,7 @@ import SwiftUI
 struct WhatAnimalsEatView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
-    @StateObject var vm = WhatAnimalsEatViewModel(.whatAnimalsEat, AudioManager.shared)
+    @StateObject var vm = QuestionViewModel(.whatAnimalsEat, AudioManager.shared)
     
     var gameType: GameType = .whatAnimalsEat
     
@@ -37,11 +37,7 @@ struct WhatAnimalsEatView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        ScoreManager.shared.saveScore(
-                                            gameType,
-                                            askedQuestionsCount: vm.getAskedQuestionCount(),
-                                            correctAnswersCount: vm.correctAnswersCount)
-                                        dismiss()
+                                        vm.exitGame(dismiss: { dismiss() }, gameType: gameType)
                                     } label: {
                                         ExitView()
                                     }
@@ -68,7 +64,7 @@ struct WhatAnimalsEatView: View {
                                 
                                 HStack(spacing: 20) {
                                     ForEach(round.options, id: \.self) { option in
-                                        OptionButtonView(design: vm.getOptionView(option))
+                                        OptionButtonView(design: getOptionView(option))
                                             .frame(height: 160)
                                             .offset(vm.getOffset(option, width: screenWidth/5.1, height: screenHeight/4))
                                             .animation(.bouncy, value: vm.offsetAnimation)
@@ -108,6 +104,17 @@ struct WhatAnimalsEatView: View {
             }
             AnimationManager(score: vm.correctAnswersCount)
         } //ZStack
+    }
+    
+    func getOptionView(_ option: String) -> OptionButtonDesign {
+        if vm.isSelected(option) && !vm.isFirstFalseAnswer(option) {
+            if vm.isCorrect(option) {
+                return OptionButtonDesign(backgroundColor: Color.freshLawnColor.opacity(0.2), cornerColor: Color.freshLawnColor, image: Constants.UI.rightImage)
+            } else {
+                return OptionButtonDesign(backgroundColor: Color.brickRedColor.opacity(0.2), cornerColor: Color.brickRedColor, image: Constants.UI.falseImage)
+            }
+        }
+        return OptionButtonDesign(cornerColor: Color.lavenderBlueColor, image: option)
     }
 }
 

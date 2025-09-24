@@ -29,8 +29,7 @@ struct WhosePartIsThisView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        ScoreManager.shared.saveScore(gameType, askedQuestionsCount: vm.getAskedQuestionCount(), correctAnswersCount: vm.correctAnswersCount)
-                                        dismiss()
+                                        vm.exitGame(dismiss: { dismiss() }, gameType: gameType)
                                     } label: {
                                         ExitView()
                                     }
@@ -79,7 +78,7 @@ struct WhosePartIsThisView: View {
                                 
                                 HStack(spacing: 20) {
                                     ForEach(round.options, id: \.self) { option in
-                                        OptionButtonView(design: vm.getOptionView(option))
+                                        OptionButtonView(design: getOptionView(option))
                                             .frame(height: 160)
                                             .offset(vm.getOffset(option, width: screenWidth / 16, height: screenHeight/12))
                                             .scaleEffect(vm.isSelected(option) && !vm.isFirstFalseAnswer(option) ? 5 : 1)
@@ -120,6 +119,13 @@ struct WhosePartIsThisView: View {
             }
             AnimationManager(score: vm.correctAnswersCount)
         } //ZStack
+    }
+    
+    func getOptionView(_ option: String) -> OptionButtonDesign {
+        if vm.isSelected(option) && !vm.isFirstFalseAnswer(option) {
+            return OptionButtonDesign(cornerColor: Color.clear, image: vm.isCorrect(option) ? option : Constants.UI.falseImage, shadow: false)
+        }
+        return OptionButtonDesign(cornerColor: Color.lavenderBlue, image: option)
     }
 }
 

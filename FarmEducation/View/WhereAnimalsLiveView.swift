@@ -10,7 +10,7 @@ import SwiftUI
 struct WhereAnimalsLiveView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var audio: AudioManager
-    @StateObject private var vm = WhereAnimalsLiveViewModel(.whereAnimalsLive, AudioManager.shared)
+    @StateObject private var vm = QuestionViewModel(.whereAnimalsLive, AudioManager.shared)
     
     var gameType: GameType = .whereAnimalsLive
     
@@ -37,10 +37,7 @@ struct WhereAnimalsLiveView: View {
                             VStack {
                                 HStack {
                                     Button {
-                                        ScoreManager.shared.saveScore(gameType,
-                                                                     askedQuestionsCount: vm.getAskedQuestionCount(),
-                                                                     correctAnswersCount: vm.correctAnswersCount)
-                                        dismiss()
+                                        vm.exitGame(dismiss: { dismiss() }, gameType: gameType)
                                     } label: {
                                         ExitView()
                                     }
@@ -59,7 +56,7 @@ struct WhereAnimalsLiveView: View {
                                     .padding(.bottom, 32)
                                 HStack(spacing: 20) {
                                     ForEach(round.options, id: \.self) { option in
-                                        OptionButtonView(design: vm.getOptionView(option))
+                                        OptionButtonView(design: getOptionView(option))
                                             .frame(height: 160)
                                             .offset(vm.getOffset(option, width: screenWidth/12, height: screenHeight/11))
                                             .animation(.smooth, value: vm.offsetAnimation)
@@ -96,6 +93,13 @@ struct WhereAnimalsLiveView: View {
             }
             AnimationManager(score: vm.correctAnswersCount)
         } //ZStack
+    }
+    
+    func getOptionView(_ option: String) -> OptionButtonDesign {
+        if vm.isSelected(option) && !vm.isFirstFalseAnswer(option) {
+            return OptionButtonDesign(cornerColor: Color.clear, image: vm.isCorrect(option) ? option : Constants.UI.falseImage, shadow: false)
+        }
+        return OptionButtonDesign(cornerColor: Color.lavenderBlue, image: option)
     }
 }
 

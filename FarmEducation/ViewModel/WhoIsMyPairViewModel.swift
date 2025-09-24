@@ -53,13 +53,6 @@ class WhoIsMyPairViewModel: ObservableObject {
         playNotificationHaptic(type: .error)
     }
     
-    func getOptionView(_ index: Int, _ option: String) -> OptionButtonDesign {
-        if !correctImages.contains(index) {
-            return OptionButtonDesign( backgroundColor: StaticStore.pastelColors.randomElement()!, cornerColor: Color.lavenderBlueColor, image: !isSelected(index) ? nil : option)
-        }
-        return OptionButtonDesign(backgroundColor: .clear, cornerColor: .clear, shadow: false)
-    }
-    
     func isSelected(_ index: Int) -> Bool {
         return selectedImages.contains(index)
     }

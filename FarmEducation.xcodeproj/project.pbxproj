@@ -35,8 +35,6 @@
 		ED7F9F6F2E807582000AEBD2 /* WhosePartIsThisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F6E2E807582000AEBD2 /* WhosePartIsThisViewModel.swift */; };
 		ED7F9F712E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F702E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift */; };
 		ED7F9F732E814609000AEBD2 /* OptionButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F722E814609000AEBD2 /* OptionButtonDesign.swift */; };
-		ED7F9F752E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F742E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift */; };
-		ED7F9F772E815066000AEBD2 /* WhereAnimalsLiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7F9F762E815065000AEBD2 /* WhereAnimalsLiveViewModel.swift */; };
 		EDAF04A02E54665100E25DA6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */; };
 		EDAF04A22E69715C00E25DA6 /* cards.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A12E69715C00E25DA6 /* cards.wav */; };
 		EDAF04A52E69798700E25DA6 /* woow1.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDAF04A32E69798700E25DA6 /* woow1.wav */; };
@@ -110,8 +108,6 @@
 		ED7F9F6E2E807582000AEBD2 /* WhosePartIsThisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosePartIsThisViewModel.swift; sourceTree = "<group>"; };
 		ED7F9F702E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichAnimalsShadowViewModel.swift; sourceTree = "<group>"; };
 		ED7F9F722E814609000AEBD2 /* OptionButtonDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButtonDesign.swift; sourceTree = "<group>"; };
-		ED7F9F742E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatAnimalsEatViewModel.swift; sourceTree = "<group>"; };
-		ED7F9F762E815065000AEBD2 /* WhereAnimalsLiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAnimalsLiveViewModel.swift; sourceTree = "<group>"; };
 		EDAF049F2E54665100E25DA6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EDAF04A12E69715C00E25DA6 /* cards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cards.wav; path = ../../../../../im/sounds/cards.wav; sourceTree = "<group>"; };
 		EDAF04A32E69798700E25DA6 /* woow1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = woow1.wav; path = ../../../../../../Downloads/woow1.wav; sourceTree = "<group>"; };
@@ -315,8 +311,6 @@
 				ED55046E2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift */,
 				ED7F9F6E2E807582000AEBD2 /* WhosePartIsThisViewModel.swift */,
 				ED7F9F702E8078E4000AEBD2 /* WhichAnimalsShadowViewModel.swift */,
-				ED7F9F742E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift */,
-				ED7F9F762E815065000AEBD2 /* WhereAnimalsLiveViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -473,7 +467,6 @@
 				ED4632472E028E24009CF8FD /* FireWorksAnimationView.swift in Sources */,
 				ED6B90822E7149B9007C6AAD /* SettingsView.swift in Sources */,
 				EDC360EA2E22DDA300BC66FB /* WhichAnimalsShadowView.swift in Sources */,
-				ED7F9F752E814D63000AEBD2 /* WhatAnimalsEatViewModel.swift in Sources */,
 				EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */,
 				EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */,
 				EDE26BF52E4DBC2F009F9213 /* AnimationManager.swift in Sources */,
@@ -493,7 +486,6 @@
 				EDC27CC52DDF0C960082C349 /* JSONLoader.swift in Sources */,
 				EDE26BF72E4E0981009F9213 /* AudioManager.swift in Sources */,
 				EDE26BEF2E4B2655009F9213 /* Constants.swift in Sources */,
-				ED7F9F772E815066000AEBD2 /* WhereAnimalsLiveViewModel.swift in Sources */,
 				ED0E22DE2DDB1E62007DAC08 /* OptionButtonView.swift in Sources */,
 				ED0E22DB2DDB159E007DAC08 /* WhatAnimalsEatView.swift in Sources */,
 				ED5504652E27807000114A11 /* WhosePartIsThisView.swift in Sources */,
