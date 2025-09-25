@@ -85,4 +85,13 @@ class WhoIsMyPairViewModel: ObservableObject {
             }
         }
     }
+    
+    func exitGame(dismiss: @escaping () -> Void, gameType: GameType) {
+        ScoreManager.shared.saveScore(
+            gameType,
+            askedQuestionsCount: allAnswers,
+            correctAnswersCount: correctAnswers
+        )
+        dismiss()
+    }
 }

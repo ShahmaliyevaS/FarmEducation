@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab = GameType.allCases.first!
+    @State private var selectedTab: AnyHashable = GameType.allCases.first!
     @StateObject private var scoreManager = ScoreManager.shared
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                TabView(selection: $selectedTab) {
-                    ForEach(GameType.allCases, id: \.self) { type in
-                        GameCardView(gameType: type, score: scoreManager.score)
-                            .tag(type)
-                    }
-                    SettingsView()
+            TabView(selection: $selectedTab) {
+                ForEach(GameType.allCases, id: \.self) { type in
+                    GameCardView(gameType: type, score: scoreManager.score)
+                        .tag(type as AnyHashable)
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-                .ignoresSafeArea()
-                .padding(.bottom, -16)
-                .padding(.vertical)
+                SettingsView()
+                    .tag("setting" as AnyHashable)
             }
+            .tabViewStyle(.page(indexDisplayMode: .always))
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .ignoresSafeArea()
+            .padding(.bottom, -16)
+            .padding(.vertical)
             .background{
                 LinearGradient(
                     gradient:Gradient(colors: [.cherryMilkColor, .paleSkyColor, .lavenderBlueColor.opacity(0.8) ]),
@@ -35,13 +35,17 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            if let loaded = ScoreManager.shared.get(for: selectedTab) {
-                scoreManager.score = loaded
+            if let type = selectedTab as? GameType {
+                if let loaded = ScoreManager.shared.get(for: type) {
+                    scoreManager.score = loaded
+                }
             }
         }
         .onChange(of: selectedTab) {
-            if let loaded = ScoreManager.shared.get(for: selectedTab) {
-                scoreManager.score = loaded
+            if let type = selectedTab as? GameType {
+                if let loaded = ScoreManager.shared.get(for: type) {
+                    scoreManager.score = loaded
+                }
             }
         }
     }

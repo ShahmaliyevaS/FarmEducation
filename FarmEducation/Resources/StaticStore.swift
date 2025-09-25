@@ -30,7 +30,14 @@ struct StaticStore {
         Color(red: 0.7, green: 1.0, blue: 0.9),
         Color(red: 1.0, green: 0.85, blue: 0.9),
         Color(red: 0.9, green: 0.8, blue: 1.0),
-        Color(red: 0.85, green: 1.0, blue: 0.85)
+        Color(red: 0.85, green: 1.0, blue: 0.85),
+        Color(red: 0.95, green: 0.95, blue: 0.75),
+        Color(red: 0.75, green: 0.95, blue: 0.95),
+        Color(red: 0.95, green: 0.75, blue: 0.85),
+        Color(red: 0.85, green: 0.75, blue: 0.95),
+        Color(red: 0.95, green: 0.9, blue: 0.75),
+        Color(red: 0.75, green: 0.85, blue: 0.95),
+        Color(red: 0.9, green: 0.95, blue: 0.75)
     ]
     static let flowers = (1...12).flatMap { number in
         [ "flower\(number)", "flower\(number)" ]
@@ -40,12 +47,16 @@ struct StaticStore {
         [ "ball\(number)", "ball\(number)" ]
     }
     
+    static let planes = (1...12).flatMap { number in
+        [ "plane" ]
+    }
+    
     static let candies = (1...20).flatMap { number in
         [ "candy\(number)" ]
     }
     
     static let cakesArray = ["yellowStarCake", "appleCake", "cupCake", "dropCake", "lemonCake", "orangeCake",
-                        "pineappleCake", "pinkStarCake", "strawberryCake", "yellowStarCake"]
+                             "pineappleCake", "pinkStarCake", "strawberryCake", "yellowStarCake"]
     
     static let vegetables = ["cucumber", "garlic", "carrot", "cabbage", "eggplant",  "potato", "pumpkin", "strawberry", "onion", "watermelon"]
     

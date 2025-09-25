@@ -15,95 +15,83 @@ struct WhatAnimalsEatView: View {
     var gameType: GameType = .whatAnimalsEat
     
     var body: some View {
-        ZStack {
+        GeometryReader { geo in
+            let screenWidth = geo.size.width
+            let screenHeight = geo.size.height
             VStack {
                 if let round = vm.currentRound {
-                    GeometryReader { geo in
-                        let screenWidth = geo.size.width
-                        let screenHeight = geo.size.height
-                        ZStack (alignment: .topLeading) {
-                            Image(Constants.Background.farm)
-                                .resizable()
-                                .scaledToFit()
-                                .overlay {
-                                    LinearGradient(
-                                        stops: [
-                                            .init(color: .clear, location: 0),
-                                            .init(color: .greenNeonGrassColor, location: 1)
-                                        ],
-                                        startPoint: .center,
-                                        endPoint: .bottom)
-                                }
-                            VStack {
-                                HStack {
-                                    Button {
-                                        vm.exitGame(dismiss: { dismiss() }, gameType: gameType)
-                                    } label: {
-                                        ExitView()
-                                    }
-                                    Spacer()
-                                } // Exit button
-                                .offset(CGSize(width: 0, height: 40))
-                                .frame(width: (geo.size.width.isNaN || geo.size.width < 32) ? 0 : geo.size.width - 32)
-                                .padding(.horizontal)
-                                
-                                Spacer()
-                                Image(round.question)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 300)
-                                    .shadow(radius: 10)
-                                    .animation(.snappy, value: vm.questionImageAnimation)
-                                
-                                Text(gameType.rawValue.localized())
-                                    .chalkboardFont(size: 20)
-                                    .bold()
-                                    .foregroundStyle( Color.lavenderBlueColor)
-                                    .animation(.spring, value: vm.questionImageAnimation)
-                                    .padding(.bottom, 20)
-                                
-                                HStack(spacing: 20) {
-                                    ForEach(round.options, id: \.self) { option in
-                                        OptionButtonView(design: getOptionView(option))
-                                            .frame(height: 160)
-                                            .offset(vm.getOffset(option, width: screenWidth/5.1, height: screenHeight/4))
-                                            .animation(.bouncy, value: vm.offsetAnimation)
-                                            .overlay {
-                                                if vm.isFirstFalseAnswer(option) {
-                                                    Image(Constants.UI.falseImage)
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                }
-                                            }
-                                            .scaleEffect(vm.isSelected(option) && !vm.isFirstFalseAnswer(option) ? 1.6 : 1)
-                                            .onTapGesture {
-                                                vm.handleAnswer(option)
-                                            }
-                                    }
-                                } //options HStack
-                                .padding(.horizontal)
-                                .padding(.bottom, 20)
-                                .ignoresSafeArea()
-                                
-                                GameProgressView(gameType: gameType, correctAnswers: $vm.correctAnswersCount )
-                            }
-                            .padding(6.0)
-                            .frame(maxWidth: screenWidth, maxHeight: screenHeight)
+                    HStack {
+                        Button {
+                            vm.exitGame(dismiss: { dismiss() }, gameType: gameType)
+                        } label: {
+                            ExitView()
+                                .frame(height: screenHeight/15)
                         }
-                    } //GeometryReader
+                        Spacer()
+                    } // Exit button
+                    .padding(.top, 24)
+                    .padding(.leading, 8)
+                    
+                    Spacer()
+                    Image(round.question)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: screenHeight/3)
+                        .shadow(radius: 10)
+                        .animation(.snappy, value: vm.questionImageAnimation)
+                    Text(gameType.rawValue.localized())
+                        .chalkboardFont(size: 20)
+                        .bold()
+                        .foregroundStyle( Color.lavenderBlueColor)
+                        .animation(.spring, value: vm.questionImageAnimation)
+                        .padding(.bottom, 20)
+                    HStack(spacing: 20) {
+                        ForEach(round.options, id: \.self) { option in
+                            OptionButtonView(design: getOptionView(option))
+                                .frame(height: screenHeight/5)
+                                .offset(vm.getOffset(option, width: screenWidth/4.4, height: screenHeight/4))
+                                .animation(.bouncy, value: vm.offsetAnimation)
+                                .overlay {
+                                    if vm.isFirstFalseAnswer(option) {
+                                        Image(Constants.UI.falseImage)
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
+                                }
+                                .scaleEffect(vm.isSelected(option) && !vm.isFirstFalseAnswer(option) ? 1.4 : 1)
+                                .onTapGesture {
+                                    vm.handleAnswer(option)
+                                }
+                        }
+                    } //options HStack
+                    .padding(.horizontal)
+                    .padding(.bottom, 20)
                     .ignoresSafeArea()
-                } // end of if statement
-            } //VStack
-            .navigationBarBackButtonHidden(true)
-            .background{
-                Color.greenNeonGrassColor
-                    .ignoresSafeArea()
+                    
+                    GameProgressView(gameType: gameType, correctAnswers: $vm.correctAnswersCount )
+                } // if statement
+            } // Vstack
+            .background {
+                Image(Constants.Background.farm)
+                    .resizable()
+                    .scaledToFill()
+                    .overlay {
+                        LinearGradient(
+                            stops: [
+                                .init(color: .clear, location: 0),
+                                .init(color: .greenNeonGrassColor, location: 1)
+                            ],
+                            startPoint: .center,
+                            endPoint: .bottom)
+                    }
             }
             .onAppear {
                 vm.loadQuestions()
             }
-            AnimationManager(score: vm.correctAnswersCount)
-        } //ZStack
+        } //GeometryReader
+        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea()
+        AnimationManager(score: vm.correctAnswersCount)
     }
     
     func getOptionView(_ option: String) -> OptionButtonDesign {
@@ -118,7 +106,8 @@ struct WhatAnimalsEatView: View {
     }
 }
 
-#Preview {
+#Preview("iPhone 15 Pro") {
     WhatAnimalsEatView()
         .environmentObject(AudioManager.shared)
+        .previewDevice("iPhone 15 Pro")
 }

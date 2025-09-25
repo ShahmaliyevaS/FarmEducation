@@ -12,17 +12,18 @@ struct ExitView: View {
         Image(Constants.UI.smallCould)
             .resizable()
             .scaledToFit()
-            .opacity(0.8)
-            .frame(height: 50)
-            .shadow(color: Color.lavenderBlueColor.opacity(0.6), radius: 10, x: 5, y: 5)
+            .shadow(color: Color.skyWhisperColor, radius: 10, x: 5, y: 5)
             .overlay(
-                HStack(spacing: 1) {
-                    Image(systemName: Constants.UI.turnUp)
-                    Text(Constants.UI.exit.localized()).bold()
-                }
+                VStack {
+                    Spacer()
+                    HStack(spacing: 1) {
+                        Image(systemName: Constants.UI.turnUp)
+                        Text(Constants.UI.exit.localized()).bold()
+                    }
                     .chalkboardFont(size: 16)
-                    .foregroundStyle(Color.skyBlueColor.opacity(0.7))
-                    .offset(y: 4)
+                    .foregroundStyle(Color.skyBlueColor.opacity(0.4))
+                    .padding(.bottom, 4)
+                }
             )
     }
 }

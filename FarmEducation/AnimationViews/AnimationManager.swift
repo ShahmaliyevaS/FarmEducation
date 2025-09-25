@@ -12,12 +12,8 @@ struct AnimationManager: View {
     
     var body: some View {
         if score > 9 {
-            if score % 60 == 0 {
+            if score % 40 == 0 {
                 TwirlingDropAnimationView(data: StaticStore.candies)
-            } else if score % 50 == 0 {
-                RotationAnimationView()
-            } else if score % 40 == 0 {
-                ExplosionAnimationView()
             } else if score % 30 == 0 {
                 FlyUpAnimationView()
             } else if score % 20 == 0 {
@@ -30,5 +26,6 @@ struct AnimationManager: View {
 }
 
 #Preview {
-    AnimationManager(score: 0)
+    AnimationManager(score: 10)
+        .environmentObject(AudioManager.shared)
 }

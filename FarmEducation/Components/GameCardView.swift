@@ -18,72 +18,75 @@ struct GameCardView: View {
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            Image(gameType.cardDesign.question)
-                .resizable()
-                .scaledToFit()
-                .frame(height: 240)
-                .cornerRadius(16)
-                .padding(.top)
-            
-            Text(gameType.rawValue.localized())
-                .foregroundStyle(Color.lavenderBlueColor)
-                .chalkboardFont(size: 20)
-                .bold()
-                .multilineTextAlignment(.center)
-            Spacer()
-            VStack (alignment: .leading) {
+        GeometryReader { geo in
+            let screenWidth = geo.size.width
+            let screenHeight = geo.size.height
+            VStack {
+                Spacer()
+                Image(gameType.cardDesign.question)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: screenHeight/3)
+                    .cornerRadius(16)
+                    .padding(.top)
+                
+                Text(gameType.rawValue.localized())
+                    .foregroundStyle(Color.lavenderBlueColor)
+                    .chalkboardFont(size: 20)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                Spacer()
                 Text(String(format: Constants.UI.lastScore.localized(), score.recent, score.recentCount))
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
+                    .frame(alignment: .leading)
                 
                 Text(String(format: Constants.UI.bestScore.localized(), score.best, score.bestCount))
                     .foregroundStyle(Color.lavenderBlueColor)
                     .chalkboardFont(size: 16)
-            }
-            .padding(.bottom)
-            Spacer()
-            HStack(spacing: 20){
-                ForEach(0...1, id: \.self) { i in
-                    OptionButtonView(design: OptionButtonDesign(backgroundColor: .clear, cornerColor: .lavenderBlueColor, image: gameType.cardDesign.options[i]))
+                    .frame(alignment: .leading)
+                Spacer()
+                HStack(spacing: 20){
+                    ForEach(0...1, id: \.self) { i in
+                        OptionButtonView(design: OptionButtonDesign(backgroundColor: .clear, cornerColor: .lavenderBlueColor, image: gameType.cardDesign.options[i]))
+                    }
                 }
+                .frame(height: screenHeight/4)
+                .padding(.horizontal)
+                Spacer()
+                
+                NavigationLink(destination: destinationView(for: gameType)) {
+                    Text(Constants.UI.play.localized())
+                        .frame(width: 200)
+                        .foregroundStyle(Color.lavenderBlueColor)
+                        .chalkboardFont(size: 28)
+                        .padding(.vertical, 10)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(.clear)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke(Color.lavenderBlueColor, lineWidth: 4)
+                                )
+                        )
+                        .shadow(color: .black.opacity(0.5), radius: 10, x: 5, y: 5)
+                }
+                Spacer()
+            } //VStack
+            .padding(.all)
+            .background{
+                LinearGradient(
+                    gradient: Gradient(colors: [.skyWhisperColor, .cherryMilkColor]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
             }
-            .padding(.horizontal)
-            Spacer()
-            
-            NavigationLink(destination: destinationView(for: gameType)) {
-                Text(Constants.UI.play.localized())
-                    .frame(width: 200)
-                    .foregroundStyle(Color.lavenderBlueColor)
-                    .chalkboardFont(size: 28)
-                    .padding(.vertical, 10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(.clear)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(Color.lavenderBlueColor, lineWidth: 4)
-                            )
-                    )
-                    .shadow(color: .black.opacity(0.5), radius: 10, x: 5, y: 5)
-            }
-            Spacer()
-        } //VStack
-        .padding(.all)
-        .background{
-            LinearGradient(
-                gradient: Gradient(colors: [.skyWhisperColor, .cherryMilkColor]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
+            .cornerRadius(40)
+            .overlay(
+                RoundedRectangle(cornerRadius: 40)
+                    .stroke(Color.lavenderBlueColor, lineWidth: 4)
             )
         }
-        .cornerRadius(40)
-        .overlay(
-            RoundedRectangle(cornerRadius: 40)
-                .stroke(Color.lavenderBlueColor, lineWidth: 4)
-        )
-        .ignoresSafeArea()
         .padding(.all, 32)
     }
     
@@ -105,7 +108,7 @@ struct GameCardView: View {
 }
 
 #Preview {
-    GameCardView(gameType: .whatAnimalsEat, score: Score(recent: 0, recentCount: 0, best: 0, bestCount: 0))
+    GameCardView(gameType: .whereAnimalsLive, score: Score(recent: 0, recentCount: 0, best: 0, bestCount: 0))
         .padding(.all)
 }
 

@@ -16,11 +16,12 @@ struct FlyUpAnimationView: View {
     var body: some View {
         GeometryReader { geo in
             let screenHeight = geo.size.height
+            let screenWidth = geo.size.width
             let balloons: [ImageLayout] = StaticStore.balloons.map {
                 ImageLayout(image: $0,
                             size: CGFloat(Int.random(in: 50...120)),
-                            offsetX: CGFloat.random(in: -250...200),
-                            offsetY: CGFloat.random(in: -400...100))}
+                            offsetX: CGFloat.random(in: -screenWidth...screenWidth),
+                            offsetY: CGFloat.random(in: -screenHeight...screenHeight))}
             ZStack {
                 Color.clear
                 ForEach(0..<balloons.count, id: \.self) { i in

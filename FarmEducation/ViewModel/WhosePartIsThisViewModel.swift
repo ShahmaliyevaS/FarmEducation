@@ -9,11 +9,13 @@ import Foundation
 import SwiftUI
 
 class WhosePartIsThisViewModel: QuestionViewModel {
+    let numbers = [6, 7, 11, 12]
     @Published var hidden: Bool = false
-    @Published var selectedParts: [Int] = [4]
+    @Published var selectedParts: [Int] = [9]
+    
     
     func setSelectPart(_ index: Int) {
-        if selectedParts.count == 1 && selectedParts.last != index {
+        if selectedParts.count < 2 && !selectedParts.contains(index) {
             selectedParts.append(index)
         }
     }
@@ -32,6 +34,6 @@ class WhosePartIsThisViewModel: QuestionViewModel {
     override func resetRoundStates() {
         super.resetRoundStates()
         hidden = false
-        selectedParts = [4]
+        selectedParts = [numbers.randomElement()!]
     }
 }

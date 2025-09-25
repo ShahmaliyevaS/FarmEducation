@@ -44,8 +44,6 @@
 		EDC27CC82DDF0D050082C349 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */; };
 		EDC27CCA2DDF14640082C349 /* QuestionRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CC92DDF14640082C349 /* QuestionRound.swift */; };
 		EDC27CCD2DDF1DF70082C349 /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC27CCC2DDF1DF70082C349 /* ColorExtention.swift */; };
-		EDC360CC2E03ED2100BC66FB /* ExplosionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360CB2E03ED2100BC66FB /* ExplosionAnimationView.swift */; };
-		EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */; };
 		EDC360D22E054C7A00BC66FB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D12E054C7A00BC66FB /* Score.swift */; };
 		EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D32E054E5600BC66FB /* ScoreManager.swift */; };
 		EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */; };
@@ -117,8 +115,6 @@
 		EDC27CC72DDF0D050082C349 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		EDC27CC92DDF14640082C349 /* QuestionRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRound.swift; sourceTree = "<group>"; };
 		EDC27CCC2DDF1DF70082C349 /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
-		EDC360CB2E03ED2100BC66FB /* ExplosionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionAnimationView.swift; sourceTree = "<group>"; };
-		EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimationView.swift; sourceTree = "<group>"; };
 		EDC360D12E054C7A00BC66FB /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		EDC360D32E054E5600BC66FB /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		EDC360D52E0ABA3100BC66FB /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
@@ -260,8 +256,6 @@
 				ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */,
 				ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */,
 				ED4632462E028E24009CF8FD /* FireWorksAnimationView.swift */,
-				EDC360CF2E04144B00BC66FB /* RotationAnimationView.swift */,
-				EDC360CB2E03ED2100BC66FB /* ExplosionAnimationView.swift */,
 			);
 			path = AnimationViews;
 			sourceTree = "<group>";
@@ -471,7 +465,6 @@
 				EDC360D42E054E5600BC66FB /* ScoreManager.swift in Sources */,
 				EDE26BF52E4DBC2F009F9213 /* AnimationManager.swift in Sources */,
 				EDC360D62E0ABA3100BC66FB /* ViewExtention.swift in Sources */,
-				EDC360D02E04144B00BC66FB /* RotationAnimationView.swift in Sources */,
 				EDC360E62E2130BC00BC66FB /* WhereAnimalsLiveView.swift in Sources */,
 				ED7F9F732E814609000AEBD2 /* OptionButtonDesign.swift in Sources */,
 				EDC360E82E2186A900BC66FB /* Places.swift in Sources */,
@@ -493,7 +486,6 @@
 				ED55046F2E38EDBE00114A11 /* WhoIsMyPairViewModel.swift in Sources */,
 				ED0E22E02DDB4FE0007DAC08 /* GameCardView.swift in Sources */,
 				ED0E22E62DDC796F007DAC08 /* CardDesign.swift in Sources */,
-				EDC360CC2E03ED2100BC66FB /* ExplosionAnimationView.swift in Sources */,
 				ED0E22CC2DDB140C007DAC08 /* FarmEducationApp.swift in Sources */,
 				ED0E22E32DDC6DD9007DAC08 /* GameType.swift in Sources */,
 				EDE26BF12E4B2E2F009F9213 /* ExitView.swift in Sources */,

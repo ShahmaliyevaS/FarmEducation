@@ -19,19 +19,24 @@ struct FireWorksAnimationView: View {
     let maxCount = 10
     
     var body: some View {
-        ZStack {
-            ForEach(fireworks) { firework in
-                FireWorksComponentAnimationView()
-                    .id(firework.id)
-                    .offset(x: CGFloat(Int.random(in: -200...200)), y: CGFloat(Int.random(in: -200...200)))
-                    .transition(.scale)
+        GeometryReader { geo in
+            let screenHeight = geo.size.height
+            let screenWidth = geo.size.width
+            ZStack {
+                ForEach(fireworks) { firework in
+                    FireWorksComponentAnimationView()
+                        .id(firework.id)
+                        .offset(x: CGFloat.random(in: -screenWidth...screenWidth),
+                                y: CGFloat.random(in: -screenHeight...screenHeight))
+                        .transition(.scale)
+                }
             }
-        }
-        .onAppear {
-            startFireworks()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                audio.play(name: Constants.UI.woow1)
-                playNotificationHaptic(type: .error)
+            .onAppear {
+                startFireworks()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    audio.play(name: Constants.UI.woow1)
+                    playNotificationHaptic(type: .error)
+                }
             }
         }
     }
@@ -48,6 +53,7 @@ struct FireWorksAnimationView: View {
         }
     }
 }
+
 #Preview {
     ZStack {
         Color.blue

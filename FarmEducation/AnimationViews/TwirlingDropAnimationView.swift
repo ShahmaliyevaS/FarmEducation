@@ -12,14 +12,17 @@ struct TwirlingDropAnimationView: View {
     
     var data: [String] = []
     @State var animation: Bool = false
-
+    
     var body: some View {
-        let array: [ImageLayout] = data.map {
-            ImageLayout(image: $0,
-                    size: CGFloat(Int.random(in: 40...80)),
-                    offsetX: CGFloat.random(in: -250...250),
-                    offsetY: nil)
-        }
+        GeometryReader { geo in
+            let screenWidth = geo.size.width
+            let screenHeight = geo.size.height
+            let array: [ImageLayout] = data.map {
+                ImageLayout(image: $0,
+                            size: CGFloat(Int.random(in: 40...80)),
+                            offsetX: CGFloat.random(in: -screenWidth...screenWidth),
+                            offsetY: nil)
+            }
             ZStack {
                 ForEach(0..<array.count-1, id: \.self) { i in
                     Image(array[i].image)
@@ -27,8 +30,8 @@ struct TwirlingDropAnimationView: View {
                         .scaledToFit()
                         .frame(width: array[i].size)
                         .rotationEffect(animation ? .degrees(0) : .degrees(Double(Int.random(in: 0...270))))
-                        .offset(x: array[i].offsetX, y: animation ? 800 : -600)
-                        .animation(.snappy(duration: TimeInterval(Int.random(in: 15...25))), value: animation)
+                        .offset(x: array[i].offsetX, y: animation ? screenHeight+40 : -screenHeight)
+                        .animation(.linear(duration: TimeInterval(Int.random(in: 3...15))), value: animation)
                 }
             } //ZStack
             .onAppear {
@@ -38,6 +41,7 @@ struct TwirlingDropAnimationView: View {
                     playNotificationHaptic(type: .error)
                 }
             }
+        }
     }
 }
 

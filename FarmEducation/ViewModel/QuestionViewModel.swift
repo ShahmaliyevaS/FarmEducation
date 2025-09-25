@@ -52,6 +52,7 @@ class QuestionViewModel: ObservableObject {
     }
     
     func loadNextQuestion() {
+        resetRoundStates()
         guard !unAskedQuestions.isEmpty else {
             unAskedQuestions = allQuestionsId.shuffled()
             askedQuestions = []
@@ -71,7 +72,7 @@ class QuestionViewModel: ObservableObject {
         
         askedQuestionCount += 1
         askedQuestions.append(id)
-        resetRoundStates()
+        
     }
     
     func resetRoundStates() {
@@ -137,11 +138,11 @@ class QuestionViewModel: ObservableObject {
     }
     
     func exitGame(dismiss: @escaping () -> Void, gameType: GameType) {
-           ScoreManager.shared.saveScore(
-               gameType,
-               askedQuestionsCount: getAskedQuestionCount(),
-               correctAnswersCount: correctAnswersCount
-           )
-           dismiss()
-       }
+        ScoreManager.shared.saveScore(
+            gameType,
+            askedQuestionsCount: getAskedQuestionCount(),
+            correctAnswersCount: correctAnswersCount
+        )
+        dismiss()
+    }
 }
