@@ -11,7 +11,7 @@ import SwiftUI
 class WhosePartIsThisViewModel: QuestionViewModel {
     let numbers = [6, 7, 11, 12]
     @Published var hidden: Bool = false
-    @Published var selectedParts: [Int] = [9]
+    @Published var selectedParts: [Int] = [7]
     
     
     func setSelectPart(_ index: Int) {

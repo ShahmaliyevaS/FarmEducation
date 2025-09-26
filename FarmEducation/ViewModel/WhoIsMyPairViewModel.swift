@@ -20,7 +20,7 @@ class WhoIsMyPairViewModel: ObservableObject {
     private var audio: AudioManager
     private var gameType: GameType
     
-    private var allQuestions: [String] = []
+    var allQuestions: [String] = []
     
     init(_ gameType: GameType, _ audioManager: AudioManager) {
         self.gameType = gameType

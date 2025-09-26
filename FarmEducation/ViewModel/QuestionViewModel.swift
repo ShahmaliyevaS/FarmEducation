@@ -16,11 +16,11 @@ class QuestionViewModel: ObservableObject {
     @Published var questionImageAnimation = false
     @Published var correctAnswersCount = 0
     
-    private var allQuestions: [Question] = []
-    private var allQuestionsId: [Int] = []
-    private var unAskedQuestions: [Int] = []
-    private var askedQuestions: [Int] = []
-    private var askedQuestionCount = 0
+    var allQuestions: [Question] = []
+    var allQuestionsId: [Int] = []
+    var unAskedQuestions: [Int] = []
+    var askedQuestions: [Int] = []
+    var askedQuestionCount = 0
     
     private var gameType: GameType
     private var audio: AudioManager
@@ -72,7 +72,6 @@ class QuestionViewModel: ObservableObject {
         
         askedQuestionCount += 1
         askedQuestions.append(id)
-        
     }
     
     func resetRoundStates() {
@@ -102,7 +101,6 @@ class QuestionViewModel: ObservableObject {
         
         offsetAnimation.toggle()
         disabledAnswers.formUnion(round.options)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.loadNextQuestion()
         }

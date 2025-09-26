@@ -16,6 +16,8 @@
 		ED0E22E02DDB4FE0007DAC08 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22DF2DDB4FE0007DAC08 /* GameCardView.swift */; };
 		ED0E22E32DDC6DD9007DAC08 /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22E22DDC6DD9007DAC08 /* GameType.swift */; };
 		ED0E22E62DDC796F007DAC08 /* CardDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E22E52DDC796F007DAC08 /* CardDesign.swift */; };
+		ED3468EF2E8685FE0018032A /* WhosePartIsThisViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3468EE2E8685FE0018032A /* WhosePartIsThisViewModelTest.swift */; };
+		ED3468F12E868A040018032A /* WhichAnimalsShadowViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3468F02E868A040018032A /* WhichAnimalsShadowViewModelTest.swift */; };
 		ED46323E2DF185E1009CF8FD /* FlyUpAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED46323D2DF185E1009CF8FD /* FlyUpAnimationView.swift */; };
 		ED4632432DF8571B009CF8FD /* TwirlingDropAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */; };
 		ED4632452DFAF162009CF8FD /* FireWorksComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */; };
@@ -86,6 +88,8 @@
 		ED0E22DF2DDB4FE0007DAC08 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
 		ED0E22E22DDC6DD9007DAC08 /* GameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType.swift; sourceTree = "<group>"; };
 		ED0E22E52DDC796F007DAC08 /* CardDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDesign.swift; sourceTree = "<group>"; };
+		ED3468EE2E8685FE0018032A /* WhosePartIsThisViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosePartIsThisViewModelTest.swift; sourceTree = "<group>"; };
+		ED3468F02E868A040018032A /* WhichAnimalsShadowViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichAnimalsShadowViewModelTest.swift; sourceTree = "<group>"; };
 		ED46323D2DF185E1009CF8FD /* FlyUpAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyUpAnimationView.swift; sourceTree = "<group>"; };
 		ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwirlingDropAnimationView.swift; sourceTree = "<group>"; };
 		ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWorksComponentView.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				ED7F9F632E7D3DBE000AEBD2 /* FarmEducationTests.swift */,
 				ED7F9F6A2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift */,
 				ED7F9F6C2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift */,
+				ED3468EE2E8685FE0018032A /* WhosePartIsThisViewModelTest.swift */,
+				ED3468F02E868A040018032A /* WhichAnimalsShadowViewModelTest.swift */,
 			);
 			path = FarmEducationTests;
 			sourceTree = "<group>";
@@ -500,7 +506,9 @@
 			files = (
 				ED7F9F6D2E7D468B000AEBD2 /* WhoIsMyPairViewModelTest.swift in Sources */,
 				ED7F9F6B2E7D3F9C000AEBD2 /* QuestionViewModelTest.swift in Sources */,
+				ED3468EF2E8685FE0018032A /* WhosePartIsThisViewModelTest.swift in Sources */,
 				ED7F9F642E7D3DBE000AEBD2 /* FarmEducationTests.swift in Sources */,
+				ED3468F12E868A040018032A /* WhichAnimalsShadowViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

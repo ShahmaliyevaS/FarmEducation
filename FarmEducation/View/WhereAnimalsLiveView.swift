@@ -43,7 +43,7 @@ struct WhereAnimalsLiveView: View {
                         ForEach(round.options, id: \.self) { option in
                             OptionButtonView(design: getOptionView(option))
                                 .frame(height: screenHeight/5)
-                                .offset(vm.getOffset(option, width: screenWidth/12, height: screenHeight/11))
+                                .offset(vm.getOffset(option, width: screenWidth/12, height: screenHeight/10.5))
                                 .animation(.smooth, value: vm.offsetAnimation)
                                 .overlay {
                                     if vm.isFirstFalseAnswer(option) {
