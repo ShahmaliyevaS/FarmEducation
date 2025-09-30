@@ -73,14 +73,19 @@ class QuestionViewModel: ObservableObject {
         askedQuestionCount += 1
         askedQuestions.append(id)
     }
+
+    func innerResertRoundStates() {}
     
     func resetRoundStates() {
+        questionImageAnimation.toggle()
         firstFalseAnswer = ""
         answer = ""
         disabledAnswers = []
         offsetAnimation = false
-        questionImageAnimation.toggle()
+        innerResertRoundStates()
     }
+    
+    func innerHandleAnswer(_ option: String) {}
     
     func handleAnswer(_ option: String) {
         guard let round = currentRound, !disabledAnswers.contains(option) else { return }
@@ -101,6 +106,7 @@ class QuestionViewModel: ObservableObject {
         
         offsetAnimation.toggle()
         disabledAnswers.formUnion(round.options)
+        innerHandleAnswer(option)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.loadNextQuestion()
         }

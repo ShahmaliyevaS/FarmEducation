@@ -40,6 +40,5 @@ final class WhosePartIsThisViewModelTest: XCTestCase {
     func testResetRoundStates() {
         vm.resetRoundStates()
         XCTAssertFalse(vm.hidden)
-        XCTAssertTrue(vm.numbers.contains(vm.selectedParts.first!))
     }
 }

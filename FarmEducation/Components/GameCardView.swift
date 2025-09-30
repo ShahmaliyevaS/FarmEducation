@@ -19,7 +19,6 @@ struct GameCardView: View {
     
     var body: some View {
         GeometryReader { geo in
-            let screenWidth = geo.size.width
             let screenHeight = geo.size.height
             VStack {
                 Spacer()

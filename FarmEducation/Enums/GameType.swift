@@ -52,15 +52,15 @@ extension GameType {
     var carDesign: String {
         switch self {
         case .whatAnimalsEat:
-            return "tractor"
+            return Constants.UI.tractor
         case .whereAnimalsLive:
-            return "animalCar"
+            return Constants.UI.livestockTruck
         case .whichAnimalsShadow:
-            return "tractor"
+            return Constants.UI.livestockTruckShadow
         case .whosePartIsThis:
-            return "candyCar"
+            return Constants.UI.candyCar
         case .whoIsMyPair:
-            return "tractor"
+            return Constants.UI.tractor
         }
     }
 }

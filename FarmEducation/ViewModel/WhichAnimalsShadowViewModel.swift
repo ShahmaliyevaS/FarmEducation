@@ -15,15 +15,13 @@ class WhichAnimalsShadowViewModel: QuestionViewModel {
         return hidden
     }
     
-    override func handleAnswer(_ option: String) {
-        super.handleAnswer(option)
+    override func innerHandleAnswer(_ option: String) {
         if isCorrect(option) {
             hidden = true
         }
     }
     
-    override func resetRoundStates() {
-        super.resetRoundStates()
+    override func innerResertRoundStates() {
         hidden = false
     }
 }

@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class WhosePartIsThisViewModel: QuestionViewModel {
-    let numbers = [6, 7, 11, 12]
     @Published var hidden: Bool = false
     @Published var selectedParts: [Int] = [7]
     
@@ -24,16 +23,14 @@ class WhosePartIsThisViewModel: QuestionViewModel {
         return hidden
     }
     
-    override func handleAnswer(_ option: String) {
-        super.handleAnswer(option)
+    override func innerHandleAnswer(_ option: String) {
         if isCorrect(option) {
             hidden = true
         }
     }
     
-    override func resetRoundStates() {
-        super.resetRoundStates()
+    override func innerResertRoundStates() {
+        selectedParts = [7]
         hidden = false
-        selectedParts = [numbers.randomElement()!]
     }
 }

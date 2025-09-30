@@ -9,7 +9,7 @@ import Foundation
 
 enum Constants {
     enum UI {
-        static let smallCould = "smallCould"
+        static let smallCloud = "smallCloud"
         static let falseImage = "falseImage"
         static let rightImage = "rightImage"
         static let exit = "exit"
@@ -25,6 +25,12 @@ enum Constants {
         static let woow1 = "woow1"
         static let woow2 = "woow2"
         static let tractor = "tractor"
+        static let flower = "flower"
+        static let ball = "ball"
+        static let candy = "candy"
+        static let candyCar = "candyCar"
+        static let livestockTruck = "livestockTruck"
+        static let livestockTruckShadow = "livestockTruckShadow"
     }
     
     enum Background{
@@ -36,45 +42,20 @@ enum Constants {
     enum Animamals {
         static let cat = "cat"
         static let cow = "cow"
-        static let dog = "dog"
-        static let pig = "pig"
-        static let sheep = "sheep"
-        static let rabbit = "rabbit"
-        static let horse = "horse"
-        static let donkey = "donkey"
-        static let chicken = "chicken"
-        static let duck = "duck"
-        static let goose = "goose"
-        static let goat = "goat"
         static let fox = "fox"
         static let lion = "lion"
-        static let wolf = "wolf"
         static let bear = "bear"
         static let deer = "deer"
         static let antelope = "antelope"
         static let panda = "panda"
         static let giraffe = "giraffe"
-        static let monkey = "monkey"
-        static let zebra = "zebra"
-        static let tiger = "tiger"
-        static let leopard = "leopard"
         static let elephant = "elephant"
         static let hippopotamus = "hippopotamus"
         static let camel = "camel"
-        static let rhinoceros = "rhinoceros"
         static let hedgehog = "hedgehog"
-        static let turtle = "turtle"
-        static let beaver = "beaver"
-        static let squirrel = "squirrel"
-        static let gazelle = "gazelle"
         static let badger = "badger"
-        static let jackal = "jackal"
-        static let llama = "llama"
-        static let mouse = "mouse"
         static let kangaroo = "kangaroo"
-        static let meerkat = "meerkat"
         static let crocodile = "crocodile"
-        static let fish = "fish"
         static let snake = "snake"
         static let blackAntelope = "blackAntelope"
     }
@@ -106,6 +87,19 @@ enum Constants {
         static let cheese = "cheese"
         static let onion = "onion"
         static let garlic = "garlic"
+        static let eggplant = "eggplant"
+    }
+    
+    enum Cakes {
+        static let yellowStarCake = "yellowStarCake"
+        static let appleCake = "appleCake"
+        static let cupCake = "cupCake"
+        static let dropCake = "dropCake"
+        static let lemonCake = "lemonCake"
+        static let orangeCake = "orangeCake"
+        static let pineappleCake = "pineappleCake"
+        static let pinkStarCake = "pinkStarCake"
+        static let strawberryCake = "strawberryCake"
     }
     
     enum Colors {

@@ -78,12 +78,12 @@ struct WhereAnimalsLiveView: View {
                 }
                 .ignoresSafeArea()
             } // if statement
+            AnimationManager(score: vm.correctAnswersCount)
         } //GeometryReader
         .navigationBarBackButtonHidden(true)
         .onAppear {
             vm.loadQuestions()
         }
-        AnimationManager(score: vm.correctAnswersCount)
     }
     
     func getOptionView(_ option: String) -> OptionButtonDesign {

@@ -12,24 +12,25 @@ struct FlyUpAnimationView: View {
     
     @State var animation: Bool = false
     @State var isHidden: Bool = false
+    var data: [String] = []
     
     var body: some View {
         GeometryReader { geo in
             let screenHeight = geo.size.height
             let screenWidth = geo.size.width
-            let balloons: [ImageLayout] = StaticStore.balloons.map {
+            let item: [ImageLayout] = data.map {
                 ImageLayout(image: $0,
                             size: CGFloat(Int.random(in: 50...120)),
                             offsetX: CGFloat.random(in: -screenWidth...screenWidth),
                             offsetY: CGFloat.random(in: -screenHeight...screenHeight))}
             ZStack {
                 Color.clear
-                ForEach(0..<balloons.count, id: \.self) { i in
-                    Image(balloons[i].image)
+                ForEach(0..<item.count, id: \.self) { i in
+                    Image(item[i].image)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: balloons[i].size)
-                        .offset(x: balloons[i].offsetX, y: animation ? balloons[i].offsetY! : screenHeight/1.4)
+                        .frame(width: item[i].size)
+                        .offset(x: item[i].offsetX, y: animation ? item[i].offsetY! : screenHeight/1.4)
                         .opacity(isHidden ? 0 : 1)
                         .animation(.easeInOut(duration: TimeInterval(Int.random(in: 5...15))), value: animation)
                         .animation(.easeInOut(duration: TimeInterval(Int.random(in: 10...15))), value: isHidden)
@@ -50,6 +51,6 @@ struct FlyUpAnimationView: View {
 }
 
 #Preview {
-    FlyUpAnimationView()
+    FlyUpAnimationView(data: StaticStore.balloons)
         .environmentObject(AudioManager.shared)
 }

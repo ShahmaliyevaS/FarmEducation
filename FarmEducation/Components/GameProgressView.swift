@@ -18,7 +18,7 @@ struct GameProgressView: View {
     
     @State var progressValue: Int = 0
     @State var scaleEffectValue = 1
-    @State var offSetValue = -40
+    @State var offSetValue = -50
     
     var body: some View {
         ZStack(alignment: .leading) {

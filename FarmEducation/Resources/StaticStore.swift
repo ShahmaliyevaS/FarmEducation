@@ -40,27 +40,22 @@ struct StaticStore {
         Color(red: 0.9, green: 0.95, blue: 0.75)
     ]
     static let flowers = (1...12).flatMap { number in
-        [ "flower\(number)", "flower\(number)" ]
+        [ "\(Constants.UI.flower)\(number)", "\(Constants.UI.flower)\(number)" ]
     }
     
     static let balloons = (1...12).flatMap { number in
-        [ "ball\(number)", "ball\(number)" ]
-    }
-    
-    static let planes = (1...12).flatMap { number in
-        [ "plane" ]
+        [ "\(Constants.UI.ball)\(number)", "\(Constants.UI.ball)\(number)" ]
     }
     
     static let candies = (1...20).flatMap { number in
-        [ "candy\(number)" ]
+        [ "\(Constants.UI.candy)\(number)" ]
     }
     
-    static let cakesArray = ["yellowStarCake", "appleCake", "cupCake", "dropCake", "lemonCake", "orangeCake",
-                             "pineappleCake", "pinkStarCake", "strawberryCake", "yellowStarCake"]
+    static let cakesArray = [Constants.Cakes.yellowStarCake, Constants.Cakes.appleCake, Constants.Cakes.cupCake, Constants.Cakes.dropCake, Constants.Cakes.lemonCake, Constants.Cakes.orangeCake, Constants.Cakes.pineappleCake, Constants.Cakes.pinkStarCake, Constants.Cakes.strawberryCake, Constants.Cakes.yellowStarCake]
     
-    static let vegetables = ["cucumber", "garlic", "carrot", "cabbage", "eggplant",  "potato", "pumpkin", "strawberry", "onion", "watermelon"]
+    static let vegetables = [Constants.Meal.cucumber, Constants.Meal.garlic, Constants.Meal.carrot, Constants.Meal.cabbage, Constants.Meal.eggplant,  Constants.Meal.potato, Constants.Meal.pumpkin, Constants.Meal.strawberry, Constants.Meal.onion, Constants.Meal.watermelon]
     
-    static let animals = ["cow", "bear", "crocodile", "elephant", "fox",  "giraffe", "hedgehog", "kangaroo", "lion", "panda"]
+    static let animals = [Constants.Animamals.cow, Constants.Animamals.bear, Constants.Animamals.crocodile, Constants.Animamals.elephant, Constants.Animamals.fox, Constants.Animamals.giraffe, Constants.Animamals.hedgehog, Constants.Animamals.kangaroo, Constants.Animamals.lion, Constants.Animamals.panda]
     
     static let cakes = Array(repeating: StaticStore.cakesArray, count: 3).flatMap { $0 }
 }

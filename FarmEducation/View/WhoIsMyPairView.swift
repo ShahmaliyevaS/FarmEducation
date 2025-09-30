@@ -17,7 +17,6 @@ struct WhoIsMyPairView: View {
     
     var body: some View {
         GeometryReader { geo in
-            let screenWidth = geo.size.width
             let screenHeight = geo.size.height
             if !vm.currentRound.isEmpty {
                 VStack {
@@ -78,12 +77,11 @@ struct WhoIsMyPairView: View {
                     )
                 }
             }  //if statement
+            if vm.correctAnswers == 6 {
+                AnimationManager(score: Int.random(in: 1...6) * 10)
+            }
         } //GeometryReaderaudio
         .ignoresSafeArea()
-        
-        if vm.correctAnswers == 6 {
-            AnimationManager(score: Int.random(in: 1...6) * 10)
-        }
     }
     
     func getOptionView(_ index: Int, _ option: String) -> OptionButtonDesign {

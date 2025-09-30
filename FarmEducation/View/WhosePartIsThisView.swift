@@ -42,7 +42,8 @@ struct WhosePartIsThisView: View {
                             .resizable()
                             .scaledToFit()
                             .shadow(radius: 10)
-                            .frame(maxWidth: screenWidth-44, maxHeight: screenHeight/2.1)
+                            .frame( maxWidth: max(0, screenWidth - 44),
+                                    maxHeight: max(0, screenHeight / 2.1))
                             .animation(.snappy, value: vm.questionImageAnimation)
                             .opacity(vm.isHidden() ? 0 : 1)
                             .animation(.smooth, value: vm.isHidden())
@@ -114,9 +115,9 @@ struct WhosePartIsThisView: View {
                     vm.loadQuestions()
                 }
             } // if statement
+            AnimationManager(score: vm.correctAnswersCount)
         } //GeometryReader
         .ignoresSafeArea()
-        AnimationManager(score: vm.correctAnswersCount)
     }
     
     func getOptionView(_ option: String) -> OptionButtonDesign {

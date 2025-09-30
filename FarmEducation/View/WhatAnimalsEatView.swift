@@ -88,10 +88,10 @@ struct WhatAnimalsEatView: View {
             .onAppear {
                 vm.loadQuestions()
             }
+            AnimationManager(score: vm.correctAnswersCount)
         } //GeometryReader
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
-        AnimationManager(score: vm.correctAnswersCount)
     }
     
     func getOptionView(_ option: String) -> OptionButtonDesign {

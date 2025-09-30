@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExitView: View {
     var body: some View {
-        Image(Constants.UI.smallCould)
+        Image(Constants.UI.smallCloud)
             .resizable()
             .scaledToFit()
             .shadow(color: Color.skyWhisperColor, radius: 10, x: 5, y: 5)
