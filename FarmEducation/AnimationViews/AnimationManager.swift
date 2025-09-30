@@ -30,6 +30,6 @@ struct AnimationManager: View {
 }
 
 #Preview {
-    AnimationManager(score: 60)
+    AnimationManager(score: 10)
         .environmentObject(AudioManager.shared)
 }

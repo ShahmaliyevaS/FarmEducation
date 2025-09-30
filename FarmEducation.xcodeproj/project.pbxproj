@@ -90,6 +90,7 @@
 		ED0E22E52DDC796F007DAC08 /* CardDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDesign.swift; sourceTree = "<group>"; };
 		ED3468EE2E8685FE0018032A /* WhosePartIsThisViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosePartIsThisViewModelTest.swift; sourceTree = "<group>"; };
 		ED3468F02E868A040018032A /* WhichAnimalsShadowViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichAnimalsShadowViewModelTest.swift; sourceTree = "<group>"; };
+		ED3468F22E8C079F0018032A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ED46323D2DF185E1009CF8FD /* FlyUpAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyUpAnimationView.swift; sourceTree = "<group>"; };
 		ED4632422DF8571B009CF8FD /* TwirlingDropAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwirlingDropAnimationView.swift; sourceTree = "<group>"; };
 		ED4632442DFAF162009CF8FD /* FireWorksComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWorksComponentView.swift; sourceTree = "<group>"; };
@@ -165,7 +166,9 @@
 				ED7F9F622E7D3DBE000AEBD2 /* FarmEducationTests */,
 				ED0E22C92DDB140C007DAC08 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		ED0E22C92DDB140C007DAC08 /* Products */ = {
 			isa = PBXGroup;
@@ -179,6 +182,7 @@
 		ED0E22CA2DDB140C007DAC08 /* FarmEducation */ = {
 			isa = PBXGroup;
 			children = (
+				ED3468F22E8C079F0018032A /* Info.plist */,
 				ED4632412DF1C0ED009CF8FD /* AnimationViews */,
 				EDC27CCB2DDF1DDD0082C349 /* Extentions */,
 				EDC27CC62DDF0CEF0082C349 /* ViewModel */,
@@ -653,11 +657,12 @@
 				DEVELOPMENT_TEAM = RVVH9Q88YP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FarmEducation/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,11 +687,12 @@
 				DEVELOPMENT_TEAM = RVVH9Q88YP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FarmEducation/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

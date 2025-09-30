@@ -19,11 +19,16 @@ class AudioManager: ObservableObject {
     }
 
     func play(name: String) {
+        player?.stop()
+        player = nil
         guard let url = Bundle.main.url(forResource: name, withExtension: "wav") else { return }
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.volume = volume
             player?.prepareToPlay()
+            if player?.url != url {
+                player = try AVAudioPlayer(contentsOf: url)
+            }
             player?.play()
         } catch {
             print("Error: \(error)")
