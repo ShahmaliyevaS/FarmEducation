@@ -73,7 +73,7 @@ class QuestionViewModel: ObservableObject {
         askedQuestionCount += 1
         askedQuestions.append(id)
     }
-
+    
     func innerResertRoundStates() {}
     
     func resetRoundStates() {

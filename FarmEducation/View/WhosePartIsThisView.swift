@@ -111,9 +111,6 @@ struct WhosePartIsThisView: View {
                         endPoint: .bottomTrailing
                     )
                 }
-                .onAppear {
-                    vm.loadQuestions()
-                }
             } // if statement
             AnimationManager(score: vm.correctAnswersCount)
         } //GeometryReader

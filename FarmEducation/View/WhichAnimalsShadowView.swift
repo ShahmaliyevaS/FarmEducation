@@ -100,9 +100,6 @@ struct WhichAnimalsShadowView: View {
                             endPoint: .bottom)
                     }
             }
-            .onAppear {
-                vm.loadQuestions()
-            }
             AnimationManager(score: vm.correctAnswersCount)
         } //GeometryReader
         .ignoresSafeArea()

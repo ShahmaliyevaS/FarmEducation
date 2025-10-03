@@ -81,9 +81,6 @@ struct WhereAnimalsLiveView: View {
             AnimationManager(score: vm.correctAnswersCount)
         } //GeometryReader
         .navigationBarBackButtonHidden(true)
-        .onAppear {
-            vm.loadQuestions()
-        }
     }
     
     func getOptionView(_ option: String) -> OptionButtonDesign {

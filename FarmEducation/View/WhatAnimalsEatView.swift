@@ -85,9 +85,6 @@ struct WhatAnimalsEatView: View {
                             endPoint: .bottom)
                     }
             }
-            .onAppear {
-                vm.loadQuestions()
-            }
             AnimationManager(score: vm.correctAnswersCount)
         } //GeometryReader
         .navigationBarBackButtonHidden(true)
