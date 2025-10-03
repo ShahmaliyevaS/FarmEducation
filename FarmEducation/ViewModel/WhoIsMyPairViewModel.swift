@@ -42,11 +42,13 @@ class WhoIsMyPairViewModel: ObservableObject {
     }
     
     func playNewGame() {
-        ScoreManager.shared.saveScore(
-            gameType,
-            askedQuestionsCount: allAnswers,
-            correctAnswersCount: correctAnswers
-        )
+        if allAnswers != 0 {
+            ScoreManager.shared.saveScore(
+                gameType,
+                askedQuestionsCount: allAnswers,
+                correctAnswersCount: correctAnswers
+            )
+        }
         loadNextQuestion()
         newGame.toggle()
         audio.play(name: Constants.UI.cards)
@@ -87,11 +89,13 @@ class WhoIsMyPairViewModel: ObservableObject {
     }
     
     func exitGame(dismiss: @escaping () -> Void, gameType: GameType) {
-        ScoreManager.shared.saveScore(
-            gameType,
-            askedQuestionsCount: allAnswers,
-            correctAnswersCount: correctAnswers
-        )
+        if allAnswers != 0 {
+            ScoreManager.shared.saveScore(
+                gameType,
+                askedQuestionsCount: allAnswers,
+                correctAnswersCount: correctAnswers
+            )
+        }
         dismiss()
     }
 }

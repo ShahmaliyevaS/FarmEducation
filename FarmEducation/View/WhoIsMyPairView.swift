@@ -35,7 +35,7 @@ struct WhoIsMyPairView: View {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(Array(vm.currentRound.enumerated()), id: \.offset) {index, option in
                             OptionButtonView(design: getOptionView(index, option))
-                                .frame(height: (geo.size.height - 120)/5)
+                                .frame(height: max(0, (geo.size.height - 120)/5))
                                 .rotation3DEffect(
                                     .degrees(vm.getDegress(vm.isSelected(index))),
                                     axis: (x: 0, y: 1, z: 0)
